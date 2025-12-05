@@ -84,12 +84,27 @@ GET /api/orders - Get all orders (Admin)
 PUT /api/orders/{id}/status - Update order status (Admin)
 ```
 📸 Screenshots
-![reg Page](screenshots/registration.png)
-![regRes response](screenshots/registrationresponse.png)
-![pass validate](screenshots/passwordvalidation.png)
-![password confirm](screenshots/passValidationwithconfirm.png)
-![login Page](screenshots/login.png)
-![login response](screenshots/loginresponse.png)
+```Registration```
+
+![reg Page](screenshot/registration.png)
+
+```Response```
+![regRes response](screenshot/registrationresponse.png)
+
+```Password Validation```
+
+![pass validate](screenshot/passwordvalidation.png)
+
+```Confirm password``` 
+
+![password confirm](screenshot/passValidationwithconfirm.png)
+
+```Login```
+![login Page](screenshot/login.png)
+
+```login response```
+
+![login response](screenshot/loginresponse.png)
 Make sure your screenshots are stored in a folder called Screenshots in your repo.
 
 ✅ License
