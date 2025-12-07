@@ -145,3 +145,4 @@ C:\Users\ASTROID\Desktop\carorder\CarOrderApiSln\CarOrderApi\obj\Debug\net8.0\re
 C:\Users\ASTROID\Desktop\carorder\CarOrderApiSln\CarOrderApi\obj\Debug\net8.0\CarOrderApi.pdb
 C:\Users\ASTROID\Desktop\carorder\CarOrderApiSln\CarOrderApi\obj\Debug\net8.0\CarOrderApi.genruntimeconfig.cache
 C:\Users\ASTROID\Desktop\carorder\CarOrderApiSln\CarOrderApi\obj\Debug\net8.0\ref\CarOrderApi.dll
+C:\Users\ASTROID\Desktop\carorder\CarOrderApiSln\CarOrderApi\obj\Debug\net8.0\CarOrderApi.sourcelink.json

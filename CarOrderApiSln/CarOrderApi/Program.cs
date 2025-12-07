@@ -1,4 +1,5 @@
 using CarOrderApi.Data;
+using CarOrderApi.Repositories;
 using CarOrderApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -11,6 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(op=>op.UseSqlServer(builder.Configuration.GetConnectionString("con")));
 //Identity:
 builder.Services.AddIdentity<IdentityUser,IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+//Dependency Injection:
+builder.Services.AddScoped<ICarRepository,CarRepository>();
+builder.Services.AddScoped<ICarService,CarService>();
+
+
 //Jwt Authentication:
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(Op => {
     Op.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
