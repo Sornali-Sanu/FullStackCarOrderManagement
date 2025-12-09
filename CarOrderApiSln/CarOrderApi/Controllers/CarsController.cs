@@ -30,7 +30,7 @@ namespace CarOrderApi.Controllers
             var car = await _service.GetCarById(id);
             return Ok(car);
         }
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> AddNewCar(CarDto car)
         {
@@ -47,7 +47,7 @@ namespace CarOrderApi.Controllers
             {return NotFound("Car not found");}
             return Ok(newCar);
         }
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCar(int id)
         { 

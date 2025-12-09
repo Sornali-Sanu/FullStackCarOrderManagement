@@ -8,40 +8,78 @@ namespace CarOrderApi.Repositories
 {
     public class CarRepository : ICarRepository
     {
+        private readonly IWebHostEnvironment _env;
         private readonly AppDbContext _context;
 
-        public CarRepository(AppDbContext context)
+        public CarRepository(AppDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
-        public async Task<CarDto> AddNewCar(CarDto car)
+      
+        public async Task<CarDto> AddNewCar(CarDto carModel)
         {
-            var newcar = new Car { 
-            Name= car.Name,
-            Description= car.Description,
-            Brand= car.Brand,
-            Price= car.Price,
-            ImageUrl= car.ImageUrl,
-            
-            };
-            _context.Cars.Add(newcar);
+            string imageFileName = null;
+            imageFileName = await GetImageFileName(carModel.ProfileImage);
+           
+
+            Car newCar= new Car();
+            newCar.Name= carModel.Name;
+            newCar.Description= carModel.Description;
+            newCar.Brand= carModel.Brand;
+            newCar.Price= carModel.Price;
+            newCar.ImageUrl = imageFileName;
+            _context.Cars.Add(newCar);
             await _context.SaveChangesAsync();
-            return car;
+            return new CarDto
+            {
+               
+                Name = newCar.Name,
+                Description = newCar.Description,
+                Brand = newCar.Brand,
+                Price = newCar.Price,
+                ImageUrl = newCar.ImageUrl
+            }; ;
 
 
+        }
+
+        private async Task<string?> GetImageFileName(IFormFile profileFile)
+        {
+            string uniqueFileName = null;
+            if (profileFile != null) 
+            {
+                uniqueFileName=Guid.NewGuid().ToString()+Path.GetExtension(profileFile.FileName);
+                var uploadFolder = Path.Combine(_env.WebRootPath, "images");
+                var filePath=Path.Combine(uploadFolder,uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await profileFile.CopyToAsync(fileStream);
+                }
+            }
+            return uniqueFileName;
         }
 
         public async Task<Car> DeleteCar(int id)
         {
             var car = await _context.Cars.FirstOrDefaultAsync(x => x.CarId == id);
-            if (car != null) {
-                _context.Cars.Remove(car);
-                await _context.SaveChangesAsync();
-                return car;
+            if (car == null) {
+
+                return null;
 
             }
-            return null;
+            if (!string.IsNullOrEmpty(car.ImageUrl))
+            {
+                string imagePath = Path.Combine(_env.WebRootPath, "images", car.ImageUrl);
+                if (System.IO.File.Exists(imagePath))
+                {
+                    System.IO.File.Delete(imagePath);
+                }
+            }
+            _context.Cars.Remove(car);
+            await _context.SaveChangesAsync();
+            return car;
 
         }
 
