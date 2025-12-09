@@ -105,7 +105,33 @@ PUT /api/orders/{id}/status - Update order status (Admin)
 ```login response```
 
 ![login response](screenshot/loginresponse.png)
-Make sure your screenshots are stored in a folder called Screenshots in your repo.
+
+```Gat all Car```
+
+![getAllCar response](screenshot/getAllCar.png)
+
+```Gat Car by ID```
+
+![getCarByID response](screenshot/getCarById.png)
+
+```Add new Car```
+
+![AddNewCar response](screenshot/AddNewCar.png)
+
+```get Image```
+
+![Get image response](screenshot/Imageadd.png)
+
+```Update car```
+
+![Update car response](screenshot/UpdateCar.png)
+
+
+```Delate Car```
+
+![Get image response](screenshot/CarDelete.png)
+
+
 
 ✅ License
 MIT License
