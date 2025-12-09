@@ -98,15 +98,47 @@ namespace CarOrderApi.Repositories
 
         public async Task<CarDto> UpdateCar(CarDto newCar,int id)
         {
-            var existCar = await _context.Cars.FirstOrDefaultAsync(x=>x.CarId==id);
-            if (existCar == null) { return null; }
-            existCar.Description = newCar.Description;
+
+            var existCar = await _context.Cars.FirstOrDefaultAsync(x => x.CarId == id);
+            if (existCar == null)
+                return null;
+
+
+            if (newCar.ProfileImage != null)
+            {
+
+                if (!string.IsNullOrEmpty(existCar.ImageUrl))
+                {
+                    var oldImagePath = Path.Combine(_env.WebRootPath, "images", existCar.ImageUrl);
+                    if (File.Exists(oldImagePath))
+                    {
+                        File.Delete(oldImagePath);
+                    }
+                }
+
+
+                existCar.ImageUrl = await GetImageFileName(newCar.ProfileImage);
+            }
+            else { existCar.ImageUrl = existCar.ImageUrl; }
+
+            
             existCar.Name = newCar.Name;
-            existCar.Brand  = newCar.Brand;
-            existCar.Price= newCar.Price;
-            existCar.ImageUrl= newCar.ImageUrl;
+            existCar.Brand = newCar.Brand;
+            existCar.Description = newCar.Description;
+            existCar.Price = newCar.Price;
+
             await _context.SaveChangesAsync();
-            return newCar;
+
+            
+            return new CarDto
+            {
+                CarId = existCar.CarId,
+                Name = existCar.Name,
+                Brand = existCar.Brand,
+                Description = existCar.Description,
+                Price = existCar.Price,
+                ImageUrl = existCar.ImageUrl
+            };
         }
     }
 }

@@ -38,7 +38,7 @@ namespace CarOrderApi.Controllers
             return Ok(newCar);
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCar(CarDto car,int id)
         {
