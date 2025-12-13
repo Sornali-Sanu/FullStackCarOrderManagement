@@ -1,4 +1,5 @@
 using CarOrderApi.Data;
+using CarOrderApi.ExtentionProgramee_cs;
 using CarOrderApi.Repositories;
 using CarOrderApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -8,29 +9,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-//Database Configure
-builder.Services.AddDbContext<AppDbContext>(op=>op.UseSqlServer(builder.Configuration.GetConnectionString("con")));
-//Identity:
-builder.Services.AddIdentity<IdentityUser,IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
-//Dependency Injection:
-builder.Services.AddScoped<ICarRepository,CarRepository>();
-builder.Services.AddScoped<ICarService,CarService>();
+builder.Services.ApplicationService(builder.Configuration);
 
-
-//Jwt Authentication:
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(Op => {
-    Op.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["jwt:Issuer"],
-        ValidAudience = builder.Configuration["jwt:Audience"],
-        IssuerSigningKey=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["jwt:Key"]))
-    };
-});
-builder.Services.AddScoped<TokenServices>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -47,10 +27,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseAuthentication();
 app.UseAuthorization();
-
+//app.UseSession();
 app.MapControllers();
 
-app.UseCors();
+app.UseCors(op=>op.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("https://localhost:7202"));
 
 app.Run();
