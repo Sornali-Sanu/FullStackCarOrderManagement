@@ -106,6 +106,16 @@ PUT /api/orders/{id}/status - Update order status (Admin)
 
 ![login response](screenshot/loginresponse.png)
 
+
+```logout response```
+
+![login response](screenshot/logout.png)
+
+```Refresh token```
+
+![login response](screenshot/refreshToken.png)
+
+
 ```Gat all Car```
 
 ![getAllCar response](screenshot/getAllCar.png)
