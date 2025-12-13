@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using CarOrderApi.Model;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace CarOrderApi.Services
 {
-    public class TokenServices
+    public class TokenServices: ITokenService
     {
         private readonly IConfiguration _config;
 
@@ -15,7 +17,9 @@ namespace CarOrderApi.Services
             _config = config;
         }
 
-        public string CreateToken(IdentityUser user)
+       
+
+        public string GenerateAccessToken(IdentityUser user)
         {
             var claims = new List<Claim> {
             new Claim(ClaimTypes.NameIdentifier,user.Id),
@@ -28,12 +32,22 @@ namespace CarOrderApi.Services
                 issuer: _config["jwt:Issuer"],
                 audience: _config["jwt:Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddDays(1),
-                signingCredentials:creds
+                expires: DateTime.Now.AddMinutes(3),
+                signingCredentials: creds
 
                 )
 ;
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public RefreshToken GetRefreshToken(string userId)
+        {
+            return new RefreshToken {
+            Token=Convert.ToBase64String(RandomNumberGenerator.GetBytes(64)),
+            Expires=DateTime.Now.AddDays(7),
+            IsRevoked=false,
+            UserId=userId
+            };
         }
     }
 }

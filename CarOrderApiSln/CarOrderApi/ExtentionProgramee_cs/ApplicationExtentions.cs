@@ -20,10 +20,15 @@ namespace CarOrderApi.ExtentionProgramee_cs
             //Dependency Injection:
             service.AddScoped<ICarRepository, CarRepository>();
             service.AddScoped<ICarService, CarService>();
-
+            service.AddScoped<ITokenService, TokenServices>();
 
             //Jwt Authentication:
-            service.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(Op => {
+            service.AddAuthentication(op => {
+            op.DefaultAuthenticateScheme=JwtBearerDefaults.AuthenticationScheme;
+                op.DefaultChallengeScheme=JwtBearerDefaults.AuthenticationScheme;
+            
+            })
+                .AddJwtBearer(Op => {
                 Op.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
                 {
                     ValidateIssuer = true,
@@ -35,7 +40,9 @@ namespace CarOrderApi.ExtentionProgramee_cs
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["jwt:Key"]))
                 };
             });
-            service.AddScoped<TokenServices>();
+
+
+         
             return service;
         }
 

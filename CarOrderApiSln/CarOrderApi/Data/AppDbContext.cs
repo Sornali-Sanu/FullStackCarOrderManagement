@@ -12,6 +12,7 @@ namespace CarOrderApi.Data
         }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<RefreshToken>RefreshTokens { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

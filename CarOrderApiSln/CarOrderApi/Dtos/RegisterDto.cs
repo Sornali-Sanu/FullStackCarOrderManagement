@@ -14,5 +14,7 @@ namespace CarOrderApi.Dtos
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Password and Confirm Password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        
     }
 }
