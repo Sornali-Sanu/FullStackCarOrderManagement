@@ -18,9 +18,13 @@ namespace CarOrderApi.ExtentionProgramee_cs
             //Identity:
             service.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             //Dependency Injection:
+            service.AddScoped<ITokenService, TokenServices>();
             service.AddScoped<ICarRepository, CarRepository>();
             service.AddScoped<ICarService, CarService>();
-            service.AddScoped<ITokenService, TokenServices>();
+            service.AddScoped<IOrderRepository,OrderRepository>();
+            service.AddScoped<IOrderService,OrderServices>();
+
+
 
             //Jwt Authentication:
             service.AddAuthentication(op => {

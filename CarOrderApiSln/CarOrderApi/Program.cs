@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
+using System.Transactions;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.ApplicationService(builder.Configuration);
@@ -14,7 +16,37 @@ builder.Services.ApplicationService(builder.Configuration);
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+//For Authentication & Token:
+builder.Services.AddSwaggerGen(c => {
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo {
+    Title="Car Order Api",Version="v1"
+    
+    });
+    c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    {
+        Name="Authorization",
+        Type=SecuritySchemeType.Http,
+        Scheme="Bearer",
+        BearerFormat="JWT",
+        In=ParameterLocation.Header,
+        Description="Enter JWT Token Like: Bearer {Your token}"
+    });
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+
+});
 
 var app = builder.Build();
 
@@ -23,7 +55,7 @@ using (var scope = app.Services.CreateScope())
 {
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-    string[] roles = { "Admin", "User" };
+    string[] roles = { "Admin", "User","Customer" };
 
     foreach (var role in roles)
     {
@@ -41,10 +73,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseHttpsRedirection();
+app.UseStaticFiles();
 //app.UseSession();
 app.MapControllers();
 

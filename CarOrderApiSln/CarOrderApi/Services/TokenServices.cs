@@ -5,26 +5,32 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CarOrderApi.Services
 {
     public class TokenServices: ITokenService
     {
         private readonly IConfiguration _config;
-
-        public TokenServices(IConfiguration config)
+        private readonly UserManager<IdentityUser> _userManager;
+        public TokenServices(IConfiguration config, UserManager<IdentityUser> userManager)
         {
             _config = config;
+            _userManager = userManager;
         }
 
-       
+      
 
-        public string GenerateAccessToken(IdentityUser user)
+        public async Task<string> GenerateAccessToken(IdentityUser user)
         {
+            var roles = await _userManager.GetRolesAsync(user);
             var claims = new List<Claim> {
             new Claim(ClaimTypes.NameIdentifier,user.Id),
             new Claim(ClaimTypes.Email,user.Email)
             };
+            foreach (var role in roles) {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

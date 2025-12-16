@@ -77,7 +77,7 @@ namespace CarOrderApi.Controllers
             {
                 return Unauthorized();
             }
-            //Token Ritation:
+            //Token Rotation:
             storeToken.IsRevoked = true;
             var newAccesstoken = _tokenService.GenerateAccessToken(storeToken.User);
             var newRefreshToken = _tokenService.GetRefreshToken(storeToken.UserId);
