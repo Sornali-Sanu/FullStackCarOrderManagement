@@ -1,4 +1,5 @@
 ﻿using CarOrderApi.Dtos;
+using CarOrderApi.Model;
 
 namespace CarOrderApi.Services
 {
@@ -8,5 +9,6 @@ namespace CarOrderApi.Services
         Task <IEnumerable<OrderResponseDto>>GetMyOrders(string customerId);
         Task<IEnumerable<OrderResponseDto>> GetOrders();
         Task<bool> UpdateOrderStatus(int orderId, string status);
+        Task<Order> DeleteOrder(int id);
     }
 }

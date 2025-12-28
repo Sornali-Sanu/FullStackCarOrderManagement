@@ -22,7 +22,7 @@ namespace CarOrderApi.Services
       
 
         public async Task<string> GenerateAccessToken(IdentityUser user)
-        {
+        {//payLoad:
             var roles = await _userManager.GetRolesAsync(user);
             var claims = new List<Claim> {
             new Claim(ClaimTypes.NameIdentifier,user.Id),
@@ -31,8 +31,9 @@ namespace CarOrderApi.Services
             foreach (var role in roles) {
                 claims.Add(new Claim(ClaimTypes.Role, role));
             }
-
+            //Secret Key:
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["jwt:Key"]));
+            //signing Creds:
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 issuer: _config["jwt:Issuer"],

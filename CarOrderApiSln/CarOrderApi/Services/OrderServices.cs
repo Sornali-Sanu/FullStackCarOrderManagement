@@ -13,6 +13,12 @@ namespace CarOrderApi.Services
             _repo = repo;
         }
 
+        public async Task<Order> DeleteOrder(int id)
+        {
+            var order = await _repo.DeleteOrder(id);
+            return order;
+        }
+
         public async Task<IEnumerable<OrderResponseDto>> GetMyOrders(string customerId)
         {
             var orders=await _repo.GetOrderByCustomerId(customerId);

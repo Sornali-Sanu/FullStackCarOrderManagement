@@ -52,5 +52,12 @@ namespace CarOrderApi.Controllers
             return Ok(res);
 
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteOrder(int id)
+        {
+            var order=await _services.DeleteOrder(id);
+            return Ok($"Order is Deleted");
+        }
+
     }
 }
