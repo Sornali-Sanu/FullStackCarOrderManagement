@@ -48,6 +48,9 @@ builder.Services.AddSwaggerGen(c => {
     });
 
 });
+builder.Services.AddCors(op => {
+    op.AddDefaultPolicy(policy => { policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials(); });
+});
 
 var app = builder.Build();
 
@@ -82,6 +85,6 @@ app.UseStaticFiles();
 //app.UseSession();
 app.MapControllers();
 
-app.UseCors(op=>op.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("https://localhost:7202"));
+app.UseCors();
 
 app.Run();
