@@ -1,0 +1,29 @@
+.mega-menu {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.mega-menu h6 {
+  margin-bottom: 12px;
+}
+
+.dropdown-item {
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.dropdown-item:hover {
+  background: transparent;
+  color: #f0ad4e;
+}
+
+.search-box {
+  width: 260px;
+  border-radius: 20px;
+}
+
+.sell-btn {
+  border-radius: 20px;
+  padding: 8px 18px;
+}
