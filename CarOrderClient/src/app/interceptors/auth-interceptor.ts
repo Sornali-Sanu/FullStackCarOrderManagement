@@ -5,9 +5,13 @@ import { catchError, switchMap, throwError } from 'rxjs';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => 
   {
-    const auth=inject(Auth)
-    const token=localStorage.getItem('token');
-
+  const auth=inject(Auth)
+  const token=localStorage.getItem('token');
+  const publicUrls=['/regist'];
+  if(publicUrls.some(url=>req.url.includes(url)))
+  {
+    return next(req);
+  }
  let clonedReq = req;
   if (token) {
     clonedReq = req.clone({ setHeaders: { Authorization: `Bearer ${token}` } });

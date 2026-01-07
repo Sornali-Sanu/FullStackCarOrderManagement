@@ -9,6 +9,9 @@ export class Auth {
   private apiUrl='http://localhost:5150/api/Auth';
   private http=inject(HttpClient)
 
+  register(data: any) {
+  return this.http.post('${this.apiUrl}/regist', data);
+}
   login(model:any)
   {
     return this.http.post(`${this.apiUrl}/login`,model).pipe(
