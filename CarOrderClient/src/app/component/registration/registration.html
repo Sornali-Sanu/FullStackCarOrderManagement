@@ -1,0 +1,41 @@
+<form [formGroup]="registrationForm" (ngSubmit)="onRegister()" id="body">
+ <div class="wrapper">
+  <div class="login_box">
+    <div class="login_header">
+      <span>
+        Registration
+      </span>
+    </div>
+    <div class="input_box">
+      <input type="text" class="input-field" required  id="user" >
+      <label for="user" class="label">User Name</label>
+      <i class="bx bx-user icon"></i>
+    </div>
+     <div class="input_box">
+      <input type="password" id="password" class="input-field" required   >
+       <label for="password" class="label">Password</label>
+      <i class="bx bx-lock-alt icon"></i>
+    </div>
+    
+    <div class="input_box">
+      <input type="password" id="password" class="input-field" required   >
+       <label for="password" class="label">Confirm Password</label>
+      <i class="bx bx-shield-quarter icon"></i>
+    </div>
+    <div class="remember_forget">
+      <div class="remember-me">
+        <input type="checkbox" id="remember">
+        <label for="remember" >I agree all statements in <a href="">terms of service</a></label>
+      </div>
+      
+    </div>
+    <div class="input_box">
+      <input type="submit" class="input_submit" value="Register">
+    </div>
+   
+
+  </div>
+
+ </div>
+
+</form>
