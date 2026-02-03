@@ -1,37 +1,40 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable ,inject} from '@angular/core';
+import { Injectable} from '@angular/core';
 import { tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Auth {
-  private apiUrl='http://localhost:5150/api/Auth';
-  private http=inject(HttpClient)
+private baseUrl='https://localhost:7202/api/Auth';
+constructor(private http:HttpClient)
+{}
 
   register(data: any) {
-  return this.http.post('${this.apiUrl}/regist', data);
+  return this.http.post(`${this.baseUrl}/register`, data);
 }
   login(model:any)
   {
-    return this.http.post(`${this.apiUrl}/login`,model).pipe(
+    return this.http.post(`${this.baseUrl}/login`,model).pipe(
 tap(
   (res:any)=>{
-localStorage.setItem('token',res.accessToken);
+localStorage.setItem('accessToken',res.accessToken);
 localStorage.setItem('refreshToken',res.refreshToken);
-
-
-
-  }
-
+})
 )
-
-    )
-  }
-  
-  renewToken()
-  {
-    const rfToken= localStorage.getItem('refreshToken');
-    return this.http.post(`${this.apiUrl}/refresh?refreshToken=${rfToken}`,{})
-  }
+}
+logout()
+{
+  const refreshToken=localStorage.getItem('refreshToken');
+  return this.http.post(`${this.baseUrl}/logout`,{refreshToken});
+}
+getAccessToken()
+{
+  return localStorage.getItem('accessToken')
+}
+// renewToken()
+//   {
+//     const rfToken= localStorage.getItem('refreshToken');
+//     return this.http.post(`${this.baseUrl}/refresh?refreshToken=${rfToken}`,{})
+//   }
 }
