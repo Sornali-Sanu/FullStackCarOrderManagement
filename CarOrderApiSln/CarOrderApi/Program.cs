@@ -48,9 +48,17 @@ builder.Services.AddSwaggerGen(c => {
     });
 
 });
-builder.Services.AddCors(op => {
-    op.AddDefaultPolicy(policy => { policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials(); });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngular",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
 });
+
 
 var app = builder.Build();
 
@@ -82,9 +90,9 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-//app.UseSession();
+
 app.MapControllers();
 
-app.UseCors();
+app.UseCors("AllowAngular");
 
 app.Run();

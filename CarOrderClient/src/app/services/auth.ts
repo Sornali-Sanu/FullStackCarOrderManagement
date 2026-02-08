@@ -32,9 +32,9 @@ getAccessToken()
 {
   return localStorage.getItem('accessToken')
 }
-// renewToken()
-//   {
-//     const rfToken= localStorage.getItem('refreshToken');
-//     return this.http.post(`${this.baseUrl}/refresh?refreshToken=${rfToken}`,{})
-//   }
+renewToken()
+  {
+
+    return this.http.post(`${this.baseUrl}/refresh`,{refreshToken:localStorage.getItem('refreshToken')})
+  }
 }

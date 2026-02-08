@@ -68,7 +68,7 @@ namespace CarOrderApi.Controllers
            
         }
 
-
+        [AllowAnonymous]
         [HttpPost("refresh")]
         public async Task<IActionResult> RefreshToken(string refreshToken)
         {
@@ -79,15 +79,15 @@ namespace CarOrderApi.Controllers
             }
             //Token Rotation:
             storeToken.IsRevoked = true;
-            var newAccesstoken = _tokenService.GenerateAccessToken(storeToken.User);
+            var newAccesstoken =await _tokenService.GenerateAccessToken(storeToken.User);
             var newRefreshToken = _tokenService.GetRefreshToken(storeToken.UserId);
             _context.RefreshTokens.Add(newRefreshToken);
             await _context.SaveChangesAsync();
-            return Ok(new {
-            accessToken=newAccesstoken,
-            refreshToken=newRefreshToken.Token
+            return Ok(new
+            {
+                accessToken = newAccesstoken,
+                refreshToken = newRefreshToken.Token
             });
-        
         }
 
        
