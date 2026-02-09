@@ -30,14 +30,7 @@ export class Login {
 
   
   onLogin() {
-    // if (this.loginForm.invalid) {console.log('form invalid')
-    //   return;}
-    // this.authService.login(this.loginForm.value).subscribe(
-    //   {
-    //     next:res=>console.log('Login Successful',res),
-    //     error:err=>console.log('invalid Credentials',err)
-    //   }
-    // )
+   
      if (this.loginForm.invalid) {
     console.log('Form invalid');
     const controls = this.loginForm.controls;

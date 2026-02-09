@@ -275,6 +275,45 @@
         width: 0;
     }
 }
+/* viewCar Design */
+.banner-text {
+  padding: 20px;          /* 20% top & bottom */
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #222;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.banner-text:hover {
+  color: #f1683a;
+  transform: scale(1.03);
+}
+.card {
+  border-radius: 12px;
+  overflow: hidden;   /* prevents image overflow */
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+  background-color: #f8f9fa;
+  border-radius: 12px 12px 0 0;  
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Hover effect */
+.card:hover .card-img-top {
+  transform: scale(1.07);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
 @media screen and (max-width: 678px)
 {
     .carousel .list .item .content{

@@ -1,14 +1,51 @@
-import { Component, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, OnInit } from '@angular/core';
+import { CarService } from '../../../services/car-service';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { Car } from '../../../models/car';
 
 @Component({
   selector: 'app-get-car',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './get-car.html',
   styleUrl: './get-car.css',
 })
-export class GetCar implements AfterViewInit{
-  constructor(private el:ElementRef)
+export class GetCar implements AfterViewInit , OnInit{
+  constructor(private el:ElementRef,private service:CarService)
   {}
+  
+
+  car:Car[]=[];
+  ngOnInit(): void {
+    this.getList();
+  }
+  getList() {
+    this.service.getCarView().subscribe((res:Car[]) => {
+    
+      this.car= res.map(c => ({
+        ...c,
+        imageUrl: c.imageUrl.startsWith('http')
+          ? c.imageUrl
+          : `${this.service.baseUrl}/images/${c.imageUrl}`
+      }));
+    });
+  }
+
+  
+
+  onDeleteCar(selectCar:Car)
+  {
+    const isConfirm=confirm(`Do you want to delete this Car?`)
+    if(isConfirm)
+    {
+      return this.service.deleteCar(selectCar.carId).subscribe(data=>{alert(`Delete successfull`)
+        this.getList();
+      });
+      
+    }
+    return this.getList();
+  }
+  
   ngAfterViewInit(): void {
      const carousel = this.el.nativeElement.querySelector('.carousel');
     const list = carousel.querySelector('.list');
