@@ -150,8 +150,7 @@
               "RelativeToolTip": "CarOrderApi\\Services\\TokenServices.cs",
               "ViewState": "AgIAADsAAAAAAAAAAAAwwCcAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T05:45:59.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-05T05:45:59.677Z"
             },
             {
               "$type": "Document",
@@ -283,8 +282,7 @@
               "RelativeToolTip": "CarOrderApi\\Controllers\\CarsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-09T07:28:37.414Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-09T07:28:37.414Z"
             },
             {
               "$type": "Document",
@@ -296,8 +294,7 @@
               "RelativeToolTip": "CarOrderApi\\Services\\CarService.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAqwBcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-09T08:25:27.28Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-09T08:25:27.28Z"
             },
             {
               "$type": "Document",
@@ -307,7 +304,7 @@
               "RelativeDocumentMoniker": "CarOrderApi\\Repositories\\CarRepository.cs",
               "ToolTip": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Repositories\\CarRepository.cs",
               "RelativeToolTip": "CarOrderApi\\Repositories\\CarRepository.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowEEAAABSAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAgwEEAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-07T06:46:00.026Z",
               "EditorCaption": ""
