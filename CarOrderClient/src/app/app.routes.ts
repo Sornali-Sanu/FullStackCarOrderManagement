@@ -7,5 +7,5 @@ export const routes: Routes = [
      {path:'',component:GetCar},
     {path:'getCar',component:GetCar},
     { path:'login',component:Login},
-     {path:'regist',component:Registration}
+     {path:'registration',component:Registration}
 ];
