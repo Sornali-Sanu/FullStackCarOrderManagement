@@ -1,7 +1,7 @@
 "# FullStackCarOrderManagement" 
 
 ```
-# Car Ordering API
+# Car Ordering API/Backend
 
 A simple **ASP.NET Core Web API** project for managing car orders.  
 This API allows customers to register, login, browse cars, place orders, and allows admin to manage cars and view orders.
@@ -141,7 +141,33 @@ PUT /api/orders/{id}/status - Update order status (Admin)
 
 ![Get image response](screenshot/CarDelete.png)
 
+```
+CarOrderClient/Frontend:
 
+Angular Frontend project for managing car orders,customers to register, login, browse cars, place orders, and allows admin to manage cars and view orders. 
+ 
+```
+
+## ⚡ Technology Stack
+- Angular 20
+- Bootstrap
+- Html
+- CSS
+- Typescript
+
+📸 Screenshots
+```Index Page```
+
+![index Page](screenshot/indexPage.png)
+
+```Login Frontend```
+![loginFrontend Page](screenshot/loginFrontend.png)
+
+```Response with Jwt & refresh Token```
+![Response Page](screenshot/loginWithJwtToken.png)
+
+```Registration Frontend```
+![index Page](screenshot/registrationFrontend.png)
 
 ✅ License
 MIT License
