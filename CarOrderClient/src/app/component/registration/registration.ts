@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';//this class is a Component.
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ReactiveFormsModule,Validators,FormBuilder, FormGroup } from '@angular/forms';//To build form easly import Formbuilder,Validators=>validation,Reactive formModule=>to show angular it is a reactive form
 import { Auth } from '../../services/auth';//api call er service
 import { CommonModule } from '@angular/common';//ngFor,ngif use korar jonno
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';//ngFor,ngif use korar jonno
 @Component({
   standalone:true,
   selector: 'app-registration',
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule,CommonModule,RouterLink],
   templateUrl: './registration.html',
   styleUrl: './registration.css',
 })
@@ -17,13 +17,14 @@ export class Registration {
 registrationForm!:FormGroup;
 constructor(
   private fb:FormBuilder,
-  private authService:Auth
+  private authService:Auth,
+  private route:Router
 )
 {
 // Form group definition
 //fb.group=>form Structure
 this.registrationForm=this.fb.group({
-email:['',[Validators.required,Validators.email]],
+email:['',[Validators.required]],
 password:['',[Validators.required]],
 confirmPassword:['',Validators.required]
 },
@@ -42,12 +43,18 @@ return password===confirmPassword ? null : {passwordMismatch:true};
   
 submit()
 {
-  if(this.registrationForm.invalid)return;
+  if(this.registrationForm.invalid)
+  {
+    return console.log("Registration Invalid")
+  }
   //backend data send:
   
   this.authService.register(this.registrationForm.value).subscribe({
-    next:res=>alert('Registration Successful'),
-    error:err=>{alert(err.error)}
+    next:res=>{ alert('Registration Successful')
+      this.route.navigate(['/login'])
+    },
+    error:err=>{ console.log(err.error);
+  alert(JSON.stringify(err.error));}
   })
 }
 

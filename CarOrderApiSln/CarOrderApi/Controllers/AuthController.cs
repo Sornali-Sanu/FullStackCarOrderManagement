@@ -38,7 +38,11 @@ namespace CarOrderApi.Controllers
             var user = new IdentityUser
             {
                 UserName = dto.Email,
-                Email = dto.Email
+                Email = dto.Email,
+               
+                
+
+                
             };
 
             var result = await _userManager.CreateAsync(user, dto.Password);
@@ -46,7 +50,8 @@ namespace CarOrderApi.Controllers
             if (!result.Succeeded)
                 return BadRequest(result.Errors);
             await _userManager.AddToRoleAsync(user, "User");
-            return Ok("Registration successful");
+            //return json :
+            return Ok(new { massege = "Registration successful" });
         }
 
         // LOGIN
