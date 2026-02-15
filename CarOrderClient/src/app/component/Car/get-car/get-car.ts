@@ -6,7 +6,7 @@ import { Car } from '../../../models/car';
 
 @Component({
   selector: 'app-get-car',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './get-car.html',
   styleUrl: './get-car.css',
 })

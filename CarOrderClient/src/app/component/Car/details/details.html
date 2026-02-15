@@ -1,0 +1,56 @@
+<div class="container py-5" *ngIf="car">
+  <div class="card shadow details-card position-relative">
+    <div class="row g-0">
+
+      <!-- Favourite Icon -->
+      <button class="favourite-btn"
+              (click)="toggleFavourite()">
+        <i class="bi"
+           [ngClass]="isFavourite ? 'bi-heart-fill' : 'bi-heart'">
+        </i>
+      </button>
+
+      <!-- Left: Image -->
+      <div class="col-lg-6 col-md-6 col-12">
+        <img [src]="car.imageUrl"
+             class="img-fluid car-image w-100"
+             alt="Car Image">
+      </div>
+
+      <!-- Right: Details -->
+      <div class="col-lg-6 col-md-6 col-12">
+        <div class="card-body p-4">
+
+          <h2 class="fw-bold mb-3 text-dark">
+            Car Name: {{car.name}}
+          </h2>
+
+          <span class="brand-badge mb-3 d-inline-block">
+            Brand Name: {{car.brand}}
+          </span>
+
+          <div class="price mb-4">
+            Price: {{car.price}}
+          </div>
+
+          <p class="description">
+            Description: {{car.description}}
+          </p>
+
+          <div class="mt-4">
+            <button class="btn btn-dark px-4 me-2">
+              Buy Now
+            </button>
+
+            <button class="btn btn-outline-secondary px-4"
+                    routerLink="/getCar">
+              Back
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

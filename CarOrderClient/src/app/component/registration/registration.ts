@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';//ngFor,ngif use korar jonno
 @Component({
   standalone:true,
   selector: 'app-registration',
-  imports: [ReactiveFormsModule,CommonModule,RouterLink],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './registration.html',
   styleUrl: './registration.css',
 })

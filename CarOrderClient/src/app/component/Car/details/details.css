@@ -1,0 +1,81 @@
+/* Card Styling */
+.details-card {
+  border: none;
+  border-radius: 14px;
+  background: #ffffff;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+/* Car Image */
+.car-image {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px 0 0 14px;
+}
+
+/* Brand Badge */
+.brand-badge {
+  background: #1c1f26;   /* Deep charcoal */
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* Price Styling */
+.price {
+  font-size: 22px;
+  font-weight: 600;
+  color: #c1121f;   /* Premium red accent */
+}
+
+/* Description */
+.description {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Favourite Button */
+.favourite-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s ease;
+  z-index: 10;
+}
+
+.favourite-btn i {
+  font-size: 20px;
+  color: #c1121f;
+}
+
+.favourite-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+  .car-image {
+    border-radius: 14px 14px 0 0;
+    height: 280px;
+  }
+
+  .details-card {
+    border-radius: 14px;
+  }
+
+  .favourite-btn {
+    top: 10px;
+    right: 15px;
+  }
+}
