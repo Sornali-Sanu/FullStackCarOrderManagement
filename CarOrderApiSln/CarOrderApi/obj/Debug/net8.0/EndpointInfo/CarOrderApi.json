@@ -178,6 +178,63 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "Gearbox",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Engine",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Color",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FuelType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "BodyType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Condition",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Condition"
+            }
+          },
+          {
+            "name": "AirCon",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Drivetype",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Drivetype"
+            }
           }
         ],
         "requestBody": {
@@ -276,6 +333,63 @@
             "in": "query",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Gearbox",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Engine",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Color",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FuelType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "BodyType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Condition",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Condition"
+            }
+          },
+          {
+            "name": "AirCon",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Drivetype",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Drivetype"
             }
           },
           {
@@ -496,6 +610,14 @@
   },
   "components": {
     "schemas": {
+      "Condition": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "CreateOrderDto": {
         "type": "object",
         "properties": {
@@ -509,6 +631,14 @@
           }
         },
         "additionalProperties": false
+      },
+      "Drivetype": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "LoginDto": {
         "required": [

@@ -115,6 +115,46 @@
         "Name": "ProfileImage",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
+      },
+      {
+        "Name": "Gearbox",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Engine",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Color",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FuelType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "BodyType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Condition",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "AirCon",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Drivetype",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -176,6 +216,46 @@
       {
         "Name": "ProfileImage",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Gearbox",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Engine",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Color",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FuelType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "BodyType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Condition",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "AirCon",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Drivetype",
+        "Type": "System.String",
         "IsRequired": false
       },
       {

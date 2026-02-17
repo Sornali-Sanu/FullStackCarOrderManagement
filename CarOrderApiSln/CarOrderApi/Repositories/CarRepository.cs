@@ -30,6 +30,14 @@ namespace CarOrderApi.Repositories
             newCar.Brand= carModel.Brand;
             newCar.Price= carModel.Price;
             newCar.ImageUrl = imageFileName;
+            newCar.BodyType=carModel.BodyType;
+            newCar.DriveType = carModel.Drivetype; 
+            newCar.Engine=carModel.Engine;
+            newCar.AirCon=carModel.AirCon;
+            newCar.Gearbox=carModel.Gearbox;
+            newCar.FuelType=carModel.FuelType;
+            newCar.Color=carModel.Color;
+            newCar.Condition=carModel.Condition;
             _context.Cars.Add(newCar);
             await _context.SaveChangesAsync();
             return new CarDto
@@ -39,7 +47,16 @@ namespace CarOrderApi.Repositories
                 Description = newCar.Description,
                 Brand = newCar.Brand,
                 Price = newCar.Price,
-                ImageUrl = newCar.ImageUrl
+                ImageUrl = newCar.ImageUrl,
+                BodyType= newCar.BodyType,
+                Drivetype=newCar.DriveType,
+                Engine=newCar.Engine,
+                AirCon=newCar.AirCon,
+                Gearbox=newCar.Gearbox,
+                FuelType=newCar.FuelType,
+                Color=newCar.Color,
+                Condition=newCar.Condition,
+                
             }; ;
 
 
