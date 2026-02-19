@@ -157,5 +157,15 @@ namespace CarOrderApi.Repositories
                 ImageUrl = existCar.ImageUrl
             };
         }
+
+        public async Task<List<Car>> SearchCarByName(string query)
+        {
+            if (string.IsNullOrEmpty(query))
+            {
+                return new List<Car>();
+            }
+            return await _context.Cars.Where(c => c.Name.ToLower().Contains(query.ToLower()) || c.Brand.ToLower().Contains(query.ToLower())).ToListAsync();
+           
+        }
     }
 }

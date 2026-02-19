@@ -3,10 +3,11 @@ import { CarService } from '../../../services/car-service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Car } from '../../../models/car';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-get-car',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink,FormsModule],
   templateUrl: './get-car.html',
   styleUrl: './get-car.css',
 })
@@ -16,6 +17,8 @@ export class GetCar implements AfterViewInit , OnInit{
   
 
   car:Car[]=[];
+  searchText:string="";
+  noResult:boolean=false;
   ngOnInit(): void {
     this.getList();
   }
@@ -81,6 +84,27 @@ export class GetCar implements AfterViewInit , OnInit{
       carousel.classList.remove('next');
       carousel.classList.remove('prev');
     }, 500);
+  }
+  onSearch()
+  {
+    if(this.searchText.trim()==='')
+    {
+      this.noResult=false;
+      this.getList();
+      return;
+    }
+    return this.service.searchCars(this.searchText).subscribe(
+      {
+        next:(res:Car[])=>
+        {
+          this.car=res.map(c=>({
+            ...c,imageUrl:c.imageUrl.startsWith('http')?c.imageUrl:`${this.service.baseUrl}/images/${c.imageUrl}`
+          }));
+          this.noResult=this.car.length===0;
+        },
+        error:err=>{console.log('searchError',err)}
+      }
+    )
   }
 }
 

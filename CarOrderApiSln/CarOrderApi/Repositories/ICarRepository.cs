@@ -10,6 +10,7 @@ namespace CarOrderApi.Repositories
         Task<CarDto> AddNewCar(CarDto car);
         Task<CarDto> UpdateCar(CarDto newCar,int id);
         Task<Car> DeleteCar(int id);
+        Task<List<Car>> SearchCarByName(string query);
 
     }
 }

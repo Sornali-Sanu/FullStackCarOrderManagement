@@ -34,6 +34,11 @@ namespace CarOrderApi.Services
             return await _repo.GetCarById(id);
         }
 
+        public async Task<List<Car>> GetCarByName(string query)
+        {
+            return await _repo.SearchCarByName(query);
+        }
+
         public async Task<CarDto> UpdateCar(CarDto dto,int id)
         {
             return await _repo.UpdateCar(dto, id);

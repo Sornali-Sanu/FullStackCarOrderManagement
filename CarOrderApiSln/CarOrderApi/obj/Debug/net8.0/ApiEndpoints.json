@@ -283,6 +283,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CarOrderApi.Controllers.CarsController",
+    "Method": "GetCarByNameOrBrand",
+    "RelativePath": "api/Cars/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CarOrderApi.Controllers.OrdersController",
     "Method": "PlaceOrder",
     "RelativePath": "api/Orders",

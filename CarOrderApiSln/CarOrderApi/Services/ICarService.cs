@@ -10,5 +10,6 @@ namespace CarOrderApi.Services
         Task<bool> DeleteCar(int id);
         Task<IEnumerable<Car>> GetAllCars();
         Task<Car> GetCarById(int id);
+        Task<List<Car>> GetCarByName(string query);
     }
 }

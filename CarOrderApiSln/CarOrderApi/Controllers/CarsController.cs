@@ -56,6 +56,17 @@ namespace CarOrderApi.Controllers
                 return NotFound("car not found");
             return Ok("Car deleted Successfullly");
         }
+        [HttpGet("search")]
+        public async Task<IActionResult> GetCarByNameOrBrand(string query)
+        {
+            var cars=await _service.GetCarByName(query);
+            if (cars == null || !cars.Any())
+            {
+                return NotFound("Match Not Found");
+            }
+            return Ok(cars);
+            
+        }
     }
 }
     
