@@ -66,7 +66,7 @@ namespace CarOrderApi.Controllers
             var refreshToken = _tokenService.GetRefreshToken(user.Id);
             _context.RefreshTokens.Add(refreshToken);
             await _context.SaveChangesAsync();
-            return Ok(new { accessToken, refreshToken = refreshToken.Token }
+            return Ok(new { accessToken, refreshToken = refreshToken.Token ,userName=user.UserName}
 
                 );
 
@@ -91,7 +91,8 @@ namespace CarOrderApi.Controllers
             return Ok(new
             {
                 accessToken = newAccesstoken,
-                refreshToken = newRefreshToken.Token
+                refreshToken = newRefreshToken.Token,
+                
             });
         }
 

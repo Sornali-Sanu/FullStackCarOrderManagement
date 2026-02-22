@@ -20,21 +20,36 @@ tap(
   (res:any)=>{
 localStorage.setItem('accessToken',res.accessToken);
 localStorage.setItem('refreshToken',res.refreshToken);
+localStorage.setItem('userName',res.userName);//to set the userName in localstorage
 })
 )
 }
-logout()
-{
-  const refreshToken=localStorage.getItem('refreshToken');
-  return this.http.post(`${this.baseUrl}/logout`,{refreshToken});
-}
+
 getAccessToken()
 {
   return localStorage.getItem('accessToken')
 }
+//getThr userName
+ getUserName()
+  {
+    return localStorage.getItem('userName');
+  }
 renewToken()
   {
 
     return this.http.post(`${this.baseUrl}/refresh`,{refreshToken:localStorage.getItem('refreshToken')})
   }
+  
+ 
+  isLoggedIn():boolean
+  {
+    return !! localStorage.getItem('accessToken')
+  }
+
+  logout()
+{
+   const refreshToken=localStorage.getItem('refreshToken');
+  return this.http.post(`${this.baseUrl}/logout`,{refreshToken});
+
+}
 }

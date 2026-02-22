@@ -87,9 +87,66 @@
       />
 
        <!-- Login Icon -->
-      <a class="btn btn-outline-primary me-2 d-flex align-items-center" routerLink="/login">
+      <!-- <a class="btn btn-outline-primary me-2 d-flex align-items-center" routerLink="/login">
         <i class="bi bi-box-arrow-in-right me-1"></i> Login
-      </a>
+      </a> -->
+
+      <!-- Not Logged In -->
+<!-- <a *ngIf="!auth.isLoggedIn()"
+   class="btn btn-outline-primary me-2"
+   routerLink="/login">
+   Login
+</a> -->
+
+<!-- Logged In -->
+<!-- <div *ngIf="auth.isLoggedIn()" class="d-flex align-items-center">
+
+  <span class="me-3 fw-semibold text-primary">
+    {{ auth.getUserName() }}
+  </span>
+
+  <button class="btn btn-outline-danger btn-sm"
+          (click)="logout()">
+    <i class="bi bi-box-arrow-right"></i>
+  </button>
+
+</div> -->
+
+<!-- Not Logged In -->
+<a *ngIf="!auth.isLoggedIn()"
+   class="btn btn-primary rounded-pill px-4"
+   routerLink="/login">
+   <i class="bi bi-box-arrow-in-right me-1"></i> Login
+</a>
+
+<!-- Logged In -->
+<div *ngIf="auth.isLoggedIn()" class="dropdown">
+
+  <a class="d-flex align-items-center text-decoration-none dropdown-toggle"
+     href="#"
+     role="button"
+     data-bs-toggle="dropdown"
+     aria-expanded="false">
+
+    <!-- User Icon -->
+    <div class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center"
+         style="width:40px;height:40px;font-weight:bold;">
+      <i class="bi bi-person-fill"></i>
+    </div>
+
+    <!-- Username -->
+    <span class="ms-2 fw-semibold text-dark">
+      {{ auth.getUserName() }}
+    </span>
+
+  </a>
+
+   <!-- Logout Icon -->
+  <button class="btn btn-link logout-btn p-0"
+          (click)="logout()">
+      <i class="bi bi-box-arrow-right"></i>
+  </button>
+</div>
 
       <!-- Sell Button -->
       <button class="btn btn-warning fw-semibold sell-btn">
