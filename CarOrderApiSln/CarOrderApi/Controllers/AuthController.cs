@@ -37,13 +37,10 @@ namespace CarOrderApi.Controllers
         {
             var user = new IdentityUser
             {
-                UserName = dto.Email,
+                UserName = dto.UserName,
                 Email = dto.Email,
                
-                
-
-                
-            };
+                };
 
             var result = await _userManager.CreateAsync(user, dto.Password);
            

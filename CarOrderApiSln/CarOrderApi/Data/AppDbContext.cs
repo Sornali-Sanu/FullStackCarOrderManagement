@@ -13,6 +13,9 @@ namespace CarOrderApi.Data
         public DbSet<Car> Cars { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<RefreshToken>RefreshTokens { get; set; }
+        public DbSet<Wishlist>Wishlists { get; set; }
+        public DbSet<ApplicationUser>ApplicationUsers { get; set; }
+        public DbSet<Payment> Payments { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

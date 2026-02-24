@@ -24,6 +24,7 @@ constructor(
 // Form group definition
 //fb.group=>form Structure
 this.registrationForm=this.fb.group({
+userName:['',[Validators.required]],
 email:['',[Validators.required]],
 password:['',[Validators.required]],
 confirmPassword:['',Validators.required]
@@ -59,4 +60,4 @@ submit()
 }
 
 }
-//.subscribe=>observable response handle
+

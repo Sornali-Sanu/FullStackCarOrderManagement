@@ -21,8 +21,8 @@ namespace CarOrderApi.ExtentionProgramee_cs
             service.AddScoped<ITokenService, TokenServices>();
             service.AddScoped<ICarRepository, CarRepository>();
             service.AddScoped<ICarService, CarService>();
-            service.AddScoped<IOrderRepository,OrderRepository>();
-            service.AddScoped<IOrderService,OrderServices>();
+            service.AddScoped<IOrderRepository, OrderRepository>();
+            service.AddScoped<IOrderService, OrderServices>();
 
 
 

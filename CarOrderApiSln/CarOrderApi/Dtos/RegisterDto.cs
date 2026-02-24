@@ -4,6 +4,7 @@ namespace CarOrderApi.Dtos
 {
     public class RegisterDto
     {
+        public string UserName { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }

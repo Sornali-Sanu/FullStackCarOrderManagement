@@ -18,13 +18,13 @@ namespace CarOrderApi.Controllers
         {
             _services = services;
         }
-        [Authorize(Roles ="Customer,User,Admin")]
+        [Authorize(Roles = "Customer,User,Admin")]
         [HttpPost]
-        public async Task<IActionResult>PlaceOrder(CreateOrderDto dto)
+        public async Task<IActionResult> PlaceOrder(CreateOrderDto dto)
         {
-            var customerId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            await _services.PlaceOrder(dto, customerId);
+            await _services.PlaceOrder(dto, userId);
             return Ok("order Successfully");
         }
 
@@ -39,7 +39,7 @@ namespace CarOrderApi.Controllers
         //[Authorize("Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllOrder()
-        { 
+        {
             return Ok(await _services.GetOrders());
         }
 
@@ -55,7 +55,7 @@ namespace CarOrderApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrder(int id)
         {
-            var order=await _services.DeleteOrder(id);
+            var order = await _services.DeleteOrder(id);
             return Ok($"Order is Deleted");
         }
 

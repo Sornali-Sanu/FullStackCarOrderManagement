@@ -21,47 +21,49 @@ namespace CarOrderApi.Services
 
         public async Task<IEnumerable<OrderResponseDto>> GetMyOrders(string customerId)
         {
-            var orders=await _repo.GetOrderByCustomerId(customerId);
-            return orders.Select(o =>  new OrderResponseDto
+            var orders = await _repo.GetOrderByCustomerId(customerId);
+            return orders.Select(o => new OrderResponseDto
             {
-                OrderId = o.OrderId,
-                CarId= o.CarId,
-                CarName=o.Car.Name,
-                Quantity=o.Quantity,
-                OrderDate=o.OrderDate,
-                Status=o.Status,
+                OrderId = o.Id,
+                CarId = o.CarId,
+                CarName = o.Car.Name,
                 
+                OrderDate = o.OrderDate,
+                Status = o.Status,
+
             });
         }
 
         public async Task<IEnumerable<OrderResponseDto>> GetOrders()
         {
-          var order=await _repo.GetAllOrder();
-            return order.Select(o => new OrderResponseDto {
-            OrderId=o.OrderId,
-            CarId=o.CarId,
-            CarName=o.Car.Name,
-            Quantity=o.Quantity,
-            OrderDate=o.OrderDate,
-            Status =o.Status,
+            var order = await _repo.GetAllOrder();
+            return order.Select(o => new OrderResponseDto
+            {
+                OrderId = o.Id,
+                CarId = o.CarId,
+                CarName = o.Car.Name,
+                
+                OrderDate = o.OrderDate,
+                Status = o.Status,
             });
         }
 
-        public async Task PlaceOrder(CreateOrderDto orderDto, string customerId)
+        public async Task PlaceOrder(CreateOrderDto orderDto, string userId)
         {
-            var order = new Order {
-            CarId = orderDto.CarId,
-            Quantity=orderDto.Quantity,
-            CustomerId = customerId
-            
+            var order = new Order
+            {
+                CarId = orderDto.CarId,
+              
+                UserId = userId
+
             };
             await _repo.PlaceOrder(order);
         }
 
         public async Task<bool> UpdateOrderStatus(int orderId, string status)
         {
-           var order=await _repo.UpdateOrderStatus(orderId, status);
-            return order!=null;
+            var order = await _repo.UpdateOrderStatus(orderId, status);
+            return order != null;
         }
     }
 }

@@ -48,7 +48,9 @@ renewToken()
 
   logout()
 {
-   const refreshToken=localStorage.getItem('refreshToken');
+  const refreshToken=localStorage.getItem('refreshToken');
+  
+  localStorage.clear();
   return this.http.post(`${this.baseUrl}/logout`,{refreshToken});
 
 }

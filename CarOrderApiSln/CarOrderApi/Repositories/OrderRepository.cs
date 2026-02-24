@@ -15,9 +15,9 @@ namespace CarOrderApi.Repositories
 
         public async Task<Order> DeleteOrder(int id)
         {
-            var order=await _context.Orders.FindAsync(id);
-            if (order != null) 
-            
+            var order = await _context.Orders.FindAsync(id);
+            if (order != null)
+
             {
                 _context.Orders.Remove(order);
                 await _context.SaveChangesAsync();
@@ -28,17 +28,17 @@ namespace CarOrderApi.Repositories
 
         public async Task<IEnumerable<Order>> GetAllOrder()
         {
-            return await _context.Orders.Include(o=>o.Car).ToListAsync();
+            return await _context.Orders.Include(o => o.Car).ToListAsync();
         }
 
-        public async Task<IEnumerable<Order>> GetOrderByCustomerId(string customerId)
+        public async Task<IEnumerable<Order>> GetOrderByCustomerId(string userId)
         {
-            return await _context.Orders.Include(o=>o.Car).Where(p=>p.CustomerId==customerId).ToListAsync();
+            return await _context.Orders.Include(o => o.Car).Where(p => p.UserId==userId).ToListAsync();
         }
 
         public async Task<Order> GetOrderById(int id)
         {
-            return await _context.Orders.Include(o => o.Car).FirstOrDefaultAsync(o=>o.OrderId==id);
+            return await _context.Orders.Include(o => o.Car).FirstOrDefaultAsync(o => o.Id == id);
         }
 
         public async Task<Order> PlaceOrder(Order order)
@@ -51,7 +51,7 @@ namespace CarOrderApi.Repositories
         public async Task<Order> UpdateOrderStatus(int orderId, string status)
         {
             var order = await _context.Orders.FindAsync(orderId);
-            if(order==null)
+            if (order == null)
             {
                 return null;
             }
