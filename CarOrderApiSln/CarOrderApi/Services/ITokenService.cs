@@ -5,7 +5,7 @@ namespace CarOrderApi.Services
 {
     public interface ITokenService
     {
-       Task <string> GenerateAccessToken(IdentityUser user);
+       Task <string> GenerateAccessToken(ApplicationUser user);
         RefreshToken GetRefreshToken(string userId);
     }
 }

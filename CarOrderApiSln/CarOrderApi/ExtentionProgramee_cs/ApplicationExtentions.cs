@@ -1,4 +1,5 @@
 ﻿using CarOrderApi.Data;
+using CarOrderApi.Model;
 using CarOrderApi.Repositories;
 using CarOrderApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -16,13 +17,15 @@ namespace CarOrderApi.ExtentionProgramee_cs
             //Database Configure
             service.AddDbContext<AppDbContext>(op => op.UseSqlServer(config.GetConnectionString("con")));
             //Identity:
-            service.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+            service.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             //Dependency Injection:
             service.AddScoped<ITokenService, TokenServices>();
             service.AddScoped<ICarRepository, CarRepository>();
             service.AddScoped<ICarService, CarService>();
             service.AddScoped<IOrderRepository, OrderRepository>();
             service.AddScoped<IOrderService, OrderServices>();
+            service.AddScoped<IUserRepository,UserRepository>();
+            service.AddScoped<IUserService,UserService>();
 
 
 

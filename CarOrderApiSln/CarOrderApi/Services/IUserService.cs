@@ -1,0 +1,14 @@
+﻿using CarOrderApi.Dtos;
+using CarOrderApi.Model;
+
+namespace CarOrderApi.Services
+{
+    public interface IUserService
+    {
+        Task<ApplicationUser> GetProfile(string userId);
+        Task UpdateProfile(string userId,UpdateProfileDto dto);
+        Task<List<Order>> GetOrders(string userId);
+        Task<List<Wishlist>>GetWishlists(string userId);
+        Task AddWishList(string userId, int carId);
+    }
+}

@@ -1,5 +1,6 @@
 ﻿using CarOrderApi.Data;
 using CarOrderApi.Dtos;
+using CarOrderApi.Model;
 using CarOrderApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -14,13 +15,13 @@ namespace CarOrderApi.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {   private readonly AppDbContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ITokenService _tokenService;
 
         public AuthController(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
             ITokenService tokenService, AppDbContext context)
         {
             _userManager = userManager;
@@ -35,7 +36,7 @@ namespace CarOrderApi.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto dto)
         {
-            var user = new IdentityUser
+            var user = new ApplicationUser
             {
                 UserName = dto.UserName,
                 Email = dto.Email,
@@ -59,7 +60,7 @@ namespace CarOrderApi.Controllers
             if (user == null || !await _userManager.CheckPasswordAsync(user,dto.Password))
                 return Unauthorized("Invalid email or password");
 
-            var accessToken =_tokenService.GenerateAccessToken(user);
+            var accessToken =await _tokenService.GenerateAccessToken(user);
             var refreshToken = _tokenService.GetRefreshToken(user.Id);
             _context.RefreshTokens.Add(refreshToken);
             await _context.SaveChangesAsync();

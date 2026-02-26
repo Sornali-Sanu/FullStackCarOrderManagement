@@ -12,8 +12,8 @@ namespace CarOrderApi.Services
     public class TokenServices: ITokenService
     {
         private readonly IConfiguration _config;
-        private readonly UserManager<IdentityUser> _userManager;
-        public TokenServices(IConfiguration config, UserManager<IdentityUser> userManager)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public TokenServices(IConfiguration config, UserManager<ApplicationUser> userManager)
         {
             _config = config;
             _userManager = userManager;
@@ -21,7 +21,7 @@ namespace CarOrderApi.Services
 
       
 
-        public async Task<string> GenerateAccessToken(IdentityUser user)
+        public async Task<string> GenerateAccessToken(ApplicationUser user)
         {//payLoad:
             var roles = await _userManager.GetRolesAsync(user);
             var claims = new List<Claim> {
