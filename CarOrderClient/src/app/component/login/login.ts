@@ -30,27 +30,7 @@ export class Login {
 }
 
   
-  // onLogin() {
-   
-  //    if (this.loginForm.invalid) {
-  //   console.log('Form invalid');
-  //   const controls = this.loginForm.controls;
-  //   for (const name in controls) {
-  //     if (controls[name].invalid) {
-  //       console.log(`${name} is invalid`);
-  //     }
-  //   }
-  //   return;
-  // }
-
-  // console.log('Form valid, calling API...');
-  // this.authService.login(this.loginForm.value).subscribe({
-  //   next: res => console.log('API response', res),
-  //   error: err => console.error('API error', err)
-  // });
   
-   
-  // }
 
   onLogin() {
 

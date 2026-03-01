@@ -6,6 +6,7 @@ namespace CarOrderApi.Model
     public class ApplicationUser:IdentityUser
     {
         public string FullName { get; set; }
+        //nullable dita hoba.
         public string ProfileImageUrl { get; set; }
 
         //address:

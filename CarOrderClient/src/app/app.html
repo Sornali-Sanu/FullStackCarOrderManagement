@@ -77,7 +77,7 @@
         <li class="nav-item"><a class="nav-link" href="#">Finance</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Blogs</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Videos</a></li>
-
+<li class="nav-item" > <a href="/profile" class="nav-link">User</a></li>
       </ul>
 
       <!-- Search -->
@@ -86,32 +86,7 @@
         placeholder="What are you looking for?"
       />
 
-       <!-- Login Icon -->
-      <!-- <a class="btn btn-outline-primary me-2 d-flex align-items-center" routerLink="/login">
-        <i class="bi bi-box-arrow-in-right me-1"></i> Login
-      </a> -->
-
-      <!-- Not Logged In -->
-<!-- <a *ngIf="!auth.isLoggedIn()"
-   class="btn btn-outline-primary me-2"
-   routerLink="/login">
-   Login
-</a> -->
-
-<!-- Logged In -->
-<!-- <div *ngIf="auth.isLoggedIn()" class="d-flex align-items-center">
-
-  <span class="me-3 fw-semibold text-primary">
-    {{ auth.getUserName() }}
-  </span>
-
-  <button class="btn btn-outline-danger btn-sm"
-          (click)="logout()">
-    <i class="bi bi-box-arrow-right"></i>
-  </button>
-
-</div> -->
-
+     
 <!-- Not Logged In -->
 <a *ngIf="!auth.isLoggedIn()"
    class="btn btn-primary rounded-pill px-4"
@@ -130,8 +105,12 @@
 
     <!-- User Icon -->
     <div class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center"
-         style="width:40px;height:40px;font-weight:bold;">
-      <i class="bi bi-person-fill"></i>
+         style="width:40px;height:40px;font-weight:bold;"><a routerLink="/profile">
+          <i class="bi bi-person-fill" >
+        
+      </i>
+         </a>
+      
     </div>
 
     <!-- Username -->
