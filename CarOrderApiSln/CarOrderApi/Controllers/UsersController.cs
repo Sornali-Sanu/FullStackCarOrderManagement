@@ -20,7 +20,8 @@ namespace CarOrderApi.Controllers
         [HttpGet("profile")]
         public async Task<IActionResult> GetProfile()
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                
             var profile=await _service.GetProfile(userId);
             return Ok(profile);
         }

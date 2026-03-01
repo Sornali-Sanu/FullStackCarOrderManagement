@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{900DD282-A7B2-4775-AD28-BE695A38EA87}|CarOrderApi\\CarOrderApi.csproj|c:\\users\\astroid\\desktop\\my-folder-carorder\\carorderapisln\\carorderapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{900DD282-A7B2-4775-AD28-BE695A38EA87}|CarOrderApi\\CarOrderApi.csproj|solutionrelative:carorderapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{900DD282-A7B2-4775-AD28-BE695A38EA87}|CarOrderApi\\CarOrderApi.csproj|c:\\users\\astroid\\desktop\\my-folder-carorder\\carorderapisln\\carorderapi\\model\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{900DD282-A7B2-4775-AD28-BE695A38EA87}|CarOrderApi\\CarOrderApi.csproj|solutionrelative:carorderapi\\model\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -41,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{900DD282-A7B2-4775-AD28-BE695A38EA87}|CarOrderApi\\CarOrderApi.csproj|c:\\users\\astroid\\desktop\\my-folder-carorder\\carorderapisln\\carorderapi\\extentionprogramee_cs\\applicationextentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{900DD282-A7B2-4775-AD28-BE695A38EA87}|CarOrderApi\\CarOrderApi.csproj|solutionrelative:carorderapi\\extentionprogramee_cs\\applicationextentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{900DD282-A7B2-4775-AD28-BE695A38EA87}|CarOrderApi\\CarOrderApi.csproj|c:\\users\\astroid\\desktop\\my-folder-carorder\\carorderapisln\\carorderapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{900DD282-A7B2-4775-AD28-BE695A38EA87}|CarOrderApi\\CarOrderApi.csproj|solutionrelative:carorderapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{900DD282-A7B2-4775-AD28-BE695A38EA87}|CarOrderApi\\CarOrderApi.csproj|c:\\users\\astroid\\desktop\\my-folder-carorder\\carorderapisln\\carorderapi\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -138,24 +138,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RefreshToken.cs",
-              "DocumentMoniker": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Model\\RefreshToken.cs",
-              "RelativeDocumentMoniker": "CarOrderApi\\Model\\RefreshToken.cs",
-              "ToolTip": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Model\\RefreshToken.cs",
-              "RelativeToolTip": "CarOrderApi\\Model\\RefreshToken.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T06:17:45.021Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\appsettings.json",
               "RelativeDocumentMoniker": "CarOrderApi\\appsettings.json",
@@ -163,12 +150,11 @@
               "RelativeToolTip": "CarOrderApi\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-02-26T06:11:20.332Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-26T06:11:20.332Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "TokenServices.cs",
               "DocumentMoniker": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Services\\TokenServices.cs",
               "RelativeDocumentMoniker": "CarOrderApi\\Services\\TokenServices.cs",
@@ -176,12 +162,11 @@
               "RelativeToolTip": "CarOrderApi\\Services\\TokenServices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T06:05:52.083Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-26T06:05:52.083Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ITokenService.cs",
               "DocumentMoniker": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Services\\ITokenService.cs",
               "RelativeDocumentMoniker": "CarOrderApi\\Services\\ITokenService.cs",
@@ -189,12 +174,11 @@
               "RelativeToolTip": "CarOrderApi\\Services\\ITokenService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T06:05:34.621Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-26T06:05:34.621Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "CarOrderApi\\Controllers\\AuthController.cs",
@@ -202,12 +186,11 @@
               "RelativeToolTip": "CarOrderApi\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAswFwAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T05:06:23.369Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-22T05:06:23.369Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "IOrderService.cs",
               "DocumentMoniker": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Services\\IOrderService.cs",
               "RelativeDocumentMoniker": "CarOrderApi\\Services\\IOrderService.cs",
@@ -215,12 +198,36 @@
               "RelativeToolTip": "CarOrderApi\\Services\\IOrderService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T16:20:02.395Z",
+              "WhenOpened": "2026-02-24T16:20:02.395Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "CarOrderApi\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "CarOrderApi\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAqwBUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T05:45:56.616Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
+              "Title": "RefreshToken.cs",
+              "DocumentMoniker": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Model\\RefreshToken.cs",
+              "RelativeDocumentMoniker": "CarOrderApi\\Model\\RefreshToken.cs",
+              "ToolTip": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Model\\RefreshToken.cs",
+              "RelativeToolTip": "CarOrderApi\\Model\\RefreshToken.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T06:17:45.021Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Program.cs",
               "RelativeDocumentMoniker": "CarOrderApi\\Program.cs",
@@ -228,12 +235,11 @@
               "RelativeToolTip": "CarOrderApi\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T16:32:55.524Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T16:32:55.524Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "CarService.cs",
               "DocumentMoniker": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Services\\CarService.cs",
               "RelativeDocumentMoniker": "CarOrderApi\\Services\\CarService.cs",
@@ -241,12 +247,11 @@
               "RelativeToolTip": "CarOrderApi\\Services\\CarService.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAwwCYAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T05:37:36.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-19T05:37:36.46Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Services\\IUserService.cs",
               "RelativeDocumentMoniker": "CarOrderApi\\Services\\IUserService.cs",
@@ -254,8 +259,7 @@
               "RelativeToolTip": "CarOrderApi\\Services\\IUserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T05:04:32.228Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T05:04:32.228Z"
             },
             {
               "$type": "Document",
@@ -267,8 +271,7 @@
               "RelativeToolTip": "CarOrderApi\\Repositories\\UserRepository.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T04:30:58.493Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T04:30:58.493Z"
             },
             {
               "$type": "Document",
@@ -280,25 +283,11 @@
               "RelativeToolTip": "CarOrderApi\\Dtos\\UpdateProfileDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T05:09:37.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T05:09:37.663Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "CarOrderApi\\Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "CarOrderApi\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T05:45:56.616Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "ApplicationExtentions.cs",
               "DocumentMoniker": "C:\\Users\\ASTROID\\Desktop\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\ExtentionProgramee_cs\\ApplicationExtentions.cs",
               "RelativeDocumentMoniker": "CarOrderApi\\ExtentionProgramee_cs\\ApplicationExtentions.cs",
@@ -306,8 +295,7 @@
               "RelativeToolTip": "CarOrderApi\\ExtentionProgramee_cs\\ApplicationExtentions.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAAABMAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T16:20:27.129Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T16:20:27.129Z"
             },
             {
               "$type": "Document",
@@ -319,8 +307,7 @@
               "RelativeToolTip": "CarOrderApi\\Services\\UserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T05:13:33.371Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T05:13:33.371Z"
             },
             {
               "$type": "Document",
@@ -332,8 +319,7 @@
               "RelativeToolTip": "CarOrderApi\\Model\\ApplicationUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T15:53:42.77Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T15:53:42.77Z"
             },
             {
               "$type": "Document",
@@ -345,8 +331,7 @@
               "RelativeToolTip": "CarOrderApi\\Repositories\\IUserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T04:24:49.812Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T04:24:49.812Z"
             },
             {
               "$type": "Document",
@@ -442,8 +427,7 @@
               "RelativeToolTip": "CarOrderApi\\Model\\Wishlist.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T15:58:51.488Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T15:58:51.488Z"
             },
             {
               "$type": "Document",

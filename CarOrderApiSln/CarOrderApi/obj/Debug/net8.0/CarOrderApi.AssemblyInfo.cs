@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CarOrderApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dbb2410192a897d998888ffa03426e0011b3cc21")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87282996736b7824fb5ace6f17c352bf6562e139")]
 [assembly: System.Reflection.AssemblyProductAttribute("CarOrderApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CarOrderApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
