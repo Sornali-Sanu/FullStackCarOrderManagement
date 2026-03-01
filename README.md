@@ -155,6 +155,31 @@ Angular Frontend project for managing car orders,customers to register, login, b
 - CSS
 - Typescript
 
+🎨 Frontend User Page Layout :
+ Profile Tab
+
+Image
+
+Name
+
+Email
+
+Phone
+
+Edit Button
+
+🚗 My Orders Tab
+
+Card style car list
+
+❤️ Wishlist Tab
+
+Grid view
+
+🔐 Security Tab
+
+Change Password
+
 📸 Screenshots
 ```Index Page```
 
@@ -168,6 +193,8 @@ Angular Frontend project for managing car orders,customers to register, login, b
 
 ```Registration Frontend```
 ![index Page](screenshot/registrationFrontend.png)
+
+
 
 ✅ License
 MIT License
