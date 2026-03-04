@@ -26,9 +26,11 @@ namespace CarOrderApi.Services
             return await _repo.GetUserOrderAsync(userId);
         }
 
-        public async Task<ApplicationUser> GetProfile(string userId)
+        public async Task<ProfileResponseDto> GetProfile(string userId)
         {
-           return await _repo.GetUserByIdAsync(userId);
+            return await _repo.GetUserByIdAsync(userId);
+           
+            
         }
 
         public async Task<List<Wishlist>> GetWishlists(string userId)
@@ -38,16 +40,16 @@ namespace CarOrderApi.Services
 
         public async Task UpdateProfile(string userId, UpdateProfileDto dto)
         {//need to add image
-            var user=await _repo.GetUserByIdAsync(userId);
-            user.FullName= dto.FullName;
-            user.PhoneNumber= dto.PhoneNumber;
-            user.Country= dto.Country;
-            user.City= dto.City;
-            user.PostalCode= dto.PostalCode;
-            user.StreetAddress= dto.StreetAddress;
-            user.DrivingLicenseNumber= dto.DrivingLicenseNumber;
-            user.LicenseExpiryDate= dto.LicenseExpiryDate;
-            await _repo.UpdateUserAsync(user);
+            //var user=await _repo.GetUserByIdAsync(userId);
+            //user.FullName= dto.FullName;
+            //user.PhoneNumber= dto.PhoneNumber;
+            //user.Country= dto.Country;
+            //user.City= dto.City;
+            //user.PostalCode= dto.PostalCode;
+            //user.StreetAddress= dto.StreetAddress;
+            //user.DrivingLicenseNumber= dto.DrivingLicenseNumber;
+            //user.LicenseExpiryDate= dto.LicenseExpiryDate;
+            //await _repo.UpdateUserAsync(user);
         }
     }
 }

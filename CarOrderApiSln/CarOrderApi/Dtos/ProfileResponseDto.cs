@@ -1,13 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.FileSystemGlobbing.Internal.PathSegments;
-
-namespace CarOrderApi.Model
+﻿namespace CarOrderApi.Dtos
 {
-    public class ApplicationUser:IdentityUser
+    public class ProfileResponseDto
     {
+        public string UserName { get; set; }
+        public string Email { get; set; }
         public string FullName { get; set; }
         public string PhoneNumber { get; set; }
-        public string?ProfileImageUrl { get; set; }
+        public string? ProfileImageUrl { get; set; }
 
         //address:
         public string Country { get; set; }
@@ -17,9 +16,5 @@ namespace CarOrderApi.Model
         //verification
         public string DrivingLicenseNumber { get; set; }
         public DateTime? LicenseExpiryDate { get; set; }
-
-        //Navigation:
-        public ICollection<Order> Orders { get; set; }
-        public ICollection<Wishlist> Wishlists { get; set; }
     }
 }

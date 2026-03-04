@@ -1,4 +1,5 @@
 ﻿using CarOrderApi.Data;
+using CarOrderApi.Dtos;
 using CarOrderApi.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -20,9 +21,27 @@ namespace CarOrderApi.Repositories
           await _context.SaveChangesAsync();
         }
 
-        public async Task<ApplicationUser> GetUserByIdAsync(string userId)
+        public async Task<ProfileResponseDto> GetUserByIdAsync(string userId)
         {
-            return await _userManager.FindByIdAsync(userId);
+            var user= await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return null;
+            }
+            return new ProfileResponseDto
+            {
+                UserName=user.UserName,
+                Email=user.Email,
+                FullName=user.FullName,
+                PhoneNumber = user.PhoneNumber,
+                Country = user.Country,
+                City = user.City,
+                StreetAddress = user.StreetAddress,
+                PostalCode = user.PostalCode,
+                DrivingLicenseNumber = user.DrivingLicenseNumber,
+                LicenseExpiryDate = user.LicenseExpiryDate,
+                ProfileImageUrl = user.ProfileImageUrl
+            };
         }
 
         public async Task<List<Order>> GetUserOrderAsync(string userId)

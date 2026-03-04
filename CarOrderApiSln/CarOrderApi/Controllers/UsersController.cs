@@ -21,8 +21,15 @@ namespace CarOrderApi.Controllers
         public async Task<IActionResult> GetProfile()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
             var profile=await _service.GetProfile(userId);
+            if (profile == null)
+            {
+                return NotFound();
+            }
             return Ok(profile);
         }
     }
