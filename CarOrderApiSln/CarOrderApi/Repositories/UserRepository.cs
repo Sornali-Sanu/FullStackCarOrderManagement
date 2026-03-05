@@ -10,10 +10,12 @@ namespace CarOrderApi.Repositories
     {
         private readonly AppDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
-        public UserRepository(AppDbContext context,UserManager<ApplicationUser>userManager)
+        private readonly IWebHostEnvironment _env;
+        public UserRepository(AppDbContext context,UserManager<ApplicationUser>userManager,IWebHostEnvironment env)
         {
             _context=context;
             _userManager=userManager;
+            _env=env;
         }
         public async Task AddToWishlistAsync(Wishlist wishlist)
         {
@@ -54,10 +56,27 @@ namespace CarOrderApi.Repositories
             return await _context.Wishlists.Where(x => x.UserId == userId).Include(x => x.Car).ToListAsync();
         }
 
-        public async Task UpdateUserAsync(ApplicationUser user)
+        public async Task<ApplicationUser> UpdateUserAsync(UpdateProfileDto user,string userId)
         {
-            _context.Users.Update(user);
+            var userProfile = await _context.ApplicationUsers.FirstOrDefaultAsync(x=>x.Id==userId);
+            if (userProfile == null)
+            { return null; }
+
+            userProfile.FullName = user.FullName;
+            userProfile.LicenseExpiryDate=user.LicenseExpiryDate;
+            userProfile.UserName=user.UserName;
+            userProfile.PhoneNumber=user.PhoneNumber;
+            userProfile.Country=user.Country;
+            userProfile.City=user.City;
+            userProfile.PostalCode=user.PostalCode;
+            userProfile.DrivingLicenseNumber=user.DrivingLicenseNumber;
+            //userProfile.ProfileImageUrl=user.ProfileImageUrl;
+
             await _context.SaveChangesAsync();
+            return userProfile;
+            
+           
+         
         }
     }
 }

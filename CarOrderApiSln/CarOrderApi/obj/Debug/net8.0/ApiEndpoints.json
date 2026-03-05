@@ -382,6 +382,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CarOrderApi.Controllers.UsersController",
+    "Method": "UpdateProfile",
+    "RelativePath": "api/Users/UpdateProfile",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "CarOrderApi.Dtos.UpdateProfileDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CarOrderApi.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

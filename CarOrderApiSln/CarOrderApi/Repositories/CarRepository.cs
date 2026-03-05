@@ -153,7 +153,7 @@ namespace CarOrderApi.Repositories
                 Name = existCar.Name,
                 Brand = existCar.Brand,
                 Description = existCar.Description,
-                Price = existCar.Price,
+                Price = existCar.Price, 
                 ImageUrl = existCar.ImageUrl
             };
         }

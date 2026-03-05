@@ -38,18 +38,9 @@ namespace CarOrderApi.Services
             return await _repo.GetUserWishlistAsync(userId);
         }
 
-        public async Task UpdateProfile(string userId, UpdateProfileDto dto)
-        {//need to add image
-            //var user=await _repo.GetUserByIdAsync(userId);
-            //user.FullName= dto.FullName;
-            //user.PhoneNumber= dto.PhoneNumber;
-            //user.Country= dto.Country;
-            //user.City= dto.City;
-            //user.PostalCode= dto.PostalCode;
-            //user.StreetAddress= dto.StreetAddress;
-            //user.DrivingLicenseNumber= dto.DrivingLicenseNumber;
-            //user.LicenseExpiryDate= dto.LicenseExpiryDate;
-            //await _repo.UpdateUserAsync(user);
+        public async Task<ApplicationUser> UpdateProfile(string userId, UpdateProfileDto dto)
+        {
+            return await _repo.UpdateUserAsync(dto, userId);
         }
     }
 }

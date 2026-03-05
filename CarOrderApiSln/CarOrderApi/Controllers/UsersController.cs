@@ -1,4 +1,5 @@
-﻿using CarOrderApi.Services;
+﻿using CarOrderApi.Dtos;
+using CarOrderApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +32,24 @@ namespace CarOrderApi.Controllers
                 return NotFound();
             }
             return Ok(profile);
+        }
+        [HttpPost("UpdateProfile")]
+        [Authorize]
+        public async Task<IActionResult> UpdateProfile(UpdateProfileDto dto)
+        {//I have used this to autometically find the logged user by ClainType.NameIdentifier.
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized("User is not Logged in");
+            }
+             var updatedUser= await _service.UpdateProfile(userId
+                 , dto);
+            if (updatedUser == null)
+            {
+                return NotFound();
+            }
+            return Ok(updatedUser);
+            
         }
     }
 }
