@@ -608,19 +608,90 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateProfileDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateProfileDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateProfileDto"
+                "required": [
+                  "FullName",
+                  "UserName"
+                ],
+                "type": "object",
+                "properties": {
+                  "FullName": {
+                    "maxLength": 100,
+                    "type": "string"
+                  },
+                  "UserName": {
+                    "maxLength": 100,
+                    "type": "string"
+                  },
+                  "PhoneNumber": {
+                    "type": "string",
+                    "format": "tel"
+                  },
+                  "Country": {
+                    "maxLength": 100,
+                    "type": "string"
+                  },
+                  "City": {
+                    "maxLength": 100,
+                    "type": "string"
+                  },
+                  "StreetAddress": {
+                    "type": "string"
+                  },
+                  "PostalCode": {
+                    "type": "string"
+                  },
+                  "DrivingLicenseNumber": {
+                    "type": "string"
+                  },
+                  "LicenseExpiryDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ProfileImageUrl": {
+                    "type": "string"
+                  },
+                  "ProfileImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "FullName": {
+                  "style": "form"
+                },
+                "UserName": {
+                  "style": "form"
+                },
+                "PhoneNumber": {
+                  "style": "form"
+                },
+                "Country": {
+                  "style": "form"
+                },
+                "City": {
+                  "style": "form"
+                },
+                "StreetAddress": {
+                  "style": "form"
+                },
+                "PostalCode": {
+                  "style": "form"
+                },
+                "DrivingLicenseNumber": {
+                  "style": "form"
+                },
+                "LicenseExpiryDate": {
+                  "style": "form"
+                },
+                "ProfileImageUrl": {
+                  "style": "form"
+                },
+                "ProfileImage": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -757,66 +828,6 @@
         "type": "object",
         "properties": {
           "status": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateProfileDto": {
-        "required": [
-          "fullName",
-          "userName"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "fullName": {
-            "maxLength": 100,
-            "minLength": 1,
-            "type": "string"
-          },
-          "userName": {
-            "maxLength": 100,
-            "minLength": 1,
-            "type": "string"
-          },
-          "phoneNumber": {
-            "type": "string",
-            "format": "tel",
-            "nullable": true
-          },
-          "country": {
-            "maxLength": 100,
-            "type": "string",
-            "nullable": true
-          },
-          "city": {
-            "maxLength": 100,
-            "type": "string",
-            "nullable": true
-          },
-          "streetAddress": {
-            "type": "string",
-            "nullable": true
-          },
-          "postalCode": {
-            "type": "string",
-            "nullable": true
-          },
-          "drivingLicenseNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "licenseExpiryDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "profileImageUrl": {
             "type": "string",
             "nullable": true
           }

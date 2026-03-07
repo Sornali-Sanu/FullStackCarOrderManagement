@@ -46,6 +46,28 @@ namespace CarOrderApi.Repositories
             };
         }
 
+      
+
+        private async Task<string?> GetUserProfileImageName(IFormFile ProfileImage)
+        {
+            string userFileName = null;
+            if (ProfileImage != null) {
+                //Guid.NewGuid create unique File Name
+                userFileName = Guid.NewGuid().ToString() + Path.GetExtension(ProfileImage.FileName);
+                //Path.Combine create folder location
+                var uploadFolder = Path.Combine(_env.WebRootPath, "UserImages");
+                var filePath = Path.Combine(uploadFolder, userFileName);
+                //fileStream create an empty file in folder path and copy to async copy the data to the file
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await ProfileImage.CopyToAsync(fileStream);
+                }
+              
+                    }
+            return userFileName;
+        }
+
+
         public async Task<List<Order>> GetUserOrderAsync(string userId)
         {
             return await _context.Orders.Where(x => x.UserId == userId).Include(x => x.Car).ToListAsync();
@@ -62,6 +84,24 @@ namespace CarOrderApi.Repositories
             if (userProfile == null)
             { return null; }
 
+            
+
+            if (user.ProfileImage != null)
+            {
+                if (!string.IsNullOrEmpty(userProfile.ProfileImageUrl))
+                {
+                    var oldImagePath = Path.Combine(_env.WebRootPath, "UserImages", userProfile.ProfileImageUrl);
+                    if (File.Exists(oldImagePath))
+                    {
+                        File.Delete(oldImagePath);
+                    }
+                }
+                userProfile.ProfileImageUrl = await GetUserProfileImageName(user.ProfileImage);
+            }
+            else { 
+            userProfile.ProfileImageUrl=user.ProfileImageUrl;
+            }
+
             userProfile.FullName = user.FullName;
             userProfile.LicenseExpiryDate=user.LicenseExpiryDate;
             userProfile.UserName=user.UserName;
@@ -70,13 +110,13 @@ namespace CarOrderApi.Repositories
             userProfile.City=user.City;
             userProfile.PostalCode=user.PostalCode;
             userProfile.DrivingLicenseNumber=user.DrivingLicenseNumber;
-            //userProfile.ProfileImageUrl=user.ProfileImageUrl;
+            
 
             await _context.SaveChangesAsync();
             return userProfile;
-            
-           
-         
+
+
+
         }
     }
 }

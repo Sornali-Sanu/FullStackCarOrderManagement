@@ -4,7 +4,7 @@ namespace CarOrderApi.Dtos
 {
     public class UpdateProfileDto
     {
-        public string Id { get; set; }
+       
         [Required]
         [MaxLength(100)]
         public string FullName { get; set; }
@@ -27,6 +27,6 @@ namespace CarOrderApi.Dtos
         public DateTime? LicenseExpiryDate { get; set; }
 
         public string? ProfileImageUrl { get; set; }
-        //public IFormFile ProfileImage { get; set; }
+        public IFormFile ProfileImage { get; set; }
     }
 }

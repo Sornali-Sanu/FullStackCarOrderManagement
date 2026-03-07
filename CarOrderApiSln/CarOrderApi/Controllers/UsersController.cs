@@ -35,7 +35,7 @@ namespace CarOrderApi.Controllers
         }
         [HttpPost("UpdateProfile")]
         [Authorize]
-        public async Task<IActionResult> UpdateProfile(UpdateProfileDto dto)
+        public async Task<IActionResult> UpdateProfile([FromForm]UpdateProfileDto dto)
         {//I have used this to autometically find the logged user by ClainType.NameIdentifier.
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrEmpty(userId))
