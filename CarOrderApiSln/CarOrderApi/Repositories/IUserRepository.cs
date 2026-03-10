@@ -10,5 +10,6 @@ namespace CarOrderApi.Repositories
         Task<List<Order>> GetUserOrderAsync(string userId);
         Task<List<Wishlist>> GetUserWishlistAsync(string userId);
         Task AddToWishlistAsync(Wishlist wishlist);
+        Task<string> UpdateProfileImage(string userId, UpdateProfileImage dto);
     }
 }

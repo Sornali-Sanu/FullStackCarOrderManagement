@@ -385,7 +385,7 @@
     "ContainingType": "CarOrderApi.Controllers.UsersController",
     "Method": "UpdateProfile",
     "RelativePath": "api/Users/UpdateProfile",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -441,6 +441,22 @@
       },
       {
         "Name": "ProfileImage",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarOrderApi.Controllers.UsersController",
+    "Method": "UpdateProfileImageOnly",
+    "RelativePath": "api/Users/UpdateProfileImage",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ProfileFile",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
       }

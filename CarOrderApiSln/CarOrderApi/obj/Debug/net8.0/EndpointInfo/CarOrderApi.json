@@ -602,7 +602,7 @@
       }
     },
     "/api/Users/UpdateProfile": {
-      "post": {
+      "put": {
         "tags": [
           "Users"
         ],
@@ -690,6 +690,38 @@
                   "style": "form"
                 },
                 "ProfileImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/UpdateProfileImage": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ProfileFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "ProfileFile": {
                   "style": "form"
                 }
               }

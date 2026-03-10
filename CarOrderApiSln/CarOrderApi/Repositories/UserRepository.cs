@@ -118,5 +118,43 @@ namespace CarOrderApi.Repositories
 
 
         }
+
+        public async Task<string> UpdateProfileImage(string userId, UpdateProfileImage dto)
+        {
+            var user = await _context.ApplicationUsers.FirstOrDefaultAsync(x => x.Id == userId);
+            if (user == null) 
+            {
+                throw new Exception("User Not found");
+            }
+            if (dto.ProfileFile!=null) 
+            {
+                var folderPath = Path.Combine(_env.WebRootPath, "UserImages");
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                //Delete old image:
+                if (!string.IsNullOrEmpty(user.ProfileImageUrl))
+                {
+                    var oldImagePath = Path.Combine(_env.WebRootPath,user.ProfileImageUrl);
+                    Console.WriteLine(oldImagePath);
+                    if (File.Exists(oldImagePath))
+                    {
+                        File.Delete(oldImagePath);
+                    }
+                }
+                //save new image:
+                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(dto.ProfileFile.FileName);
+                var filePath = Path.Combine(folderPath, fileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await dto.ProfileFile.CopyToAsync(fileStream);
+                }
+                user.ProfileImageUrl = "UserImages/" + fileName;
+                await _context.SaveChangesAsync();
+                     }
+            return user.ProfileImageUrl;
+        }
     }
 }

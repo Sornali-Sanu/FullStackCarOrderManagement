@@ -42,5 +42,10 @@ namespace CarOrderApi.Services
         {
             return await _repo.UpdateUserAsync(dto, userId);
         }
+
+        public async Task<string> UpdateUserImage(string userId, UpdateProfileImage dto)
+        {
+            return await _repo.UpdateProfileImage(userId, dto);
+        }
     }
 }

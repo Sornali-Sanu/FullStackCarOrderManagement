@@ -33,7 +33,7 @@ namespace CarOrderApi.Controllers
             }
             return Ok(profile);
         }
-        [HttpPost("UpdateProfile")]
+        [HttpPut("UpdateProfile")]
         [Authorize]
         public async Task<IActionResult> UpdateProfile([FromForm]UpdateProfileDto dto)
         {//I have used this to autometically find the logged user by ClainType.NameIdentifier.
@@ -50,6 +50,23 @@ namespace CarOrderApi.Controllers
             }
             return Ok(updatedUser);
             
+        }
+        [Authorize]
+        [HttpPut("UpdateProfileImage")]
+        public async Task<IActionResult> UpdateProfileImageOnly([FromForm] UpdateProfileImage dto)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized();
+            }
+            var imageUrl = await _service.UpdateUserImage(userId, dto);
+            return Ok(new {
+            massege="profile Updated Successfully",
+            imageUrl=imageUrl
+
+            });
+
         }
     }
 }
