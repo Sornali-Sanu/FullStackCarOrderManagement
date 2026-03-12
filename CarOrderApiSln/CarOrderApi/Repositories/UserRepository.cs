@@ -1,5 +1,5 @@
 ﻿using CarOrderApi.Data;
-using CarOrderApi.Dtos;
+using CarOrderApi.Dtos.UserDtos;
 using CarOrderApi.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -17,12 +17,8 @@ namespace CarOrderApi.Repositories
             _userManager=userManager;
             _env=env;
         }
-        public async Task AddToWishlistAsync(Wishlist wishlist)
-        {
-          await _context.Wishlists.AddAsync(wishlist);
-          await _context.SaveChangesAsync();
-        }
-
+       
+    //GetUser:
         public async Task<ProfileResponseDto> GetUserByIdAsync(string userId)
         {
             var user= await _userManager.FindByIdAsync(userId);
@@ -46,7 +42,7 @@ namespace CarOrderApi.Repositories
             };
         }
 
-      
+      //GetImage:
 
         private async Task<string?> GetUserProfileImageName(IFormFile ProfileImage)
         {
@@ -72,12 +68,12 @@ namespace CarOrderApi.Repositories
         {
             return await _context.Orders.Where(x => x.UserId == userId).Include(x => x.Car).ToListAsync();
         }
-
+        //get wishlist:
         public async Task<List<Wishlist>> GetUserWishlistAsync(string userId)
         {
             return await _context.Wishlists.Where(x => x.UserId == userId).Include(x => x.Car).ToListAsync();
         }
-
+        //Update User
         public async Task<ApplicationUser> UpdateUserAsync(UpdateProfileDto user,string userId)
         {
             var userProfile = await _context.ApplicationUsers.FirstOrDefaultAsync(x=>x.Id==userId);
@@ -118,7 +114,7 @@ namespace CarOrderApi.Repositories
 
 
         }
-
+        //Update only image:
         public async Task<string> UpdateProfileImage(string userId, UpdateProfileImage dto)
         {
             var user = await _context.ApplicationUsers.FirstOrDefaultAsync(x => x.Id == userId);
@@ -155,6 +151,34 @@ namespace CarOrderApi.Repositories
                 await _context.SaveChangesAsync();
                      }
             return user.ProfileImageUrl;
+        }
+
+        public async Task<bool> AddToWishlistAsync(string userId, int carId)
+        {
+            var exists = await _context.Wishlists.FirstOrDefaultAsync(x => x.UserId == userId && x.CarId == carId);
+            if (exists != null) {
+                return false;
+            }
+            var wishlist = new Wishlist
+            {
+                UserId=userId,
+
+CarId=carId            };
+            _context.Wishlists.Add(wishlist);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> RemoveWishList(string userId, int carId)
+        {
+            var item = await _context.Wishlists.FirstOrDefaultAsync(x => x.UserId == userId && x.CarId == carId);
+            if (item == null)
+            {
+                return false;
+            }
+            _context.Wishlists.Remove(item);
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 }

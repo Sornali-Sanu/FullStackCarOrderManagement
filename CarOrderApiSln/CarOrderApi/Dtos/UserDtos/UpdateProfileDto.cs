@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CarOrderApi.Dtos
+namespace CarOrderApi.Dtos.UserDtos
 {
     public class UpdateProfileDto
     {

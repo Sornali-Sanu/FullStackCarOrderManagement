@@ -1,4 +1,4 @@
-﻿using CarOrderApi.Dtos;
+﻿using CarOrderApi.Dtos.UserDtos;
 using CarOrderApi.Model;
 using CarOrderApi.Repositories;
 
@@ -13,12 +13,9 @@ namespace CarOrderApi.Services
             _repo = repo;
         }
 
-        public async Task AddWishList(string userId, int carId)
+        public async Task<bool> AddWishList(string userId, int carId)
         {
-            var wishlist = new Wishlist {
-            UserId=userId,
-            CarId=carId};
-            await _repo.AddToWishlistAsync(wishlist);
+           return await _repo.AddToWishlistAsync(userId, carId);
         }
 
         public async Task<List<Order>> GetOrders(string userId)
@@ -36,6 +33,11 @@ namespace CarOrderApi.Services
         public async Task<List<Wishlist>> GetWishlists(string userId)
         {
             return await _repo.GetUserWishlistAsync(userId);
+        }
+
+        public async Task<bool> RemoveCarFromwishList(string userId, int carId)
+        {
+            return await _repo.RemoveWishList(userId,carId);
         }
 
         public async Task<ApplicationUser> UpdateProfile(string userId, UpdateProfileDto dto)

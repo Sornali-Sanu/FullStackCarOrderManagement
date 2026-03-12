@@ -373,12 +373,54 @@
   },
   {
     "ContainingType": "CarOrderApi.Controllers.UsersController",
+    "Method": "AddToWishList",
+    "RelativePath": "api/Users/AddWishList",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarOrderApi.Controllers.UsersController",
+    "Method": "GetAllWishList",
+    "RelativePath": "api/Users/getWishList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarOrderApi.Controllers.UsersController",
     "Method": "GetProfile",
     "RelativePath": "api/Users/profile",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarOrderApi.Controllers.UsersController",
+    "Method": "RemoveWishList",
+    "RelativePath": "api/Users/RemoveWishlist",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {

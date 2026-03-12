@@ -1,4 +1,4 @@
-﻿using CarOrderApi.Dtos;
+﻿using CarOrderApi.Dtos.UserDtos;
 using CarOrderApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -67,6 +67,31 @@ namespace CarOrderApi.Controllers
 
             });
 
+        }
+        [HttpPost("AddWishList")]
+        public async Task<IActionResult> AddToWishList(int carId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var result = await _service.AddWishList(userId, carId);
+            if (!result)
+                return BadRequest();
+            return Ok("added to wishlist");
+
+        }
+        [HttpGet("getWishList")]
+        public async Task<IActionResult> GetAllWishList()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var list = await _service.GetWishlists(userId);
+            return Ok(list);
+        }
+
+        [HttpDelete("RemoveWishlist")]
+        public async Task<IActionResult> RemoveWishList(int carId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var result = await _service.RemoveCarFromwishList(userId, carId);
+            return Ok(result);
         }
     }
 }

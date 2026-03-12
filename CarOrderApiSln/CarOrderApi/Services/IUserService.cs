@@ -1,4 +1,4 @@
-﻿using CarOrderApi.Dtos;
+﻿using CarOrderApi.Dtos.UserDtos;
 using CarOrderApi.Model;
 
 namespace CarOrderApi.Services
@@ -9,7 +9,8 @@ namespace CarOrderApi.Services
         Task<ApplicationUser> UpdateProfile(string userId,UpdateProfileDto dto);
         Task<List<Order>> GetOrders(string userId);
         Task<List<Wishlist>>GetWishlists(string userId);
-        Task AddWishList(string userId, int carId);
+        Task<bool> AddWishList(string userId, int carId);
+        Task<bool> RemoveCarFromwishList(string userId, int carId);
         Task<string> UpdateUserImage(string userId, UpdateProfileImage dto);
     }
 }
