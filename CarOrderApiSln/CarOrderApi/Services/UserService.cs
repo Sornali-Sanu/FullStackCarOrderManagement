@@ -7,10 +7,11 @@ namespace CarOrderApi.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _repo;
-
-        public UserService(IUserRepository repo)
+      
+        public UserService(IUserRepository repo, ILogger<UserService> logger)
         {
             _repo = repo;
+            
         }
 
         public async Task<bool> AddWishList(string userId, int carId)

@@ -13,10 +13,11 @@ namespace CarOrderApi.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserService _service;
-
-        public UsersController(IUserService service)
+        private readonly ILogger<UsersController> _logger;
+        public UsersController(IUserService service,ILogger<UsersController>logger)
         {
             _service = service;
+            _logger = logger;
         }
         [HttpGet("profile")]
         public async Task<IActionResult> GetProfile()
@@ -24,13 +25,16 @@ namespace CarOrderApi.Controllers
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (userId == null)
             {
+                _logger.LogWarning($"Unauthorized access attemp.");
                 return Unauthorized();
             }
             var profile=await _service.GetProfile(userId);
             if (profile == null)
             {
+                _logger.LogWarning($"User not found with id{userId}");
                 return NotFound();
             }
+            _logger.LogInformation($"Profile fetched Successfully with id {userId}");
             return Ok(profile);
         }
         [HttpPut("UpdateProfile")]

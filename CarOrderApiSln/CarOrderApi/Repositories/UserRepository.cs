@@ -11,21 +11,26 @@ namespace CarOrderApi.Repositories
         private readonly AppDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IWebHostEnvironment _env;
-        public UserRepository(AppDbContext context,UserManager<ApplicationUser>userManager,IWebHostEnvironment env)
+        private readonly ILogger<UserRepository> _logger;
+        public UserRepository(AppDbContext context,UserManager<ApplicationUser>userManager,IWebHostEnvironment env,ILogger<UserRepository>logger)
         {
             _context=context;
             _userManager=userManager;
             _env=env;
+            _logger=logger;
         }
        
     //GetUser:
         public async Task<ProfileResponseDto> GetUserByIdAsync(string userId)
-        {
+        {   //log info:
+            _logger.LogInformation($"Fetching profile for user {userId}");
             var user= await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
+                _logger.LogWarning($"User not found with id {userId}");
                 return null;
             }
+            _logger.LogInformation($"Profile fetched successfully for user {userId}");
             return new ProfileResponseDto
             {
                 UserName=user.UserName,
@@ -154,9 +159,11 @@ namespace CarOrderApi.Repositories
         }
 
         public async Task<bool> AddToWishlistAsync(string userId, int carId)
-        {
+        {//wishList Log:
+            _logger.LogInformation($"User {userId} adding car {carId} to wishlist");
             var exists = await _context.Wishlists.FirstOrDefaultAsync(x => x.UserId == userId && x.CarId == carId);
             if (exists != null) {
+                _logger.LogWarning($"Failed to add car {carId} to wishlist for user {userId} it already exist");
                 return false;
             }
             var wishlist = new Wishlist
@@ -166,6 +173,7 @@ namespace CarOrderApi.Repositories
 CarId=carId            };
             _context.Wishlists.Add(wishlist);
             await _context.SaveChangesAsync();
+            _logger.LogInformation($"Added to wishlist of {userId}");
             return true;
         }
 
