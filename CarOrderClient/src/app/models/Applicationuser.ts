@@ -1,9 +1,12 @@
-export interface User {
+export interface Applicationuser {
     fullName:string, 
+    email:string,
+    userName:string,
     profileImageUrl: string ,
     country:string,
     city:string,
-    streetAddress:string,  PostalCode:string,
+    streetAddress:string,  
+    
     drivingLicenseNumber:string,
     licenseExpiryDate: Date,
     postalCode:string,

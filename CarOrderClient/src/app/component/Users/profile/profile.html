@@ -3,8 +3,9 @@
   <!-- Sidebar -->
   <div class="sidebar">
     <div class="profile-section text-center">
-      <img src="../images/car2.png" class="profile-img" />
-      <h5 class="mt-2">Sornali</h5>
+      <img [src]="user?.profileImageUrl || 'images/default-user.png'" class="profile-img" />
+     
+      <h5 class="mt-2">{{user.userName}}</h5>
     </div>
 
     <ul>
@@ -21,11 +22,10 @@
     <!-- Profile Tab -->
     <div *ngIf="activeTab==='profile'">
       <h3>Profile Information</h3>
-@for(item of user;track $index)
-{
-<form  class="mt-3">
+
+<form  [formGroup]="profileForm" class="mt-3" (ngSubmit)="updateProfile()">
         <div class="mb-3">
-          <label>Name</label>
+          <label>Full Name</label>
           <input class="form-control" formControlName="fullName">
         </div>
 
@@ -34,14 +34,53 @@
           <input class="form-control" formControlName="email">
         </div>
 
-        <div class="mb-3">
-          <label>Phone</label>
-          <input class="form-control" formControlName="phone">
-        </div>
+       <div class="mb-3">
+      <label>User Name</label>
+      <input class="form-control" formControlName="userName" readonly>
+    </div>
 
-        <button class="btn btn-primary">Edit Profile</button>
+    <div class="mb-3">
+      <label>Phone</label>
+      <input class="form-control" formControlName="phoneNumber">
+    </div>
+
+    <div class="mb-3">
+      <label>Country</label>
+      <input class="form-control" formControlName="country">
+    </div>
+
+    <div class="mb-3">
+      <label>City</label>
+      <input class="form-control" formControlName="city">
+    </div>
+
+    <div class="mb-3">
+      <label>Address</label>
+      <input class="form-control" formControlName="streetAddress">
+    </div>
+
+    <div class="mb-3">
+      <label>Postal Code</label>
+      <input class="form-control" formControlName="postalCode">
+    </div>
+
+    <div class="mb-3">
+      <label>Driving License</label>
+      <input class="form-control" formControlName="drivingLicenseNumber">
+    </div>
+
+    <div class="mb-3">
+      <label>Expiry Date</label>
+      <input type="date" class="form-control" formControlName="licenseExpiryDate">
+    </div>
+     <div class="mb-3">
+      <label>Upload Image</label>
+       <input type="file" (change)="onFileSelect($event)" class="form-control mt-2">
+    </div>
+
+   
+    <button class="btn btn-primary">Update Profile</button>
       </form>
-}
       
     </div>
 

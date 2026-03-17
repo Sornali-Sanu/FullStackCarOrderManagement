@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../models/user';
+import { Applicationuser} from '../models/Applicationuser';
 
 @Injectable({
   providedIn: 'root',
@@ -11,8 +11,13 @@ export class UserService {
     {}
    baseUrl='https://localhost:7202'
 
-    geProfileView():Observable<User[]>{
-      return this.http.get<User[]>(`${this.baseUrl}/api/Users`)
+    geProfileView():Observable<Applicationuser>{
+      return this.http.get<Applicationuser>(`${this.baseUrl}/api/Users/profile`)
+    }
+
+    updateProfile(data:FormData)
+    {
+      return this.http.put(`${this.baseUrl}/api/Users/UpdateProfile`,data)
     }
   
 }
