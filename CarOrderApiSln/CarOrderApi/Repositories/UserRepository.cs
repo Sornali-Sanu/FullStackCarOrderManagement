@@ -24,7 +24,7 @@ namespace CarOrderApi.Repositories
         public async Task<ProfileResponseDto> GetUserByIdAsync(string userId)
         {   //log info:
             _logger.LogInformation($"Fetching profile for user {userId}");
-            var user= await _userManager.FindByIdAsync(userId);
+            var user= await _context.ApplicationUsers.FirstOrDefaultAsync(u => u.Id == userId);
             if (user == null)
             {
                 _logger.LogWarning($"User not found with id {userId}");
@@ -111,7 +111,7 @@ namespace CarOrderApi.Repositories
             userProfile.City=user.City;
             userProfile.PostalCode=user.PostalCode;
             userProfile.DrivingLicenseNumber=user.DrivingLicenseNumber;
-            
+
 
             await _context.SaveChangesAsync();
             return userProfile;

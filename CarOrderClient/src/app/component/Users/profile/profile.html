@@ -2,8 +2,8 @@
 
   <!-- Sidebar -->
   <div class="sidebar">
-    <div class="profile-section text-center">
-      <img [src]="user?.profileImageUrl || 'images/default-user.png'" class="profile-img" />
+    <div class="profile-section text-center" *ngIf="user">
+      <img [src]="user.profileImageUrl || 'images/default-user.png'" class="profile-img" />
      
       <h5 class="mt-2">{{user.userName}}</h5>
     </div>

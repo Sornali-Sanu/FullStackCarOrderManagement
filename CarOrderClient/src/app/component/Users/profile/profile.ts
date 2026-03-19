@@ -64,11 +64,16 @@ export class Profile implements OnInit{
 
 
       this.user = res;
-
+      console.log(res);
+      if(this.user.licenseExpiryDate)
+      {
+          this.user.licenseExpiryDate =new Date(this.user.licenseExpiryDate).toISOString().split('T')[0];
+    
+      }
       
       if (this.user.profileImageUrl && !this.user.profileImageUrl.startsWith('http')) {
         this.user.profileImageUrl =
-          `${this.userService.baseUrl}/${this.user.profileImageUrl}`;
+          `${this.userService.baseUrl}/UserImages/${this.user.profileImageUrl}`;
       }
 
   
@@ -77,30 +82,48 @@ export class Profile implements OnInit{
     error: (err) => {
       console.error(err);
     }
+  
   });
 }
   onFileSelect(
     event:any
   ){
-    //files is an array .selectedFile store here
-    this.selectedFile=event.taeget.files[0];
+    const input= event.target as HTMLInputElement;
+    if(input.files && input.files.length>0){
+      //files is an array .selectedFile store here
+    this.selectedFile=event.target.files[0];
+    }
+    
   }
 
   updateProfile() {
     const formData = new FormData();
 
     Object.keys(this.profileForm.value).forEach(key => {
-      formData.append(key, this.profileForm.value[key]);
+
+      const value=this.profileForm.value[key];
+      if(value!==null && value!== undefined)
+      {
+ formData.append(key,value);
+      }
+
+     
     });
 
     if (this.selectedFile) {
       formData.append('profileImage', this.selectedFile);
     }
 
-    this.userService.updateProfile(formData).subscribe(() => {
-      alert("Profile Updated Successfully");
-      this.getProfile();
-    });
+    this.userService.updateProfile(formData).subscribe(
+      {
+        next:()=>{
+          alert("Profile Update successfully");
+          this.getProfile();
+        },
+        error:(err)=>{console.error(err.error)}
+
+      }
+    );
   }
 
 
