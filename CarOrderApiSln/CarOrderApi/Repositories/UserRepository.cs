@@ -111,7 +111,7 @@ namespace CarOrderApi.Repositories
             userProfile.City=user.City;
             userProfile.PostalCode=user.PostalCode;
             userProfile.DrivingLicenseNumber=user.DrivingLicenseNumber;
-
+            userProfile.StreetAddress=user.StreetAddress;
 
             await _context.SaveChangesAsync();
             return userProfile;

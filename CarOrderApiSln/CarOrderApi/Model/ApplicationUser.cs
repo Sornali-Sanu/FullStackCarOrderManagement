@@ -6,7 +6,7 @@ namespace CarOrderApi.Model
     public class ApplicationUser:IdentityUser
     {
         public string FullName { get; set; }
-        public string PhoneNumber { get; set; }
+       
         public string?ProfileImageUrl { get; set; }
 
         //address:

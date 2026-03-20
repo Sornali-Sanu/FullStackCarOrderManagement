@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarOrderApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260319172317_init")]
+    [Migration("20260320130957_init")]
     partial class init
     {
         /// <inheritdoc />
