@@ -40,9 +40,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "refreshToken",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "dto",
+        "Type": "CarOrderApi.Dtos.RefreshRequestToken",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

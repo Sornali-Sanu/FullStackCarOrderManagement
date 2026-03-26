@@ -5,7 +5,7 @@ import { tap } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class Auth {
+export class Auth  {
 private baseUrl='https://localhost:7202/api/Auth';
 constructor(private http:HttpClient)
 {}
@@ -15,11 +15,12 @@ constructor(private http:HttpClient)
 }
   login(model:any)
   {
-    return this.http.post(`${this.baseUrl}/login`,model).pipe(
+    return this.http.post<any>(`${this.baseUrl}/login`,model).pipe(
 tap(
-  (res:any)=>{
-localStorage.setItem('accessToken',res.accessToken);
-localStorage.setItem('refreshToken',res.refreshToken);
+  (res)=>{
+// localStorage.setItem('accessToken',res.accessToken);
+// localStorage.setItem('refreshToken',res.refreshToken);
+this.setToken(res.accessToken,res.refreshToken)
 localStorage.setItem('userName',res.userName);//to set the userName in localstorage
 })
 )
@@ -37,7 +38,13 @@ getAccessToken()
 renewToken()
   {
 
-    return this.http.post(`${this.baseUrl}/refresh`,{refreshToken:localStorage.getItem('refreshToken')})
+    return this.http.post<any>(`${this.baseUrl}/refresh`,{refreshToken:localStorage.getItem('refreshToken')}).pipe(
+      tap(res=>this.setToken(res.accessToken,res.refreshToken))
+    )
+  }
+  setToken(accessToken: any, refreshToken: any): void {
+    localStorage.setItem('accessToken',accessToken);
+    localStorage.setItem('refreshToken',refreshToken)
   }
   
  
@@ -48,10 +55,19 @@ renewToken()
 
   logout()
 {
-  const refreshToken=localStorage.getItem('refreshToken');
+  const refreshToken = localStorage.getItem('refreshToken');
   
-  localStorage.clear();
-  return this.http.post(`${this.baseUrl}/logout`,{refreshToken});
-
+  this.http.post(`${this.baseUrl}/logout`, { refreshToken }).subscribe({
+    next: () => {
+      localStorage.clear();
+      // Optionally redirect to login
+      window.location.href = '/login';
+    },
+    error: (err) => {
+      console.error('Logout error', err);
+      localStorage.clear();
+      window.location.href = '/login';
+    }
+  });
 }
 }

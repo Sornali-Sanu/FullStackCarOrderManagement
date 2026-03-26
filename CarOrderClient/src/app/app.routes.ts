@@ -7,8 +7,8 @@ import { Profile } from './component/Users/profile/profile';
 
 export const routes: Routes = [
      {path:'',component:GetCar},
-    {path:'getCar',component:GetCar},
-    { path:'login',component:Login},
+     {path:'getCar',component:GetCar},
+     {path:'login',component:Login},
      {path:'registration',component:Registration},
      {path:'detailsCar/:id',component:Details},
      //user Profile;
