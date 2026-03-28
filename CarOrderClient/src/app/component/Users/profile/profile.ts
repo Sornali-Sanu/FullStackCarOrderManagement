@@ -22,11 +22,25 @@ export class Profile implements OnInit{
   user!:Applicationuser;
   profileForm!:FormGroup;
   selectedFile!:File;
-
+  orders:any[]=[];
   ngOnInit(): void {
     this.initForm();
     this.getProfile();
+    this.loadOrder();
+  }
+  loadOrder() {
+    this.userService.getMyOrders().subscribe(
+      {next:(res)=>{
+        this.orders=res
+      },
+error:(err)=>{
+  console.error('error loading Orders',err)
+}
     
+    }
+    
+      
+    )
   }
   initForm() {
     this.profileForm=this.fb.group(

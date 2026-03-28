@@ -97,5 +97,13 @@ namespace CarOrderApi.Controllers
             var result = await _service.RemoveCarFromwishList(userId, carId);
             return Ok(result);
         }
+
+        [HttpGet("UserOrder")]
+        public async Task<IActionResult> GetUserOrder()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var orders=await _service.GetOrders(userId);
+            return Ok(orders);
+        }
     }
 }

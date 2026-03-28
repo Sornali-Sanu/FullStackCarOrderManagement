@@ -54,7 +54,8 @@ namespace CarOrderApi.Services
             {
                 CarId = orderDto.CarId,
               
-                UserId = userId
+                UserId = userId,
+                Status="Panding"
 
             };
             await _repo.PlaceOrder(order);

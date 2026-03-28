@@ -9,7 +9,7 @@
 
         public decimal TotalPrice { get; set; }
         public DateTime OrderDate { get; set; }
-        public string Status { get; set; }
+        public string Status { get; set; } = "Panding";
 
         public ApplicationUser User { get; set; }
         public Car Car { get; set; }

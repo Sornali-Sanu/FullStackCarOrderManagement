@@ -19,5 +19,9 @@ export class UserService {
     {
       return this.http.put(`${this.baseUrl}/api/Users/UpdateProfile`,data)
     }
+    getMyOrders():Observable<any>
+    {
+      return this.http.get(`${this.baseUrl}/api/Users/MyOrder`)
+    }
   
 }

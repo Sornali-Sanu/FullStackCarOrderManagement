@@ -87,13 +87,27 @@
     <!-- Orders Tab -->
     <div *ngIf="activeTab==='orders'">
       <h3>My Orders</h3>
+      <div *ngIf="orders.length===0">
+        <p>
+          No Order found
+        </p>
 
-      <div class="order-card" *ngFor="let order of [1,2,3]">
-        <img src="https://source.unsplash.com/400x200/?car" />
+      </div>
+
+      <div class="order-card" *ngFor="let order of orders">
+        <img [src]="order.carImageUrl" />
         <div class="p-3">
-          <h5>Toyota Corolla</h5>
-          <p>Price: $20,000</p>
-          <span class="badge bg-success">Delivered</span>
+          <h5>{{order.carName}}</h5>
+          <p>{{order.price}}</p>
+          <span 
+        class="badge"
+        [ngClass]="{
+          'bg-success': order.status === 'Delivered',
+          'bg-warning': order.status === 'Pending',
+          'bg-danger': order.status === 'Cancelled'
+        }">
+        {{ order.status }}
+      </span>
         </div>
       </div>
     </div>
