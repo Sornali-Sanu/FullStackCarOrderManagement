@@ -59,8 +59,13 @@ namespace CarOrderApi.Controllers
             var user = await _userManager.FindByEmailAsync(dto.Email);
             if (user == null || !await _userManager.CheckPasswordAsync(user,dto.Password))
                 return Unauthorized("Invalid email or password");
-
+            //generate access token:
             var accessToken =await _tokenService.GenerateAccessToken(user);
+
+            //remove old refresh token:
+            var oldToken = _context.RefreshTokens.Where(x => x.UserId == user.Id && !x.IsRevoked);
+            _context.RefreshTokens.RemoveRange(oldToken);
+            //create new refresh token:
             var refreshToken = _tokenService.GetRefreshToken(user.Id);
             _context.RefreshTokens.Add(refreshToken);
             await _context.SaveChangesAsync();
@@ -71,11 +76,11 @@ namespace CarOrderApi.Controllers
            
         }
 
-        [AllowAnonymous]
+        
         [HttpPost("refresh")]
-        public async Task<IActionResult> RefreshToken(string refreshToken)
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshRequestToken dto)
         {
-            var storeToken = await _context.RefreshTokens.Include(x => x.User).FirstOrDefaultAsync(x => x.Token == refreshToken);
+            var storeToken = await _context.RefreshTokens.Include(x => x.User).FirstOrDefaultAsync(x => x.Token == dto.RefreshToken);
             if (storeToken == null || storeToken.IsRevoked || storeToken.Expires < DateTime.UtcNow)
             {
                 return Unauthorized();

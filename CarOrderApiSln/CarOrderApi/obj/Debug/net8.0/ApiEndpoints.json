@@ -40,9 +40,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "refreshToken",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "dto",
+        "Type": "CarOrderApi.Dtos.RefreshRequestToken",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -373,8 +373,142 @@
   },
   {
     "ContainingType": "CarOrderApi.Controllers.UsersController",
+    "Method": "AddToWishList",
+    "RelativePath": "api/Users/AddWishList",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarOrderApi.Controllers.UsersController",
+    "Method": "GetAllWishList",
+    "RelativePath": "api/Users/getWishList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarOrderApi.Controllers.UsersController",
     "Method": "GetProfile",
     "RelativePath": "api/Users/profile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarOrderApi.Controllers.UsersController",
+    "Method": "RemoveWishList",
+    "RelativePath": "api/Users/RemoveWishlist",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarOrderApi.Controllers.UsersController",
+    "Method": "UpdateProfile",
+    "RelativePath": "api/Users/UpdateProfile",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FullName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Country",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "StreetAddress",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PostalCode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DrivingLicenseNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LicenseExpiryDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProfileImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProfileImage",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarOrderApi.Controllers.UsersController",
+    "Method": "UpdateProfileImageOnly",
+    "RelativePath": "api/Users/UpdateProfileImage",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ProfileFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarOrderApi.Controllers.UsersController",
+    "Method": "GetUserOrder",
+    "RelativePath": "api/Users/UserOrder",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

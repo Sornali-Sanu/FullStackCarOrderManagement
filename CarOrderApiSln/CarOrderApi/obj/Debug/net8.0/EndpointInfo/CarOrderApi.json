@@ -72,15 +72,25 @@
         "tags": [
           "Auth"
         ],
-        "parameters": [
-          {
-            "name": "refreshToken",
-            "in": "query",
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshRequestToken"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshRequestToken"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshRequestToken"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -601,6 +611,208 @@
         }
       }
     },
+    "/api/Users/UpdateProfile": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "FullName",
+                  "UserName"
+                ],
+                "type": "object",
+                "properties": {
+                  "FullName": {
+                    "maxLength": 100,
+                    "type": "string"
+                  },
+                  "UserName": {
+                    "maxLength": 100,
+                    "type": "string"
+                  },
+                  "PhoneNumber": {
+                    "type": "string",
+                    "format": "tel"
+                  },
+                  "Country": {
+                    "maxLength": 100,
+                    "type": "string"
+                  },
+                  "City": {
+                    "maxLength": 100,
+                    "type": "string"
+                  },
+                  "StreetAddress": {
+                    "type": "string"
+                  },
+                  "PostalCode": {
+                    "type": "string"
+                  },
+                  "DrivingLicenseNumber": {
+                    "type": "string"
+                  },
+                  "LicenseExpiryDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ProfileImageUrl": {
+                    "type": "string"
+                  },
+                  "ProfileImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "FullName": {
+                  "style": "form"
+                },
+                "UserName": {
+                  "style": "form"
+                },
+                "PhoneNumber": {
+                  "style": "form"
+                },
+                "Country": {
+                  "style": "form"
+                },
+                "City": {
+                  "style": "form"
+                },
+                "StreetAddress": {
+                  "style": "form"
+                },
+                "PostalCode": {
+                  "style": "form"
+                },
+                "DrivingLicenseNumber": {
+                  "style": "form"
+                },
+                "LicenseExpiryDate": {
+                  "style": "form"
+                },
+                "ProfileImageUrl": {
+                  "style": "form"
+                },
+                "ProfileImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/UpdateProfileImage": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ProfileFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "ProfileFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/AddWishList": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "carId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/getWishList": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/RemoveWishlist": {
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "carId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/UserOrder": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -688,6 +900,16 @@
             "minLength": 1,
             "type": "string",
             "format": "password"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshRequestToken": {
+        "type": "object",
+        "properties": {
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

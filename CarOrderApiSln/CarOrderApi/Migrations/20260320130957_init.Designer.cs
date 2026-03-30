@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarOrderApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260224162107_init")]
+    [Migration("20260320130957_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -442,7 +442,6 @@ namespace CarOrderApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProfileImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StreetAddress")
@@ -484,7 +483,7 @@ namespace CarOrderApi.Migrations
 
             modelBuilder.Entity("CarOrderApi.Model.RefreshToken", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                    b.HasOne("CarOrderApi.Model.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

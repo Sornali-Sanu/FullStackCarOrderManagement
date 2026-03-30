@@ -1,4 +1,4 @@
-import { Component, NgModule, signal } from '@angular/core';
+import { Component, NgModule, OnInit, signal } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 import { CommonModule } from '@angular/common';
@@ -11,14 +11,30 @@ import { Auth } from './services/auth';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
+export class App  implements OnInit{
   protected readonly title = signal('CarOrderClient');
   constructor(public auth:Auth,private router:Router)
   {}
+  ngOnInit(): void {
+    if(this.auth.getAccessToken())
+    {this.auth.renewToken().subscribe(
+      {
+        next:()=>{
+          console.log('token renewed')
+        },
+        error:()=>{
+          this.auth.logout();
+        }
+      }
+    )
+
+    }
+  }
   
   logout()
   {
     this.auth.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/getCar'])
+   
   }
 }

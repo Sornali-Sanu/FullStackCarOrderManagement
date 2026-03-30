@@ -439,7 +439,6 @@ namespace CarOrderApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProfileImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StreetAddress")
@@ -481,7 +480,7 @@ namespace CarOrderApi.Migrations
 
             modelBuilder.Entity("CarOrderApi.Model.RefreshToken", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                    b.HasOne("CarOrderApi.Model.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

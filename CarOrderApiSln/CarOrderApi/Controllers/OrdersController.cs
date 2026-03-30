@@ -28,7 +28,7 @@ namespace CarOrderApi.Controllers
             return Ok("order Successfully");
         }
 
-        //[Authorize(Roles = "Customer,User")]
+        [Authorize(Roles = "Customer,User")]
         [HttpGet("MyOrder")]
         public async Task<IActionResult> MyOrder()
         {

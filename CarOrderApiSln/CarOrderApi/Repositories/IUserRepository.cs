@@ -1,13 +1,22 @@
-﻿using CarOrderApi.Model;
+﻿using CarOrderApi.Dtos.UserDtos;
+using CarOrderApi.Model;
 
 namespace CarOrderApi.Repositories
 {
     public interface IUserRepository
     {
-        Task<ApplicationUser> GetUserByIdAsync(string userId);
-        Task UpdateUserAsync(ApplicationUser user);
+        Task<ProfileResponseDto> GetUserByIdAsync(string userId);
+        Task<ApplicationUser> UpdateUserAsync(UpdateProfileDto user,string userId);
         Task<List<Order>> GetUserOrderAsync(string userId);
+        //Getwishlist:
         Task<List<Wishlist>> GetUserWishlistAsync(string userId);
-        Task AddToWishlistAsync(Wishlist wishlist);
+        //add wishList:
+        Task<bool> AddToWishlistAsync(string userId,int carId);
+        Task<string> UpdateProfileImage(string userId, UpdateProfileImage dto);
+        
+        
+        //remove wishlist:
+        Task<bool> RemoveWishList(string userId, int carId);
+
     }
 }

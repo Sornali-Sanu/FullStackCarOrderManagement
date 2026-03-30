@@ -39,7 +39,7 @@ namespace CarOrderApi.Services
                 issuer: _config["jwt:Issuer"],
                 audience: _config["jwt:Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(3),
+                expires: DateTime.UtcNow.AddMinutes(3),
                 signingCredentials: creds
 
                 )
@@ -50,8 +50,8 @@ namespace CarOrderApi.Services
         public RefreshToken GetRefreshToken(string userId)
         {
             return new RefreshToken {
-            Token=Convert.ToBase64String(RandomNumberGenerator.GetBytes(64)),
-            Expires=DateTime.Now.AddDays(7),
+            Token=Guid.NewGuid().ToString(),
+            Expires=DateTime.UtcNow.AddDays(7),
             IsRevoked=false,
             UserId=userId
             };

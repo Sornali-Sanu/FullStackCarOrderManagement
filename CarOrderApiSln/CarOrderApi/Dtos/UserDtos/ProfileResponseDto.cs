@@ -1,28 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace CarOrderApi.Dtos
+﻿namespace CarOrderApi.Dtos.UserDtos
 {
-    public class UpdateProfileDto
+    public class ProfileResponseDto
     {
-        [Required]
-        [MaxLength(100)]
+        public string UserName { get; set; }
+        public string Email { get; set; }
         public string FullName { get; set; }
-        [Phone]
         public string PhoneNumber { get; set; }
-        [MaxLength(100)]
-        public string Country { get; set; }
-        [MaxLength(100)]
-        public string City { get; set; }
-
-        public string StreetAddress { get; set; }
-
-        public string PostalCode { get; set; }
-
-        public string DrivingLicenseNumber { get; set; }
-
-        public DateTime? LicenseExpiryDate { get; set; }
-
         public string? ProfileImageUrl { get; set; }
-        public IFormFile ProfileImage { get; set; }
+
+        //address:
+        public string Country { get; set; }
+        public string City { get; set; }
+        public string StreetAddress { get; set; }
+        public string PostalCode { get; set; }
+        //verification
+        public string DrivingLicenseNumber { get; set; }
+        public DateTime? LicenseExpiryDate { get; set; }
     }
 }
