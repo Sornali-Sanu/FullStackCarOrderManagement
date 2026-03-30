@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Applicationuser} from '../models/Applicationuser';
+import { Order } from '../models/Order';
+
 
 @Injectable({
   providedIn: 'root',
@@ -19,9 +21,9 @@ export class UserService {
     {
       return this.http.put(`${this.baseUrl}/api/Users/UpdateProfile`,data)
     }
-    getMyOrders():Observable<any>
+    getMyOrders():Observable<Order[]>
     {
-      return this.http.get(`${this.baseUrl}/api/Users/MyOrder`)
+      return this.http.get<Order[]>(`${this.baseUrl}/api/Orders/MyOrder`)
     }
   
 }

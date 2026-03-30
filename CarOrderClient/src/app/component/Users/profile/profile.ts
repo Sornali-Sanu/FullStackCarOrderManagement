@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { Applicationuser } from '../../../models/Applicationuser';
 import { UserService } from '../../../services/userService';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Order } from '../../../models/Order';
 @Component({
   selector: 'app-profile',
   imports: [CommonModule,ReactiveFormsModule],
@@ -22,25 +23,34 @@ export class Profile implements OnInit{
   user!:Applicationuser;
   profileForm!:FormGroup;
   selectedFile!:File;
-  orders:any[]=[];
+  orders:Order[]=[];
   ngOnInit(): void {
     this.initForm();
     this.getProfile();
     this.loadOrder();
   }
   loadOrder() {
-    this.userService.getMyOrders().subscribe(
-      {next:(res)=>{
-        this.orders=res
-      },
-error:(err)=>{
-  console.error('error loading Orders',err)
-}
+//     this.userService.getMyOrders().subscribe(
+//       {next:(res)=>{
+//         this.orders=res
+//       },
+// error:(err)=>{
+//   console.error('error loading Orders',err)
+// }
     
-    }
+//     }
     
       
-    )
+//     )
+ this.userService.getMyOrders().subscribe((res:Order[]) => {
+    
+      this.orders= res.map(c => ({
+        ...c,
+        carImage: c.carImage.startsWith('http')
+          ? c.carImage
+          : `${this.userService.baseUrl}/images/${c.carImage}`
+      }));
+    });
   }
   initForm() {
     this.profileForm=this.fb.group(

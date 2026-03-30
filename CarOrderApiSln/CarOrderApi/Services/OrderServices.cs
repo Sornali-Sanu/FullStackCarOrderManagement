@@ -27,10 +27,11 @@ namespace CarOrderApi.Services
                 OrderId = o.Id,
                 CarId = o.CarId,
                 CarName = o.Car.Name,
-                
+                Brand=o.Car.Brand,
                 OrderDate = o.OrderDate,
                 Status = o.Status,
-
+                CarImage=o.Car.ImageUrl,
+                Price=o.Car.Price,
             });
         }
 
