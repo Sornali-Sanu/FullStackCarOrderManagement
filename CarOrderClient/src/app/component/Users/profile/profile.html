@@ -83,96 +83,40 @@
       </form>
       
     </div>
+<!-- Order Tab -->
+   
+  
 
-    <!-- Orders Tab -->
-    <!-- <div *ngIf="activeTab==='orders'">
-      <h3>My Orders</h3>
-      <div *ngIf="orders.length===0">
-        <p>
-          No Order found
-        </p>
+    <div *ngIf="activeTab==='orders'" class="container mt-4">
+  <h3 class="mb-4 fw-bold text-primary">My Orders</h3>
 
-      </div>
-
-      <div class="order-card" *ngFor="let order of orders">
-        <img [src]="order.carImage"
-        (error)="'No image found'" />
-        <div class="p-3">
-
-          <h5><strong>{{order.carName}}</strong></h5>
-
-          <p><strong>Brand :</strong>{{order.brand}}</p>
-           <p><strong>Price :</strong>{{order.price || 'N/A'}}</p>
-           <p><strong>Status:</strong>
-
-            <span 
-        class="badge"
-        [ngClass]="{
-          'bg-success': order.status === 'Delivered',
-          'bg-warning': order.status === 'Pending',
-          'bg-danger': order.status === 'Cancelled'
-        }">
-        {{ order.status }}
-      </span>
-           </p>
-          
-
-      <p><strong>Order Date :</strong>{{order.orderDate}}</p>
-        </div>
-      </div>
-    </div> -->
-
-
-    <div *ngIf="activeTab==='orders'">
-  <h3>My Orders</h3>
-
-  <div *ngIf="orders.length===0">
+  <!-- order Empty -->
+  <div *ngIf="orders.length===0" class="text-center text-muted">
     <p>No Order found</p>
   </div>
 
-  <div class="order-card" *ngFor="let order of orders">
-    
-    <!-- LEFT: IMAGE -->
-    <!-- <div class="order-img">
-      <img 
-        [src]="order.carImage" 
-        (error)="'No image Found'" 
-      />
-    </div> -->
 
-     <div class="col-lg-6 col-md-6 col-12">
-        <img [src]="order.carImage"
-             class="img-fluid car-image w-100"
-             alt="Car Image"  (error)="'No image Found'" >
-      </div>
+<div class="order-card d-flex align-items-center" *ngFor="let order of orders">
 
-    <!-- RIGHT: DETAILS -->
-    <div class="col-lg-6 col-md-6 col-12">
+  <!-- LEFT: IMAGE -->
+  <div class="order-img">
+    <img [src]="order.carImage" class="img-fluid rounded" />
+  </div>
 
-      <h5><strong>{{order.carName}}</strong></h5>
+  <!-- RIGHT: DETAILS -->
+  <div class="order-details ms-4">
+    <h5 class="fw-bold">{{order.carName}}</h5>
+    <p><strong>Brand:</strong> {{order.brand}}</p>
+    <p><strong>Price:</strong> {{order.price}}</p>
+    <p><strong>Status:</strong> {{order.status}}</p>
+    <p><strong>Order Date:</strong> {{order.orderDate}}</p>
+  </div>
 
-      <p><strong>Brand :</strong> {{order.brand}}</p>
-      <p><strong>Price :</strong> {{order.price || 'N/A'}}</p>
-
-      <p>
-        <strong>Status:</strong>
-        <span 
-          class="badge"
-          [ngClass]="{
-            'bg-success': order.status === 'Delivered',
-            'bg-warning': order.status === '',
-            'bg-danger': order.status === 'Cancelled'
-          }">
-          {{ order.status ||'Pending'}}
-        </span>
-      </p>
-
-      <p><strong>Order Date :</strong> {{order.orderDate}}</p>
-
+</div>
     </div>
 
-  </div>
-</div>
+
+
 
     <!-- Wishlist Tab -->
     <div *ngIf="activeTab==='wishlist'">
