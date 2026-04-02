@@ -194,6 +194,12 @@ Change Password
 ```Registration Frontend```
 ![index Page](screenshot/registrationFrontend.png)
 
+```User Profile + Edit Frontend```
+![user Profile](screenshot/myProfileUI.png)
+
+```My order Frontend```
+![myOrder](screenshot/myOrderUI.png)
+
 
 
 ✅ License
