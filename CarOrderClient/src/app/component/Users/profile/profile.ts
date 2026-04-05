@@ -5,6 +5,7 @@ import { Applicationuser } from '../../../models/Applicationuser';
 import { UserService } from '../../../services/userService';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Order } from '../../../models/Order';
+import { WishList } from '../../../models/wish-list';
 @Component({
   selector: 'app-profile',
   imports: [CommonModule,ReactiveFormsModule],
@@ -24,24 +25,39 @@ export class Profile implements OnInit{
   profileForm!:FormGroup;
   selectedFile!:File;
   orders:Order[]=[];
+  wishlist:WishList[]=[];
   ngOnInit(): void {
     this.initForm();
     this.getProfile();
     this.loadOrder();
+    this.loadWishList();
   }
-  loadOrder() {
-//     this.userService.getMyOrders().subscribe(
-//       {next:(res)=>{
-//         this.orders=res
-//       },
-// error:(err)=>{
-//   console.error('error loading Orders',err)
-// }
-    
-//     }
-    
+  //wishList..................................
+ loadWishList() {
+  this.userService.getWishList().subscribe(
+    (res: WishList[]) => {
+
+    this.wishlist = res.map(c => ({
+  ...c,
+  car: {
+    ...c.car,
+    imageUrl: c.car.imageUrl?.startsWith('http')
+      ? c.car.imageUrl
+      : `${this.userService.baseUrl}/images/${c.car.imageUrl}`
+  }
+}));
+
+      console.log('wishlist:', this.wishlist);
       
-//     )
+    },
+    (error) => {
+      console.error('Error loading wishlist:', error);
+    }
+  );
+}
+
+//Order.......................................
+  loadOrder() {
  this.userService.getMyOrders().subscribe((res:Order[]) => {
     
       this.orders= res.map(c => ({

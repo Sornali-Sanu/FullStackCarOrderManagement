@@ -119,17 +119,28 @@
 
 
     <!-- Wishlist Tab -->
-    <div *ngIf="activeTab==='wishlist'">
-      <h3>Wishlist</h3>
+   <div *ngIf="activeTab==='wishlist'">
+  <h3>Wishlist :</h3>
 
-      <div class="wishlist-grid">
-        <div class="car-card" *ngFor="let car of [1,2,3,4]">
-          <img src="https://source.unsplash.com/300x200/?sports-car">
-          <h6 class="mt-2">BMW M4</h6>
-          <button class="btn btn-outline-danger btn-sm">Remove</button>
-        </div>
-      </div>
+  <div *ngIf="wishlist.length === 0">
+    <p>No wishlist items found</p>
+  </div>
+
+  <div class="wishlist-grid">
+    <div class="car-card" *ngFor="let item of wishlist">
+      
+      <img [src]="item.car.imageUrl" />
+
+      <h6 class="mt-2">{{ item.car.name }}</h6>
+       <p>{{ item.car.price }}</p>
+
+      <button class="btn btn-outline-danger btn-sm">
+        Remove
+      </button>
+
     </div>
+  </div>
+</div>
 
     <!-- Security Tab -->
     <!-- <div *ngIf="activeTab==='security'">

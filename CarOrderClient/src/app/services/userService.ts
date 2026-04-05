@@ -25,5 +25,10 @@ export class UserService {
     {
       return this.http.get<Order[]>(`${this.baseUrl}/api/Orders/MyOrder`)
     }
+
+    getWishList():Observable<any>
+    {
+      return this.http.get(`${this.baseUrl}/api/Users/getWishList`)
+    }
   
 }
