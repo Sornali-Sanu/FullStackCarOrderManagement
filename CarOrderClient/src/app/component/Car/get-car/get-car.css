@@ -170,6 +170,66 @@
     animation: showImage 0.5s linear 1 forwards;
 
 }
+
+/* about us */
+.hero-section {
+  background-color: #f8f9fa;
+}
+
+/* Left side text */
+.welcome-text {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.company-title {
+  font-size: 42px;
+  font-weight: bold;
+  color: #0d1b2a;
+}
+
+.subtitle {
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* Image section */
+.image-wrapper {
+  position: relative;
+}
+
+.car-img {
+  border-radius: 12px;
+  max-height: 350px;
+  object-fit: cover;
+}
+
+/* Experience badge */
+.experience-badge {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  background: black;
+  color: white;
+  padding: 8px 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+
+/* map  */
+.contact-section {
+  border-top: 1px solid #eee;
+}
+
+.contact-section h2 {
+  font-weight: bold;
+}
+
+.map-section iframe {
+  filter: grayscale(20%);
+}
 @keyframes showImage {
     to{
         width: 100%;
