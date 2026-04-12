@@ -1,1 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
+
+.footer-btn {
+  width: 100%;
+  padding: 12px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.footer-btn:hover {
+  background: #495057;
+}
+
+/* Banner */
+.banner-box {
+  background: #f1f1f1;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.banner-img {
+  max-height: 80px;
+}
+
+/* Main footer */
+.main-footer {
+  background: #0d1b2a;
+}
+
+.main-footer h6 {
+  margin-bottom: 15px;
+}
+
+.main-footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.main-footer ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.main-footer ul li:hover {
+  color: #adb5bd;
+}
+
+/* Logo */
+.logo {
+  font-weight: bold;
+}
+
+/* Contact bar */
+.contact-bar {
+  background: rgba(255,255,255,0.1);
+  padding: 15px 0;
+}
+
+/* Copyright */
+.copyright {
+  background: #e9ecef;
+  font-size: 14px;
+}
