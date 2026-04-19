@@ -66,17 +66,8 @@ var app = builder.Build();
 //role seeding:
 using (var scope = app.Services.CreateScope())
 {
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-    string[] roles = { "Admin", "User","Customer" };
-
-    foreach (var role in roles)
-    {
-        if (!await roleManager.RoleExistsAsync(role))
-        {
-            await roleManager.CreateAsync(new IdentityRole(role));
-        }
-    }
+   var service=scope.ServiceProvider;
+    await service.SeedRoleAndAminAsync();
 }
 
 // Configure the HTTP request pipeline.
