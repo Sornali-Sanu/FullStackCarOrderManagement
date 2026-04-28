@@ -6,9 +6,9 @@ namespace CarOrderApi.Services
     public interface IAdminService
     {//Car info:
         Task<IEnumerable<Car>> GetCarAsync();
-        Task<Car> AddCarAsync(CarDto car);
+        Task<Car> AddCarAsync(AdminCarDto car);
         Task<Car> DeleteCar(int id);
-        Task<Car> UpdateCar(int id, CarDto car);
+        Task<Car> UpdateCar(int id, AdminCarDto car);
 
         //Order :
         Task<IEnumerable<Order>> GetOrderAsync();

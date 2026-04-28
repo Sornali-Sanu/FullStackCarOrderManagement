@@ -37,7 +37,7 @@ namespace CarOrderApi.Services
             return userFileName;
         }
         [Authorize("Admin")]
-        public async Task<Car> AddCarAsync(CarDto car)
+        public async Task<Car> AddCarAsync(AdminCarDto car)
         {
             
             var newCar = new Car {
@@ -106,7 +106,7 @@ namespace CarOrderApi.Services
             throw new NotImplementedException();
         }
 
-        public Task<Car> UpdateCar(int id, CarDto car)
+        public Task<Car> UpdateCar(int id, AdminCarDto car)
         {
             throw new NotImplementedException();
         }

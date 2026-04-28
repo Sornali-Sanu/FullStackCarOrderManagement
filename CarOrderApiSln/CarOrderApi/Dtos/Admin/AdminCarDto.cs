@@ -2,7 +2,7 @@
 
 namespace CarOrderApi.Dtos.Admin
 {
-    public class CarDto
+    public class AdminCarDto
     {
         public int CarId { get; set; }
         public string Name { get; set; }

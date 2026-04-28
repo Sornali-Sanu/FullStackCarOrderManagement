@@ -5,6 +5,135 @@
     "version": "v1"
   },
   "paths": {
+    "/api/Admin": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "CarId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Brand": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "Price": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "ImageUrl": {
+                    "type": "string"
+                  },
+                  "ProfileImage": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Gearbox": {
+                    "type": "string"
+                  },
+                  "Engine": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Color": {
+                    "type": "string"
+                  },
+                  "FuelType": {
+                    "type": "string"
+                  },
+                  "BodyType": {
+                    "type": "string"
+                  },
+                  "Condition": {
+                    "$ref": "#/components/schemas/Condition"
+                  },
+                  "AirCon": {
+                    "type": "boolean"
+                  },
+                  "Drivetype": {
+                    "$ref": "#/components/schemas/Drivetype"
+                  }
+                }
+              },
+              "encoding": {
+                "CarId": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Brand": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "Price": {
+                  "style": "form"
+                },
+                "ImageUrl": {
+                  "style": "form"
+                },
+                "ProfileImage": {
+                  "style": "form"
+                },
+                "Gearbox": {
+                  "style": "form"
+                },
+                "Engine": {
+                  "style": "form"
+                },
+                "Color": {
+                  "style": "form"
+                },
+                "FuelType": {
+                  "style": "form"
+                },
+                "BodyType": {
+                  "style": "form"
+                },
+                "Condition": {
+                  "style": "form"
+                },
+                "AirCon": {
+                  "style": "form"
+                },
+                "Drivetype": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Auth/register": {
       "post": {
         "tags": [
