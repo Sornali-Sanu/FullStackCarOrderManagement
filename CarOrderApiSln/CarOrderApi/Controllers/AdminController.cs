@@ -32,5 +32,12 @@ namespace CarOrderApi.Controllers
             var newCar = await _service.AddCarAsync(car);
             return Ok(newCar);
         }
+        [HttpGet("Dashboard")]
+        public async Task<IActionResult> DashBoard()
+        {
+            var dashboard=await _service.GetDashboardAsync();
+            return Ok(dashboard);
+        }
     }
+
 }

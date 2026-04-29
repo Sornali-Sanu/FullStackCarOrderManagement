@@ -86,9 +86,15 @@ namespace CarOrderApi.Services
             return await _db.Cars.ToListAsync();
         }
 
-        public Task<object> GetDashboardAsync()
+        public async Task<object> GetDashboardAsync()
         {
-            throw new NotImplementedException();
+            var totalUsers= await _db.Users.CountAsync();
+            var totalCars=await _db.Cars.CountAsync();
+            var totalOrders=await _db.Orders.CountAsync();
+            var revenue = await _db.Orders.SumAsync(x => x.TotalPrice);
+            return new { 
+            totalUsers, totalCars, totalOrders, revenue
+            };
         }
 
         public Task<IEnumerable<Order>> GetOrderAsync()

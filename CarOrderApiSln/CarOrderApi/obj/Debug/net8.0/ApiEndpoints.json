@@ -96,6 +96,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CarOrderApi.Controllers.AdminController",
+    "Method": "DashBoard",
+    "RelativePath": "api/Admin/Dashboard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CarOrderApi.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
