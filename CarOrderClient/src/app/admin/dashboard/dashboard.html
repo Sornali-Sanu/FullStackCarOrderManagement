@@ -1,0 +1,44 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3">
+
+            <div class="card bg-primary text-white p-3">
+                <h5>
+                    Users
+                </h5>
+                <h2>
+                    {{data?.totalUsers}}
+                </h2>
+            </div>
+           
+
+
+        </div>
+
+         <div class="col-md-3">
+                <div class="card bg-success text-white p-3">
+                    <h5>
+                        Cars
+                    </h5>
+                    <h2>
+                        {{data?.totalCars}}
+                    </h2>
+                </div>
+            </div>
+  <div class="col-md-3">
+      <div class="card bg-warning text-white p-3">
+        <h5>Orders</h5>
+        <h2>{{data?.totalOrders}}</h2>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card bg-danger text-white p-3">
+        <h5>Revenue</h5>
+        <h2>{{data?.revenue}}</h2>
+      </div>
+    </div>
+
+    </div>
+
+</div>
