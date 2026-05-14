@@ -38,8 +38,16 @@ export class Login {
 
   this.authService.login(this.loginForm.value).subscribe({
     next: res => {
+      localStorage.setItem('token',res.token);
+      localStorage.setItem('role',res.role);
+      localStorage.setItem('userName',res.userName)
       console.log('Login Success', res);
-      this.router.navigate(['/']);
+      if(res.role==='Admin')
+      {
+        this.router.navigate(['/'])
+      }
+      else{ this.router.navigate(['/']);}
+     
     },
     error: err => {
       console.error('Login Failed', err);

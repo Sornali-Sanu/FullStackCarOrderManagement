@@ -1,44 +1,313 @@
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-md-3">
+<div class="container-fluid dashboard-container py-4">
 
-            <div class="card bg-primary text-white p-3">
-                <h5>
-                    Users
-                </h5>
-                <h2>
-                    {{data?.totalUsers}}
-                </h2>
-            </div>
-           
+  <!-- PAGE TITLE -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
 
+    <div>
+      <h2 class="fw-bold">Admin Dashboard</h2>
+      <p class="text-muted">
+        Welcome back, Admin
+      </p>
+    </div>
+
+    <button class="btn btn-primary">
+      <i class="bi bi-download me-2"></i>
+      Download Report
+    </button>
+
+  </div>
+
+  <!-- TOP CARDS -->
+  <div class="row g-4 mb-4">
+
+    <!-- USERS -->
+    <div class="col-lg-3 col-md-6">
+
+      <div class="dashboard-card bg-primary">
+
+        <div>
+          <h6>Total Users</h6>
+          <h2>{{data?.totalUsers}}</h2>
+        </div>
+
+        <i class="bi bi-people-fill dashboard-icon"></i>
+
+      </div>
+
+    </div>
+
+    <!-- CARS -->
+    <div class="col-lg-3 col-md-6">
+
+      <div class="dashboard-card bg-success">
+
+        <div>
+          <h6>Total Cars</h6>
+          <h2>{{data?.totalCars}}</h2>
+        </div>
+
+        <i class="bi bi-car-front-fill dashboard-icon"></i>
+
+      </div>
+
+    </div>
+
+    <!-- ORDERS -->
+    <div class="col-lg-3 col-md-6">
+
+      <div class="dashboard-card bg-warning">
+
+        <div>
+          <h6>Total Orders</h6>
+          <h2>{{data?.totalOrders}}</h2>
+        </div>
+
+        <i class="bi bi-cart-check-fill dashboard-icon"></i>
+
+      </div>
+
+    </div>
+
+    <!-- REVENUE -->
+    <div class="col-lg-3 col-md-6">
+
+      <div class="dashboard-card bg-danger">
+
+        <div>
+          <h6>Total Revenue</h6>
+          <h2>${{data?.revenue}}</h2>
+        </div>
+
+        <i class="bi bi-currency-dollar dashboard-icon"></i>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CHARTS -->
+  <div class="row g-4 mb-4">
+
+    <!-- SALES CHART -->
+    <div class="col-lg-8">
+
+      <div class="card shadow-sm border-0 p-4 chart-card">
+
+        <div class="d-flex justify-content-between mb-3">
+
+          <h5 class="fw-bold">
+            Monthly Sales Report
+          </h5>
+
+          <select class="form-select w-auto">
+
+            <option>2026</option>
+            <option>2025</option>
+
+          </select>
 
         </div>
 
-         <div class="col-md-3">
-                <div class="card bg-success text-white p-3">
-                    <h5>
-                        Cars
-                    </h5>
-                    <h2>
-                        {{data?.totalCars}}
-                    </h2>
-                </div>
+        <!-- CHART PLACE -->
+        <div class="chart-placeholder">
+
+          <i class="bi bi-bar-chart-line-fill"></i>
+
+          <p>
+            Sales Chart Here
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PIE CHART -->
+    <div class="col-lg-4">
+
+      <div class="card shadow-sm border-0 p-4 chart-card">
+
+        <h5 class="fw-bold mb-4">
+          Order Analytics
+        </h5>
+
+        <!-- PIE CHART PLACE -->
+        <div class="pie-chart-placeholder">
+
+          <div class="pie-circle">
+            75%
+          </div>
+
+          <div class="mt-4">
+
+            <div class="d-flex justify-content-between mb-2">
+              <span>Completed</span>
+              <span class="text-success">60%</span>
             </div>
-  <div class="col-md-3">
-      <div class="card bg-warning text-white p-3">
-        <h5>Orders</h5>
-        <h2>{{data?.totalOrders}}</h2>
+
+            <div class="d-flex justify-content-between mb-2">
+              <span>Pending</span>
+              <span class="text-warning">25%</span>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <span>Cancelled</span>
+              <span class="text-danger">15%</span>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
     </div>
 
-    <div class="col-md-3">
-      <div class="card bg-danger text-white p-3">
-        <h5>Revenue</h5>
-        <h2>{{data?.revenue}}</h2>
+  </div>
+
+  <!-- TABLE + REPORT -->
+  <div class="row g-4">
+
+    <!-- RECENT ORDERS -->
+    <div class="col-lg-8">
+
+      <div class="card shadow-sm border-0 p-4">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+          <h5 class="fw-bold">
+            Recent Orders
+          </h5>
+
+          <button class="btn btn-outline-primary btn-sm">
+            View All
+          </button>
+
+        </div>
+
+        <div class="table-responsive">
+
+          <table class="table align-middle">
+
+            <thead>
+
+              <tr>
+                <th>Customer</th>
+                <th>Car</th>
+                <th>Price</th>
+                <th>Status</th>
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr>
+
+                <td>Rahim</td>
+                <td>Toyota Prius</td>
+                <td>$25,000</td>
+
+                <td>
+                  <span class="badge bg-success">
+                    Completed
+                  </span>
+                </td>
+
+              </tr>
+
+              <tr>
+
+                <td>Karim</td>
+                <td>BMW X5</td>
+                <td>$52,000</td>
+
+                <td>
+                  <span class="badge bg-warning text-dark">
+                    Pending
+                  </span>
+                </td>
+
+              </tr>
+
+              <tr>
+
+                <td>Jannat</td>
+                <td>Audi A6</td>
+                <td>$45,000</td>
+
+                <td>
+                  <span class="badge bg-danger">
+                    Cancelled
+                  </span>
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
       </div>
-    </div>
 
     </div>
+
+    <!-- REPORTS -->
+    <div class="col-lg-4">
+
+      <div class="card shadow-sm border-0 p-4">
+
+        <h5 class="fw-bold mb-4">
+          Reports & Activities
+        </h5>
+
+        <div class="report-item">
+
+          <i class="bi bi-file-earmark-text-fill text-primary"></i>
+
+          <div>
+            <h6>Sales Report</h6>
+            <small class="text-muted">
+              Updated 2 hours ago
+            </small>
+          </div>
+
+        </div>
+
+        <div class="report-item">
+
+          <i class="bi bi-car-front-fill text-success"></i>
+
+          <div>
+            <h6>New Car Added</h6>
+            <small class="text-muted">
+              Toyota Corolla uploaded
+            </small>
+          </div>
+
+        </div>
+
+        <div class="report-item">
+
+          <i class="bi bi-person-plus-fill text-warning"></i>
+
+          <div>
+            <h6>New User Registered</h6>
+            <small class="text-muted">
+              5 minutes ago
+            </small>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>

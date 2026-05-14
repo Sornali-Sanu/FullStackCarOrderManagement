@@ -52,31 +52,47 @@ namespace CarOrderApi.Controllers
             return Ok(new { massege = "Registration successful" });
         }
 
-        // LOGIN
+       
+
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto dto)
         {
             var user = await _userManager.FindByEmailAsync(dto.Email);
-            if (user == null || !await _userManager.CheckPasswordAsync(user,dto.Password))
+
+            if (user == null || !await _userManager.CheckPasswordAsync(user, dto.Password))
                 return Unauthorized("Invalid email or password");
-            //generate access token:
-            var accessToken =await _tokenService.GenerateAccessToken(user);
 
-            //remove old refresh token:
-            var oldToken = _context.RefreshTokens.Where(x => x.UserId == user.Id && !x.IsRevoked);
+            //  Get User Roles
+            var roles = await _userManager.GetRolesAsync(user);
+
+            // Generate Access Token
+            var accessToken = await _tokenService.GenerateAccessToken(user);
+
+            // Remove old refresh tokens
+            var oldToken = _context.RefreshTokens
+                .Where(x => x.UserId == user.Id && !x.IsRevoked);
+
             _context.RefreshTokens.RemoveRange(oldToken);
-            //create new refresh token:
+
+            // Create new refresh token
             var refreshToken = _tokenService.GetRefreshToken(user.Id);
+
             _context.RefreshTokens.Add(refreshToken);
+
             await _context.SaveChangesAsync();
-            return Ok(new { accessToken, refreshToken = refreshToken.Token ,userName=user.UserName}
 
-                );
+            return Ok(new
+            {
+                accessToken,
+                refreshToken = refreshToken.Token,
+                userName = user.UserName,
 
-           
+                //  send role
+                role = roles.FirstOrDefault()
+            });
         }
 
-        
+
         [HttpPost("refresh")]
         public async Task<IActionResult> RefreshToken([FromBody] RefreshRequestToken dto)
         {
