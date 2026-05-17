@@ -54,7 +54,10 @@ namespace CarOrderApi.Controllers
             bool deletedcar=await _service.DeleteCar(id);
             if (!deletedcar)
                 return NotFound("car not found");
-            return Ok("Car deleted Successfullly");
+            return Ok(new
+            {
+                message = "Car deleted successfully"
+            });
         }
         [HttpGet("search")]
         public async Task<IActionResult> GetCarByNameOrBrand(string query)

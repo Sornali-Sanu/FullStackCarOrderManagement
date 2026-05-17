@@ -7,7 +7,7 @@ export const adminGuard: CanActivateFn = (route, state) => {
   const role = localStorage.getItem('role');
 
   if (role === 'Admin') {
-    return true;
+    return true
   }
 
   router.navigate(['']);

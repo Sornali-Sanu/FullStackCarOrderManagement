@@ -24,5 +24,12 @@ export class CarService {
    {
     return this.http.get<Car[]>(`${this.baseUrl}/api/Cars/search?query=${query}`)
    }
-  
+   addCar(data:any)
+   {
+    return this.http.post(`${this.baseUrl}/api/Cars`,data)
+   }
+  updateCar(id:any,data:any)
+  {
+    return this.http.put(`${this.baseUrl}/api/Cars/${id}`,data)
+  }
 }

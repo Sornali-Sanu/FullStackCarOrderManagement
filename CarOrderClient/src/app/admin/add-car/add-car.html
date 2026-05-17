@@ -1,0 +1,164 @@
+<div class="container mt-5">
+    <div class="card shadow p-4">
+        <h2 mb-4>
+            Add new Car
+
+        </h2>
+        <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+
+   <!-- NAME -->
+            <div class="mb-3">
+
+                <label>Car Name</label>
+
+                <input type="text"
+                       class="form-control"
+                       formControlName="name">
+
+            </div>
+
+            <!-- BRAND -->
+            <div class="mb-3">
+
+                <label>Brand</label>
+
+                <input type="text"
+                       class="form-control"
+                       formControlName="brand">
+
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+
+                <label>Description</label>
+
+                <input type="text"
+                       class="form-control"
+                       formControlName="description">
+
+            </div>
+            <!-- color -->
+             <div class="mb-3">
+
+                <label>Color</label>
+
+                <input type="text"
+                       class="form-control"
+                       formControlName="color">
+
+            </div>
+
+            <!-- PRICE -->
+            <div class="mb-3">
+
+                <label>Price</label>
+
+                <input type="number"
+                       class="form-control"
+                       formControlName="price">
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Gear Box</label>
+
+                <input type="text"
+                       class="form-control"
+                       formControlName="gearbox">
+
+            </div>
+<div class="mb-3">
+
+                <label>Engine Quantity</label>
+
+                <input type="number"
+                       class="form-control"
+                       formControlName="engine">
+
+            </div>
+
+   <div class="mb-3">
+
+                <label>Fuel Type</label>
+
+                <input type="text"
+                       class="form-control"
+                       formControlName="fuelType">
+
+            </div>        
+
+  <div class="mb-3">
+
+                <label>Body Type</label>
+
+                <input type="text"
+                       class="form-control"
+                       formControlName="bodyType">
+
+            </div>
+   
+   <div class="mb-3">
+
+                <label>Car Condition</label>
+
+                 <select class="form-select" formControlName="condition">
+                    <option value="1">
+                        New
+
+                    </option>
+                     <option value="0">
+                        Used
+
+                    </option>
+
+                </select>
+            </div>
+  
+  <div class="form-check mb-3">
+    <input type="checkbox" class="form-check-input" formControlName="airCon" id="airCon">
+<label class="form-check-label">
+    Air Condition
+</label>
+               
+            </div>
+  <div class="mb-3">
+
+                <label>Drive Type</label>
+
+                <select class="form-select" formControlName="driveType">
+                    <option value="0">
+                        Right
+
+                    </option>
+                     <option value="1">
+                        Left
+
+                    </option>
+
+                </select>
+
+            </div>
+   
+
+            <!-- IMAGE -->
+            <div class="mb-3">
+
+                <label>Image</label>
+
+                <input type="file"
+                       class="form-control"
+                       (change)="onFileSelected($event)">
+
+            </div>
+
+            <button class="btn btn-success">
+
+                Add Car
+
+            </button>
+
+        </form>
+    </div>
+</div>

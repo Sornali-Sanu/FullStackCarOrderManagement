@@ -240,6 +240,14 @@
 <div *ngIf="noResult" class="text-center text-danger fw-bold my-3">
   Match not found
 </div>
+
+ <div *ngIf="isAdmin" class="text-center mb-4">
+  <button class="btn btn-primary btn-sm me-2 " [routerLink]="['admin/add-car']">
+              + Add New Car
+            </button>
+
+ </div>
+ 
 <div class="container my-4">
   <div class="row g-4">
     @for(item of car;track $index)
@@ -251,6 +259,19 @@
           <h5 class="card-title">{{item.name}}</h5>
           <p class="card-text fw-bold text-success">${{item.price}}</p>
           <a href="#" class="btn btn-primary btn-sm" [routerLink]="['/detailsCar',item.carId]">View Details</a>
+
+          <!-- Admin Edit -->
+           <div *ngIf="isAdmin" class="mt-2">
+
+            <button class="btn btn-warning btn-sm me-2 " [routerLink]="['admin/edit-car',item.carId]">
+              Edit
+            </button>
+
+            <button class="btn btn-danger btn-sm me-2 " (click)="onDeleteCar(item.carId)">
+              Delete
+            </button>
+
+           </div>
         </div>
       </div>
     </div>

@@ -19,8 +19,15 @@ export class GetCar implements AfterViewInit , OnInit{
   car:Car[]=[];
   searchText:string="";
   noResult:boolean=false;
+  isAdmin:boolean=false;
   ngOnInit(): void {
-    this.getList();
+     this.getList();
+    const role=localStorage.getItem('role');
+    if(role==='Admin')
+    {
+      this.isAdmin=true;
+    }
+   
   }
   getList() {
     this.service.getCarView().subscribe((res:Car[]) => {
@@ -36,12 +43,12 @@ export class GetCar implements AfterViewInit , OnInit{
 
   
 
-  onDeleteCar(selectCar:Car)
+  onDeleteCar(id:any)
   {
     const isConfirm=confirm(`Do you want to delete this Car?`)
     if(isConfirm)
     {
-      return this.service.deleteCar(selectCar.carId).subscribe(data=>{alert(`Delete successfull`)
+      return this.service.deleteCar(id).subscribe(data=>{alert(`Delete successfull`)
         this.getList();
       });
       
