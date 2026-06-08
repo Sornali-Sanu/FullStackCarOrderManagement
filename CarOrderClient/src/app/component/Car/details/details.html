@@ -1,62 +1,135 @@
+
 <div class="container py-5" *ngIf="car">
-  <div class="card shadow details-card position-relative">
+
+  <div class="card details-card shadow-lg">
+
     <div class="row g-0">
 
-      <!-- Favourite Icon -->
-      <button class="favourite-btn"
-              (click)="toggleFavourite()">
-        <i class="bi"
-           [ngClass]="isFavourite ? 'bi-heart-fill' : 'bi-heart'">
-        </i>
-      </button>
+      <!-- IMAGE SECTION -->
+      <div class="col-lg-6">
 
-      <!-- Left: Image -->
-      <div class="col-lg-6 col-md-6 col-12">
-        <img [src]="car.imageUrl"
-             class="img-fluid car-image w-100"
-             alt="Car Image">
-      </div>
+        <div class="image-section p-3">
 
-      <!-- Right: Details -->
-      <div class="col-lg-6 col-md-6 col-12">
-        <div class="card-body p-4">
+          <button class="favorite-btn" (click)="toggleFavourite()">
+            <i class="bi"
+              [ngClass]="isFavourite ? 'bi-heart-fill' : 'bi-heart'">
+            </i>
+          </button>
 
-          <h2 class="fw-bold mb-3 text-dark">
-            Car Name: {{car.name}}
-          </h2>
+          <!-- Main Image -->
+          <div class="image-wrapper">
 
-          <span class="brand-badge mb-3 d-inline-block">
-            Brand Name: {{car.brand}}
-          </span>
+            <img
+              [src]="selectedImage"
+              class="main-image"
+              [style.transform]="zoomStyle"
+              (mousemove)="onMouseMove($event)"
+              (mouseleave)="onMouseLeave()"
+              alt="Car Image">
 
-          <div class="price mb-4">
-            Price: {{car.price}}
-          </div>
-           <div class="price mb-4">
-            FuelType: {{car.fuelType}}
-          </div>
-           <div class="price mb-4">
-          DriveType {{car.driveType}}
           </div>
 
-          <p class="description">
-            Description: {{car.description}}
-          </p>
+          <!-- Thumbnail Gallery -->
+          <div class="thumbnail-container mt-3">
 
-          <div class="mt-4">
-            <button class="btn btn-dark px-4 me-2">
-              Buy Now
-            </button>
+            <img
+              *ngFor="let img of carImages"
+              [src]="img"
+              class="thumbnail"
+              [class.active-thumb]="selectedImage === img"
+              (click)="changeImage(img)"
+              alt="Thumbnail">
 
-            <button class="btn btn-outline-secondary px-4"
-                    routerLink="/getCar">
-              Back
-            </button>
           </div>
 
         </div>
+
+      </div>
+
+      <!-- DETAILS SECTION -->
+      <div class="col-lg-6">
+
+        <div class="p-4">
+
+          <span class="brand-badge">
+            {{car.brand}}
+          </span>
+
+          <h1 class="car-title mt-3">
+            {{car.name}}
+          </h1>
+
+          <div class="price-box my-4">
+            <small>Starting Price</small>
+            <h2>${{car.price}}</h2>
+          </div>
+
+          <!-- Specs -->
+          <div class="row g-3">
+
+            <div class="col-6">
+              <div class="spec-card">
+                <i class="bi bi-fuel-pump"></i>
+                <h6>Fuel Type</h6>
+                <span>{{car.fuelType}}</span>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="spec-card">
+                <i class="bi bi-gear"></i>
+                <h6>Drive Type</h6>
+                <span>{{car.driveType}}</span>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="spec-card">
+                <i class="bi bi-speedometer2"></i>
+                <h6>Mileage</h6>
+                <span>25 KM/L</span>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="spec-card">
+                <i class="bi bi-calendar2"></i>
+                <h6>Year</h6>
+                <span>2025</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Description -->
+          <div class="description-box mt-4">
+            <h5>Description</h5>
+            <p>
+              {{car.description}}
+            </p>
+          </div>
+
+          <!-- Buttons -->
+          <div class="mt-4 d-flex flex-wrap gap-3">
+
+            <button class="btn btn-buy">
+              Buy Now
+            </button>
+
+            <button
+              class="btn btn-outline-dark"
+              routerLink="/getCar">
+              Back
+            </button>
+
+          </div>
+
+        </div>
+
       </div>
 
     </div>
+
   </div>
+
 </div>
