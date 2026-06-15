@@ -11,6 +11,8 @@
         public DateTime OrderDate { get; set; }
         public string Status { get; set; } = "Panding";
 
+        public string ShippingAddress { get; set; }
+        public string PhoneNumber { get; set; }
         public ApplicationUser User { get; set; }
         public Car Car { get; set; }
     }

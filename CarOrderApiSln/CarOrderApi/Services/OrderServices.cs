@@ -51,10 +51,12 @@ namespace CarOrderApi.Services
 
         public async Task PlaceOrder(CreateOrderDto orderDto, string userId)
         {
+            var car = await _repo.GetOrderById(orderDto.CarId);
             var order = new Order
             {
                 CarId = orderDto.CarId,
-              
+                TotalPrice=car.TotalPrice,
+                OrderDate=DateTime.UtcNow,
                 UserId = userId,
                 Status="Panding"
 
