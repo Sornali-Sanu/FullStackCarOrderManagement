@@ -258,6 +258,9 @@
         <div class="card-body text-center">
           <h5 class="card-title">{{item.name}}</h5>
           <p class="card-text fw-bold text-success">${{item.price}}</p>
+          <button class="btn btn-primary btn-sm" (click)="placeOrder(item.carId)" >
+              Order Now
+          </button>
           <a href="#" class="btn btn-primary btn-sm" [routerLink]="['/detailsCar',item.carId]">View Details</a>
 
           <!-- Admin Edit -->

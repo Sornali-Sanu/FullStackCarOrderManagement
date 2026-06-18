@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { CarService } from '../../../services/car-service';
 import { Car } from '../../../models/car';
 import { ActivatedRoute } from '@angular/router';
+import { OrderService } from '../../../services/orderService';
 @Component({
   selector: 'app-details',
   imports: [CommonModule,RouterLink],
@@ -11,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './details.css',
 })
 export class Details implements OnInit {
- constructor(private service:CarService,private route: ActivatedRoute)
+ constructor(private service:CarService,private route: ActivatedRoute,private orderService:OrderService)
   {}
     car:Car|null=null;
     carId!:number;
@@ -23,24 +24,7 @@ export class Details implements OnInit {
       this.getCarbyId();
   }});
   }
-  // getCarbyId() {
-  //   this.service.getCarById(this.carId).subscribe({
-  //   next: res => {
-  //     this.car = {
-  //       ...res,
-  //       imageUrl: res.imageUrl?.startsWith('http')
-  //         ? res.imageUrl
-  //         : `${this.service.baseUrl}/images/${res.imageUrl}`
-          
-  //     };
-      
-  //   },
-    
-  //   error: err => {
-  //     console.log('Error Details', err);
-  //   }
-  // });
-  // }
+  
 
   getCarbyId() {
   this.service.getCarById(this.carId).subscribe({
@@ -102,6 +86,21 @@ selectedImage: string = '';
 
   onMouseLeave() {
     this.zoomStyle = 'scale(1)';
+  }
+
+  placeOrder(carId:number)
+  {
+    const order= {
+      carId:carId
+
+    }
+    this.orderService.placeOrder(order).subscribe(
+      {
+        next:()=>{
+          alert("Order Placed successfully")
+        }
+      }
+    )
   }
 
  

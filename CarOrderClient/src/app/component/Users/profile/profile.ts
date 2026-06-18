@@ -6,6 +6,7 @@ import { UserService } from '../../../services/userService';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Order } from '../../../models/Order';
 import { WishList } from '../../../models/wish-list';
+import { OrderService } from '../../../services/orderService';
 @Component({
   selector: 'app-profile',
   imports: [CommonModule,ReactiveFormsModule],
@@ -15,6 +16,7 @@ import { WishList } from '../../../models/wish-list';
 export class Profile implements OnInit{
   constructor(
     private userService:UserService,
+    private orderService:OrderService,
     private router:Router,
   private fb:FormBuilder)
   {
@@ -58,14 +60,9 @@ export class Profile implements OnInit{
 
 //Order.......................................
   loadOrder() {
- this.userService.getMyOrders().subscribe((res:Order[]) => {
+ this.orderService.getMyOrders().subscribe((res:any) => {
     
-      this.orders= res.map(c => ({
-        ...c,
-        carImage: c.carImage.startsWith('http')
-          ? c.carImage
-          : `${this.userService.baseUrl}/images/${c.carImage}`
-      }));
+      this.orders= res
     });
   }
   initForm() {

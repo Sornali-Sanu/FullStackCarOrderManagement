@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Car } from '../../../models/car';
 import { FormsModule } from '@angular/forms';
+import { OrderService } from '../../../services/orderService';
 
 @Component({
   selector: 'app-get-car',
@@ -12,7 +13,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './get-car.css',
 })
 export class GetCar implements AfterViewInit , OnInit{
-  constructor(private el:ElementRef,private service:CarService)
+  constructor(private el:ElementRef,private service:CarService, private orderService:OrderService)
   {}
   
 
@@ -40,7 +41,20 @@ export class GetCar implements AfterViewInit , OnInit{
       }));
     });
   }
-
+placeOrder(carId:number)
+{
+  const order={
+    carId:carId
+  }
+  
+this.orderService.placeOrder(order).subscribe(
+  {
+    next:()=>{
+      alert( "order Placed successfully");
+     }
+  }
+)
+}
   
 
   onDeleteCar(id:any)
