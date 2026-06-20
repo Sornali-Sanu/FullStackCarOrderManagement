@@ -7,10 +7,12 @@ namespace CarOrderApi.Services
     public class OrderServices : IOrderService
     {
         private readonly IOrderRepository _repo;
+        private readonly ICarRepository _carRepo;
 
-        public OrderServices(IOrderRepository repo)
+        public OrderServices(IOrderRepository repo, ICarRepository carRepo)
         {
             _repo = repo;
+            _carRepo = carRepo;
         }
 
         public async Task<Order> DeleteOrder(int id)
@@ -51,11 +53,16 @@ namespace CarOrderApi.Services
 
         public async Task PlaceOrder(CreateOrderDto orderDto, string userId)
         {
-            var car = await _repo.GetOrderById(orderDto.CarId);
+            var car = await _carRepo.GetCarById(orderDto.CarId);
+            if (car == null)
+            {
+                throw new Exception($"Car not found.CarId={orderDto.CarId}");
+            }
             var order = new Order
             {
                 CarId = orderDto.CarId,
-                TotalPrice=car.TotalPrice,
+                Quantity=orderDto.Quantity,
+                TotalPrice=car.Price*orderDto.Quantity,
                 OrderDate=DateTime.UtcNow,
                 UserId = userId,
                 Status="Panding"

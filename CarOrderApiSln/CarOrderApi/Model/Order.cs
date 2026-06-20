@@ -15,5 +15,6 @@
         public string PhoneNumber { get; set; }
         public ApplicationUser User { get; set; }
         public Car Car { get; set; }
+        public int Quantity { get; set; }
     }
 }

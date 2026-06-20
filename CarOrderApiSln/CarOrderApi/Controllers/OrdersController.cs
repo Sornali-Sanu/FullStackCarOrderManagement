@@ -22,8 +22,16 @@ namespace CarOrderApi.Controllers
         [HttpPost]
         public async Task<IActionResult> PlaceOrder(CreateOrderDto dto)
         {
+            if (dto == null)
+            {
+                return BadRequest();
+            }
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized();
+            }
             await _services.PlaceOrder(dto, userId);
             return Ok("order Successfully");
         }

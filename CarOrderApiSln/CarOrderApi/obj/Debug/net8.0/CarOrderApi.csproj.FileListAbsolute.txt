@@ -298,8 +298,8 @@ C:\Users\ASTROID\Desktop\my-folder-Carorder\CarOrderApiSln\CarOrderApi\obj\Debug
 C:\Users\ASTROID\Desktop\my-folder-Carorder\CarOrderApiSln\CarOrderApi\obj\Debug\net8.0\ref\CarOrderApi.dll
 D:\my-folder-Carorder\CarOrderApiSln\CarOrderApi\bin\Debug\net8.0\appsettings.Development.json
 D:\my-folder-Carorder\CarOrderApiSln\CarOrderApi\bin\Debug\net8.0\appsettings.json
-D:\my-folder-Carorder\CarOrderApiSln\CarOrderApi\bin\Debug\net8.0\CarOrderApi.staticwebassets.endpoints.json
 D:\my-folder-Carorder\CarOrderApiSln\CarOrderApi\bin\Debug\net8.0\CarOrderApi.staticwebassets.runtime.json
+D:\my-folder-Carorder\CarOrderApiSln\CarOrderApi\bin\Debug\net8.0\CarOrderApi.staticwebassets.endpoints.json
 D:\my-folder-Carorder\CarOrderApiSln\CarOrderApi\bin\Debug\net8.0\CarOrderApi.exe
 D:\my-folder-Carorder\CarOrderApiSln\CarOrderApi\bin\Debug\net8.0\CarOrderApi.deps.json
 D:\my-folder-Carorder\CarOrderApiSln\CarOrderApi\bin\Debug\net8.0\CarOrderApi.runtimeconfig.json

@@ -5,9 +5,10 @@ import { CarService } from '../../../services/car-service';
 import { Car } from '../../../models/car';
 import { ActivatedRoute } from '@angular/router';
 import { OrderService } from '../../../services/orderService';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-details',
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule,RouterLink,FormsModule],
   templateUrl: './details.html',
   styleUrl: './details.css',
 })
@@ -16,6 +17,7 @@ export class Details implements OnInit {
   {}
     car:Car|null=null;
     carId!:number;
+    quantity:number=1;
   ngOnInit(): void {
    this.route.paramMap.subscribe(params => {
     const id = params.get('id');
@@ -91,7 +93,8 @@ selectedImage: string = '';
   placeOrder(carId:number)
   {
     const order= {
-      carId:carId
+      carId:carId,
+      quantity:this.quantity
 
     }
     this.orderService.placeOrder(order).subscribe(

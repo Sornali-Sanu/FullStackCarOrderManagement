@@ -109,9 +109,28 @@
             </p>
           </div>
 
+           <!-- quantity -->
+          <div class="d-flex align-items-center">
+
+  <button class="btn btn-outline-secondary"
+          (click)="quantity = quantity - 1"
+          [disabled]="quantity <= 1">
+    -
+  </button>
+
+  <span class="mx-3 fs-5">{{ quantity }}</span>
+
+  <button class="btn btn-outline-secondary"
+          (click)="quantity = quantity + 1">
+    +
+  </button>
+
+</div>
           <!-- Buttons -->
           <div class="mt-4 d-flex flex-wrap gap-3">
-
+            
+            
+              
             <button class="btn btn-buy" (click)="placeOrder(car.carId)">
               Buy Now
             </button>
