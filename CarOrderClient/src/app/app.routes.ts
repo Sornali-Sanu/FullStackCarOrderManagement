@@ -9,6 +9,7 @@ import { Dashboard } from './admin/dashboard/dashboard';
 import { ManageCars } from './admin/manage-cars/manage-cars';
 import { AddCar } from './admin/add-car/add-car';
 import { EditCar } from './admin/edit-car/edit-car';
+import { MyOrders } from './component/my-orders/my-orders';
 
 
 export const routes: Routes = [
@@ -24,6 +25,9 @@ export const routes: Routes = [
    
      //user Profile;
      {path:'profile',component:Profile},
+     //My Order:
+     {path:'my-orders',component:MyOrders}
+     // {path:'order/:id',component:orderCom}
 
 
      //Admin:

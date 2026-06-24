@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Order } from '../models/Order';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,7 @@ export class OrderService
   }
   getMyOrders()
   {
-    return this.http.get(`${this.apiUrl}/MyOrder`);
+    return this.http.get<Order[]>(`${this.apiUrl}/my-oders`)
   }
   getAllOrder()
   {
@@ -31,5 +32,10 @@ export class OrderService
   deleteOder(id:number)
   {
     return this.http.delete(`${this.apiUrl}/${id}`)
+  }
+
+  CreateOrder(order:any)
+  {
+    return this.http.post(this.apiUrl,order);
   }
 }

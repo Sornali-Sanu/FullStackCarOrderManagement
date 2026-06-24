@@ -1,0 +1,64 @@
+<div class="container py-5">
+
+  <h2 class="mb-4">
+    My Orders
+  </h2>
+
+  <div
+    class="card mb-3 shadow-sm"
+    *ngFor="let order of orders">
+
+    <div class="row g-0">
+
+      <div class="col-md-3">
+
+        <img
+          [src]="order.carImage"
+          class="img-fluid rounded-start">
+
+      </div>
+
+      <div class="col-md-9">
+
+        <div class="card-body">
+
+          <h5>
+            {{order.carName}}
+          </h5>
+
+          <p>
+            Quantity :
+            {{order.quantity}}
+          </p>
+
+          <p>
+            Total :
+            ${{order.totalPrice}}
+          </p>
+
+          <p>
+            Status :
+            <span
+              class="badge bg-primary">
+              {{order.status}}
+            </span>
+          </p>
+
+          <button
+            *ngIf="order.status=='Pending'"
+            class="btn btn-danger"
+            (click)="cancelOrder(order.carId)">
+
+            Cancel Order
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

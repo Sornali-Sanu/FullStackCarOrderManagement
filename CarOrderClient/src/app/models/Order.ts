@@ -6,5 +6,7 @@ export interface Order {
   orderDate: string;
   status: string;
   carImage: string;
-  price:number;
+  totalPrice:number;
+  quantity:number;
+
 }
