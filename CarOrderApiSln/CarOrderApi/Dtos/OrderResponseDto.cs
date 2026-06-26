@@ -10,8 +10,8 @@
         public string Status { get; set; }
         public string Brand { get; set; }
         public string CarImage { get; set; }
-
-        public decimal Price { get; set; }
+        public string ShippingAddress { get; set; }
+        public decimal Totalprice { get; set; }
 
     }
 }

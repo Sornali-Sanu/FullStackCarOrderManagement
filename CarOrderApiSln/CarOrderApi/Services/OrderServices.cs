@@ -30,10 +30,12 @@ namespace CarOrderApi.Services
                 CarId = o.CarId,
                 CarName = o.Car.Name,
                 Brand=o.Car.Brand,
+                Quantity=o.Quantity,
                 OrderDate = o.OrderDate,
                 Status = o.Status,
                 CarImage=o.Car.ImageUrl,
-                Price=o.Car.Price,
+                Totalprice=o.Car.Price*o.Quantity,
+                ShippingAddress=o.ShippingAddress,
             });
         }
 

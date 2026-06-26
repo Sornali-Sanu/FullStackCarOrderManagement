@@ -8,7 +8,7 @@ export interface Order {
   orderDate: string;
   status: string;
   carImage: string;
-  totalPrice:number;
+  totalprice:number;
   quantity:number;
   shippingAddress:string;
   phoneNumber:string;
