@@ -88,31 +88,37 @@
   
 
     <div *ngIf="activeTab==='orders'" class="container mt-4">
-  <h3 class="mb-4 fw-bold text-primary">My Orders</h3>
 
-  <!-- order Empty -->
+      <app-my-orders></app-my-orders>
+  <!-- <h3 class="mb-4 fw-bold text-primary">My Orders</h3>
+
+
+
   <div *ngIf="orders.length===0" class="text-center text-muted">
     <p>No Order found</p>
-  </div>
+  </div> -->
 
 
-<div class="order-card d-flex align-items-center" *ngFor="let order of orders">
+<!-- <div class="order-card d-flex align-items-center" *ngFor="let order of orders">
 
-  <!-- LEFT: IMAGE -->
+ 
   <div class="order-img">
     <img [src]="order.carImage" class="img-fluid rounded" />
   </div>
 
-  <!-- RIGHT: DETAILS -->
+ 
   <div class="order-details ms-4">
     <h5 class="fw-bold">{{order.carName}}</h5>
     <p><strong>Brand:</strong> {{order.brand}}</p>
-    <p><strong>Price:</strong> {{order.price}}</p>
+    <p><strong>Price:</strong> {{order.totalPrice}}</p>
     <p><strong>Status:</strong> {{order.status}}</p>
     <p><strong>Order Date:</strong> {{order.orderDate}}</p>
   </div>
 
-</div>
+</div> -->
+
+
+
     </div>
 
 

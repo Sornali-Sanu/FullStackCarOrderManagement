@@ -7,9 +7,10 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { Order } from '../../../models/Order';
 import { WishList } from '../../../models/wish-list';
 import { OrderService } from '../../../services/orderService';
+import { MyOrders } from '../../my-orders/my-orders';
 @Component({
   selector: 'app-profile',
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink,MyOrders],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })
@@ -17,6 +18,7 @@ export class Profile implements OnInit{
   constructor(
     private userService:UserService,
     private orderService:OrderService,
+    
     private router:Router,
   private fb:FormBuilder)
   {

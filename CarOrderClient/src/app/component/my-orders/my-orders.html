@@ -4,6 +4,15 @@
     My Orders
   </h2>
 
+
+
+<div *ngIf="orders.length === 0" class="text-center">
+  <h5>No Order Placed</h5>
+</div>
+
+
+ 
+
   <div
     class="card mb-3 shadow-sm"
     *ngFor="let order of orders">
@@ -13,7 +22,7 @@
       <div class="col-md-3">
 
         <img
-          [src]="order.carImage"
+          [src]="'https://localhost:7202/images/'+order.carImage"
           class="img-fluid rounded-start">
 
       </div>
@@ -21,7 +30,7 @@
       <div class="col-md-9">
 
         <div class="card-body">
-
+            Name:
           <h5>
             {{order.carName}}
           </h5>
@@ -43,6 +52,15 @@
               {{order.status}}
             </span>
           </p>
+           <p>
+            Shipping Address :
+            <span
+              class="badge bg-primary">
+              {{order.shippingAddress}}
+            </span>
+          </p>
+
+          
 
           <button
             *ngIf="order.status=='Pending'"

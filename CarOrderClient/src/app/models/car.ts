@@ -12,7 +12,7 @@ CreatedAt :Date;
    fuelType:string;
    
   BodyType:string;
-   condition:number;
+condition:number;
    airCon:boolean;
    driveType:number;
    

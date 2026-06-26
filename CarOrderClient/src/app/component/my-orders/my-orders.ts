@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Order } from '../../models/Order';
 import { OrderService } from '../../services/orderService';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-my-orders',
   imports: [CommonModule],
@@ -10,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class MyOrders implements OnInit {
   orders:Order[]=[];
+
   constructor(private orderService:OrderService)
   {}
   ngOnInit(): void {
@@ -18,6 +20,7 @@ export class MyOrders implements OnInit {
   loadOrders() {
     this.orderService.getMyOrders().subscribe(res=>{
       this.orders=res;
+      console.log('Orders:',res)
     })
   }
   cancelOrder(id:number){

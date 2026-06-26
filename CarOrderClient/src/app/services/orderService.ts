@@ -18,7 +18,7 @@ export class OrderService
   }
   getMyOrders()
   {
-    return this.http.get<Order[]>(`${this.apiUrl}/my-oders`)
+    return this.http.get<Order[]>(`${this.apiUrl}/MyOrder`)
   }
   getAllOrder()
   {

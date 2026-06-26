@@ -1,3 +1,5 @@
+import { Car } from "./car";
+
 export interface Order {
   orderId: number;
   carId: number;
@@ -8,5 +10,8 @@ export interface Order {
   carImage: string;
   totalPrice:number;
   quantity:number;
+  shippingAddress:string;
+  phoneNumber:string;
+  car:Car;
 
 }

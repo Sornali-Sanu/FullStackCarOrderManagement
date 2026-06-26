@@ -26,7 +26,7 @@ export const routes: Routes = [
      //user Profile;
      {path:'profile',component:Profile},
      //My Order:
-     {path:'my-orders',component:MyOrders}
+     {path:'my-orders',component:MyOrders},
      // {path:'order/:id',component:orderCom}
 
 
