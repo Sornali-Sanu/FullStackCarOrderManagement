@@ -12,6 +12,7 @@ export interface Order {
   quantity:number;
   shippingAddress:string;
   phoneNumber:string;
+  paymentMethods:string;
   car:Car;
 
 }

@@ -16,5 +16,6 @@
         public ApplicationUser User { get; set; }
         public Car Car { get; set; }
         public int Quantity { get; set; }
+        public string PaymentMethods { get; set; } = "Cash on Delivery";
     }
 }

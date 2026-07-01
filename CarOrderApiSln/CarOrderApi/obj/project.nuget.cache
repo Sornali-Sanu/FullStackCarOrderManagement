@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AyK5uZV5SZI=",
+  "dgSpecHash": "og7qX7AH3kc=",
   "success": true,
   "projectFilePath": "D:\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\CarOrderApi.csproj",
   "expectedPackageFiles": [
@@ -50,6 +50,7 @@
     "C:\\Users\\ASTROID\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.4.0\\microsoft.identitymodel.tokens.8.4.0.nupkg.sha512",
     "C:\\Users\\ASTROID\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
     "C:\\Users\\ASTROID\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
+    "C:\\Users\\ASTROID\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.22.1\\microsoft.visualstudio.azure.containers.tools.targets.1.22.1.nupkg.sha512",
     "C:\\Users\\ASTROID\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\ASTROID\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\ASTROID\\.nuget\\packages\\swashbuckle.aspnetcore\\6.6.2\\swashbuckle.aspnetcore.6.6.2.nupkg.sha512",
