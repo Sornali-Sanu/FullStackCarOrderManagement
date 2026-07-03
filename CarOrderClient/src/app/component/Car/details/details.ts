@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CarService } from '../../../services/car-service';
 import { Car } from '../../../models/car';
 import { ActivatedRoute } from '@angular/router';
@@ -13,7 +13,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './details.css',
 })
 export class Details implements OnInit {
- constructor(private service:CarService,private route: ActivatedRoute,private orderService:OrderService)
+ constructor(private service:CarService,private router:Router,
+  private route: ActivatedRoute,private orderService:OrderService)
   {}
     car:Car|null=null;
     carId!:number;
@@ -92,18 +93,7 @@ selectedImage: string = '';
 
   placeOrder(carId:number)
   {
-    const order= {
-      carId:carId,
-      quantity:this.quantity
-
-    }
-    this.orderService.placeOrder(order).subscribe(
-      {
-        next:()=>{
-          alert("Order Placed successfully")
-        }
-      }
-    )
+    this.router.navigate(['/order',carId]);
   }
 
  

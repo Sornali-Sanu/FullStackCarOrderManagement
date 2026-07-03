@@ -41,20 +41,7 @@ export class GetCar implements AfterViewInit , OnInit{
       }));
     });
   }
-placeOrder(carId:number)
-{
-  const order={
-    carId:carId
-  }
-  
-this.orderService.placeOrder(order).subscribe(
-  {
-    next:()=>{
-      alert( "order Placed successfully");
-     }
-  }
-)
-}
+
   
 
   onDeleteCar(id:any)

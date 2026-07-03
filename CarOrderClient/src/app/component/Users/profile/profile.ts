@@ -10,7 +10,7 @@ import { OrderService } from '../../../services/orderService';
 import { MyOrders } from '../../my-orders/my-orders';
 @Component({
   selector: 'app-profile',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink,MyOrders],
+  imports: [CommonModule, ReactiveFormsModule,MyOrders],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Order } from '../models/Order';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -12,10 +13,10 @@ export class OrderService
   {
 
   }
-  placeOrder(order:any)
-  {
-    return this.http.post(this.apiUrl,order);
-  }
+  // placeOrder(order:any)
+  // {
+  //   return this.http.post(this.apiUrl,order);
+  // }
   getMyOrders()
   {
     return this.http.get<Order[]>(`${this.apiUrl}/MyOrder`)
@@ -34,7 +35,7 @@ export class OrderService
     return this.http.delete(`${this.apiUrl}/${id}`)
   }
 
-  CreateOrder(order:any)
+  CreateOrder(order:Order)
   {
     return this.http.post(this.apiUrl,order);
   }

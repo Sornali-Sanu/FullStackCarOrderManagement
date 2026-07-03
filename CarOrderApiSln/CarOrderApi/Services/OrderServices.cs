@@ -63,11 +63,16 @@ namespace CarOrderApi.Services
             var order = new Order
             {
                 CarId = orderDto.CarId,
-                Quantity=orderDto.Quantity,
-                TotalPrice=car.Price*orderDto.Quantity,
-                OrderDate=DateTime.UtcNow,
+                Quantity = orderDto.Quantity,
+                TotalPrice = orderDto.TotalPrice* orderDto.Quantity,
+
+                PhoneNumber = orderDto.PhoneNumber,
+                ShippingAddress = orderDto.ShippingAddress,
+                PaymentMethods = orderDto.PaymentMethods,
+
+                OrderDate = DateTime.UtcNow,
                 UserId = userId,
-                Status="Panding"
+                Status = "Pending"
 
             };
             await _repo.PlaceOrder(order);

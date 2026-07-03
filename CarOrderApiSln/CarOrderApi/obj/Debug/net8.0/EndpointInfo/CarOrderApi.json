@@ -1014,6 +1014,22 @@
           "quantity": {
             "type": "integer",
             "format": "int32"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "shippingAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "paymentMethods": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

@@ -1,3 +1,4 @@
+import { Users } from "../admin/users/users";
 import { Car } from "./car";
 
 export interface Order {
@@ -14,5 +15,6 @@ export interface Order {
   phoneNumber:string;
   paymentMethods:string;
   car:Car;
+  user:Users;
 
 }

@@ -33,7 +33,10 @@ namespace CarOrderApi.Controllers
                 return Unauthorized();
             }
             await _services.PlaceOrder(dto, userId);
-            return Ok("order Successfully");
+            return Ok(new {
+            success=true,
+            message="Order Successfully"
+            });
         }
 
         [Authorize(Roles = "Customer,User,Admin")]

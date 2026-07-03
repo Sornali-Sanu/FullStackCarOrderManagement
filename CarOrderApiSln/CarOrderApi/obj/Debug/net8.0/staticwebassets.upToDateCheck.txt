@@ -1,3 +1,5 @@
 wwwroot\images\40d148d5-a060-48fd-b161-d783830438c5.jpg
 wwwroot\UserImages\14ce7806-98a1-4793-a661-8709dd8f573c.jpeg
 wwwroot\UserImages\745db023-f0af-4986-909d-346e5a741cfa.jpeg
+wwwroot\images\55bb6e1b-89fb-41f2-b937-761518d9728e.jpg
+wwwroot\UserImages\1dc056cf-fa87-4d78-8172-a09f2ad06bb5.jpg

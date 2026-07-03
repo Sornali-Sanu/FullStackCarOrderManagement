@@ -10,6 +10,7 @@ import { ManageCars } from './admin/manage-cars/manage-cars';
 import { AddCar } from './admin/add-car/add-car';
 import { EditCar } from './admin/edit-car/edit-car';
 import { MyOrders } from './component/my-orders/my-orders';
+import { CreateOrder } from './component/create-order/create-order';
 
 
 export const routes: Routes = [
@@ -30,6 +31,11 @@ export const routes: Routes = [
      // {path:'order/:id',component:orderCom}
 
 
+      // ORDER:
+
+     { path: 'order/:id', component: CreateOrder},
+
+
      //Admin:
      {
           path:'admin',
@@ -39,7 +45,10 @@ export const routes: Routes = [
                     path:'dashBoard',component:Dashboard
                },
                  { path: 'cars', component: GetCar },
-     //  { path: 'orders', component: OrdersComponent },
+
+
+
+    
       { path: 'users', component: Profile},
       {path:'manage-cars',component:ManageCars},
       {path:'add-car',component:AddCar},
