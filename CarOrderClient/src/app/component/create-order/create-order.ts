@@ -142,15 +142,7 @@ placeOrder() {
   user: {} as Users
 };
 
-this.orderService.CreateOrder(order).subscribe({
-  next: (res) => {
-    // Success
-  },
-  error: (err) => {
-    console.log(err);
-  }
-});
-console.log(order);
+
   this.orderService.CreateOrder(order).subscribe({
 
     next: (res) => {

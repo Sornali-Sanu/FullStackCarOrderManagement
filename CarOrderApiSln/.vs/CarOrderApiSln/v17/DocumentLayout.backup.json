@@ -238,8 +238,7 @@
               "RelativeToolTip": "CarOrderApi\\Services\\OrderServices.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAIwEkAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T16:20:11.161Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T16:20:11.161Z"
             },
             {
               "$type": "Document",
@@ -251,8 +250,7 @@
               "RelativeToolTip": "CarOrderApi\\Dtos\\OrderResponseDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T15:45:09.504Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-30T15:45:09.504Z"
             },
             {
               "$type": "Document",
@@ -262,7 +260,7 @@
               "RelativeDocumentMoniker": "CarOrderApi\\Controllers\\OrdersController.cs",
               "ToolTip": "D:\\my-folder-Carorder\\CarOrderApiSln\\CarOrderApi\\Controllers\\OrdersController.cs",
               "RelativeToolTip": "CarOrderApi\\Controllers\\OrdersController.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAqwCUAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAqwBgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-24T16:16:36.822Z",
               "EditorCaption": ""
@@ -277,8 +275,7 @@
               "RelativeToolTip": "CarOrderApi\\Migrations\\20260701104003_init4.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-01T10:40:05.235Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-01T10:40:05.235Z"
             },
             {
               "$type": "Document",
@@ -326,8 +323,7 @@
               "RelativeToolTip": "CarOrderApi\\Dtos\\CreateOrderDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-28T06:39:46.707Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-28T06:39:46.707Z"
             },
             {
               "$type": "Document",
@@ -363,8 +359,7 @@
               "RelativeToolTip": "CarOrderApi\\Dtos\\RegisterDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-22T05:39:40.6Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-22T05:39:40.6Z"
             },
             {
               "$type": "Document",

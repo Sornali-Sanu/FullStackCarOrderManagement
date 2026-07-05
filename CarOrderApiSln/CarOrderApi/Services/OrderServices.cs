@@ -1,6 +1,8 @@
-﻿using CarOrderApi.Dtos;
+﻿using CarOrderApi.Data;
+using CarOrderApi.Dtos;
 using CarOrderApi.Model;
 using CarOrderApi.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarOrderApi.Services
 {
@@ -8,11 +10,29 @@ namespace CarOrderApi.Services
     {
         private readonly IOrderRepository _repo;
         private readonly ICarRepository _carRepo;
-
-        public OrderServices(IOrderRepository repo, ICarRepository carRepo)
+        private readonly AppDbContext _context;
+        public OrderServices(IOrderRepository repo, ICarRepository carRepo,AppDbContext context)
         {
             _repo = repo;
             _carRepo = carRepo;
+            _context = context;
+        }
+        
+        public async Task<bool> CancelOrder(int orderId, string userId)
+        {
+            var order = await _context.Orders.FirstOrDefaultAsync(x=>x.Id==orderId && x.UserId==userId);
+            if (order == null)
+            {
+                return false;
+            }
+            if(order.Status!="Pending")
+            {
+                return false;
+            }
+            order.Status = "Cancelled";
+            await _context.SaveChangesAsync();
+            return true;
+
         }
 
         public async Task<Order> DeleteOrder(int id)
@@ -24,7 +44,7 @@ namespace CarOrderApi.Services
         public async Task<IEnumerable<OrderResponseDto>> GetMyOrders(string customerId)
         {
             var orders = await _repo.GetOrderByCustomerId(customerId);
-            return orders.Select(o => new OrderResponseDto
+            return orders.Where(x=>x.UserId==customerId && x.Status!="Cancelled").Select(o => new OrderResponseDto
             {
                 OrderId = o.Id,
                 CarId = o.CarId,

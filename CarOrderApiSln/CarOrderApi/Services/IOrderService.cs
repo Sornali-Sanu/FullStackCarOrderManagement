@@ -10,5 +10,6 @@ namespace CarOrderApi.Services
         Task<IEnumerable<OrderResponseDto>> GetOrders();
         Task<bool> UpdateOrderStatus(int orderId, string status);
         Task<Order> DeleteOrder(int id);
+        Task<bool> CancelOrder(int orderId, string userId);
     }
 }

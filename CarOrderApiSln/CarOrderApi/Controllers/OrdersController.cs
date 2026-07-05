@@ -69,6 +69,32 @@ namespace CarOrderApi.Controllers
             var order = await _services.DeleteOrder(id);
             return Ok($"Order is Deleted");
         }
+        [Authorize(Roles ="Admin,User,Customer")]
 
+        [HttpPut("CancelOrder/{orderId}")]
+        public async Task<IActionResult> CancelOrder(int orderId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized();
+            }
+            var result = await _services.CancelOrder(orderId, userId);
+            if (!result) 
+            {
+                return BadRequest(
+                    new
+                    {
+                        success
+                    = false,
+                        message = "order can not be canceled"
+                    });
+            }
+            return Ok(new {
+            success=true,
+            message="Oder cancelled successfully"
+            });
+
+        }
     }
 }
