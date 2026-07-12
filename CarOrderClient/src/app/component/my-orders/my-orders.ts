@@ -3,6 +3,7 @@ import { Order } from '../../models/Order';
 import { OrderService } from '../../services/orderService';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-my-orders',
   imports: [CommonModule],
@@ -23,13 +24,31 @@ export class MyOrders implements OnInit {
       console.log('Orders:',res)
     })
   }
-  cancelOrder(id:number){
-    if(confirm('Cancel this order ?'))
+  cancelOrder(orderId:number){
+  Swal.fire(
     {
-this.orderService.deleteOder(id).subscribe(()=>{
-  this.loadOrders();
-})
+      title:'Cancel Order?',
+      text:'Do you really want to cancel this order',
+      icon:'warning',
+      showCancelButton:true,
+      confirmButtonText:'yes',
+      cancelButtonText:'No'
     }
+  ).then(
+    (result)=>{
+      if(result.isConfirmed)
+      {
+        this.orderService.cancelOrder(orderId).subscribe(
+          {
+            next:(res:any)=>{
+              Swal.fire('Canceled',res.message,'success');
+              this.loadOrders();
+            }
+          }
+        )
+      }
+    }
+  )
   }
 
 }

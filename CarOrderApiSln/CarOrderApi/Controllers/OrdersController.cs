@@ -72,7 +72,7 @@ namespace CarOrderApi.Controllers
         [Authorize(Roles ="Admin,User,Customer")]
 
         [HttpPut("CancelOrder/{orderId}")]
-        public async Task<IActionResult> CancelOrder(int orderId)
+        public async Task<IActionResult> CancelOrder([FromRoute]int orderId)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrEmpty(userId))

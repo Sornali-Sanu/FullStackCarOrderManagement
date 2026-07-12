@@ -13,10 +13,7 @@ export class OrderService
   {
 
   }
-  // placeOrder(order:any)
-  // {
-  //   return this.http.post(this.apiUrl,order);
-  // }
+  
   getMyOrders()
   {
     return this.http.get<Order[]>(`${this.apiUrl}/MyOrder`)
@@ -39,4 +36,11 @@ export class OrderService
   {
     return this.http.post(this.apiUrl,order);
   }
+ 
+   cancelOrder(orderId: number) {
+  return this.http.put(
+    `${this.apiUrl}/CancelOrder/${orderId}`,
+    {}
+  );
+}
 }
