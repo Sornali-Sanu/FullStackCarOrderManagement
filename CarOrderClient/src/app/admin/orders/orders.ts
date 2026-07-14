@@ -1,11 +1,67 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { AdminOrder } from '../../models/AdminOrder';
+import { Admin } from '../../services/admin';
+import { OrderService } from '../../services/orderService';
 
 @Component({
   selector: 'app-orders',
-  imports: [],
+  imports: [CommonModule,FormsModule],
   templateUrl: './orders.html',
   styleUrl: './orders.css',
 })
-export class Orders {
+export class Orders implements OnInit {
+  orders:AdminOrder[]=[];
+  filteredOrders:AdminOrder[]=[];
+  search='';
+  status='';
+  constructor(private service:Admin,private orderService:OrderService){}
+  ngOnInit(): void {
+    this.loadAllOrders();
+  }
+  loadAllOrders() {
+   this.service.getAllOrders().subscribe({
+    next:(res)=>{
+      this.orders=res;
+      this.filteredOrders=res;
+    }
+   })
+  }
+  ilterOrders(){
+
+    this.filteredOrders=this.orders.filter(x=>{
+
+      const matchesSearch=
+
+      x.customerName.toLowerCase().includes(this.search.toLowerCase())
+
+      ||
+
+      x.carName.toLowerCase().includes(this.search.toLowerCase());
+
+      const matchesStatus=
+
+      this.status=='' || x.status==this.status;
+
+      return matchesSearch && matchesStatus;
+
+    });
+
+  }
+  saveStatus(order:AdminOrder)
+  {
+    this.service.updateStatus(order.orderId,order.status).subscribe(()=>{
+      alert("Status Updates");
+    })
+  }
+  delete(id:number)
+  {
+    this.service.deleteOrder(id).subscribe(
+      ()=>{
+        this.loadAllOrders();
+      }
+    )
+  }
 
 }

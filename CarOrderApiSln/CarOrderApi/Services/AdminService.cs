@@ -97,11 +97,7 @@ namespace CarOrderApi.Services
             };
         }
 
-        public Task<IEnumerable<Order>> GetOrderAsync()
-        {
-            throw new NotImplementedException();
-        }
-
+     
         public Task<IEnumerable<ApplicationUser>> GetUserAsync()
         {
             throw new NotImplementedException();
@@ -117,9 +113,45 @@ namespace CarOrderApi.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateOrderStatusAsync(int id, string status)
+        public async Task<bool> UpdateOrderStatusAsync(int id, string status)
         {
-            throw new NotImplementedException();
+            var order= await _db.Orders.FindAsync(id);
+            if (order == null)
+            {
+                return false;
+            }
+            order.Status=status;
+            await _db.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<List<AdminOrderDto>> GetAllOrdersAsync()
+        {
+            return await _db.Orders.Include(o => o.Car).Include(o => o.User).Select(o =>
+            new AdminOrderDto
+            {
+                OrderId = o.Id,
+                CustomerName = o.User.FullName,
+                Email = o.User.Email,
+                PhoneNumber = o.PhoneNumber,
+                ShippingAddress = o.ShippingAddress,
+                CarName = o.Car.Name,
+                CarImage = o.Car.ImageUrl,
+                Quantity = o.Quantity,
+                TotalPrice = o.TotalPrice,
+                OrderDate = o.OrderDate,
+                Status = o.Status
+            }).ToListAsync();
+        }
+
+        public async Task<bool> DeleteOrder(int id)
+        {
+            var order = await _db.Orders.FindAsync(id);
+            if (order == null) { return false; }
+            _db.Orders.Remove(order);
+            await _db.SaveChangesAsync();
+            return true;
+
         }
     }
 }

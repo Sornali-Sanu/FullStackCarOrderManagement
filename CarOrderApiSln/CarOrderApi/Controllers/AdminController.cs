@@ -38,6 +38,33 @@ namespace CarOrderApi.Controllers
             var dashboard=await _service.GetDashboardAsync();
             return Ok(dashboard);
         }
+        [HttpGet("GetAllOrders")]
+        public async Task<IActionResult> GetOrders()
+        {
+            return Ok(await _service.GetAllOrdersAsync());
+
+        }
+        [HttpPut("{id}/status")]
+        public async Task<IActionResult> UpdateStatus(int id, UpdateOrderStatus dto)
+        {
+            var result = await _service.UpdateOrderStatusAsync(id, dto.Status);
+
+            if (!result)
+                return NotFound();
+
+            return Ok();
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteOrder(int id)
+        {
+            var result = await _service.DeleteOrder(id);
+
+            if (!result)
+                return NotFound();
+
+            return Ok();
+        }
+
     }
 
 }

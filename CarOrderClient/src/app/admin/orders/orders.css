@@ -1,0 +1,22 @@
+.card{
+    border: none;
+    border-radius: 12px;
+}
+
+.table img{
+    height:70px;
+    width:90px;
+    object-fit:cover;
+}
+
+.table td{
+    vertical-align:middle;
+}
+
+.form-select{
+    width:160px;
+}
+
+.btn{
+    border-radius:8px;
+}

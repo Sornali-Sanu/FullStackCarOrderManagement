@@ -1,4 +1,4 @@
-﻿namespace CarOrderApi.Dtos
+﻿namespace CarOrderApi.Dtos.Admin
 {
     public class UpdateOrderStatus
     {

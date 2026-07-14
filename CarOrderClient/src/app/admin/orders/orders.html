@@ -1,1 +1,133 @@
-<p>orders works!</p>
+<div class="container-fluid py-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-dark text-white">
+
+            <h3>Manage Orders</h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-hover align-middle">
+
+                <thead class="table-light">
+
+                    <tr>
+
+                        <th>#</th>
+
+                        <th>Car</th>
+
+                        <th>Customer</th>
+
+                        <th>Price</th>
+
+                        <th>Quantity</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr *ngFor="let order of orders; let i=index">
+
+                        <td>{{i+1}}</td>
+
+                        <td>
+
+                            <img
+                                [src]="order.carImage"
+                                width="90"
+                                class="rounded">
+
+                            <div>
+
+                                {{order.carName}}
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <strong>{{order.customerName}}</strong>
+
+                            <br>
+
+                            {{order.email}}
+
+                            <br>
+
+                            {{order.phoneNumber}}
+
+                        </td>
+
+                        <td>
+
+                            ${{order.totalPrice}}
+
+                        </td>
+
+                        <td>
+
+                            {{order.quantity}}
+
+                        </td>
+
+                        <td>
+
+                            <select
+                                class="form-select"
+
+                                [(ngModel)]="order.status">
+
+                                <option>Pending</option>
+
+                                <option>Processing</option>
+
+                                <option>Completed</option>
+
+                                <option>Cancelled</option>
+
+                            </select>
+
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="btn btn-success btn-sm me-2"
+                                (click)="saveStatus(order)">
+
+                                Save
+
+                            </button>
+
+                            <button
+                                class="btn btn-danger btn-sm"
+                                (click)="delete(order.orderId)">
+
+                                Delete
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

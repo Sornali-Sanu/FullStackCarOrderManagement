@@ -11,8 +11,9 @@ namespace CarOrderApi.Services
         Task<Car> UpdateCar(int id, AdminCarDto car);
 
         //Order :
-        Task<IEnumerable<Order>> GetOrderAsync();
+        Task<List<AdminOrderDto>> GetAllOrdersAsync();
         Task<bool> UpdateOrderStatusAsync(int id, string status);
+        Task<bool> DeleteOrder(int id);
 
         //User Info:
         Task<IEnumerable<ApplicationUser>> GetUserAsync();

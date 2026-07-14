@@ -1,4 +1,5 @@
 ﻿using CarOrderApi.Dtos;
+using CarOrderApi.Dtos.Admin;
 using CarOrderApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -47,14 +48,14 @@ namespace CarOrderApi.Controllers
             var orders = await _services.GetMyOrders(customerId);
             return Ok(orders);
         }
-        //[Authorize("Admin")]
+        [Authorize("Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllOrder()
         {
             return Ok(await _services.GetOrders());
         }
 
-        //[Authorize(Roles ="Admin")]
+        [Authorize(Roles ="Admin")]
         [HttpPut("{id}/status")]
         public async Task<IActionResult> UpdateStatus(int id, UpdateOrderStatus dto)
         {
@@ -62,7 +63,9 @@ namespace CarOrderApi.Controllers
             if (!res) return NotFound("order Not Found");
             return Ok(res);
 
+
         }
+        [Authorize(Roles ="Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrder(int id)
         {
