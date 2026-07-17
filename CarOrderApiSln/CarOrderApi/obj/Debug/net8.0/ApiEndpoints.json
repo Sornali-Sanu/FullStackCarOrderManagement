@@ -97,8 +97,55 @@
   },
   {
     "ContainingType": "CarOrderApi.Controllers.AdminController",
+    "Method": "DeleteOrder",
+    "RelativePath": "api/Admin/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarOrderApi.Controllers.AdminController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/Admin/{id}/status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "CarOrderApi.Dtos.Admin.UpdateOrderStatus",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarOrderApi.Controllers.AdminController",
     "Method": "DashBoard",
     "RelativePath": "api/Admin/Dashboard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarOrderApi.Controllers.AdminController",
+    "Method": "GetOrders",
+    "RelativePath": "api/Admin/GetAllOrders",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -461,7 +508,7 @@
       },
       {
         "Name": "dto",
-        "Type": "CarOrderApi.Dtos.UpdateOrderStatus",
+        "Type": "CarOrderApi.Dtos.Admin.UpdateOrderStatus",
         "IsRequired": true
       }
     ],

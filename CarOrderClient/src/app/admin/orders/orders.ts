@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AdminOrder } from '../../models/AdminOrder';
 import { Admin } from '../../services/admin';
 import { OrderService } from '../../services/orderService';
+import { Order } from '../../models/Order';
 
 @Component({
   selector: 'app-orders',
@@ -13,22 +14,24 @@ import { OrderService } from '../../services/orderService';
 })
 export class Orders implements OnInit {
   orders:AdminOrder[]=[];
+  
   filteredOrders:AdminOrder[]=[];
   search='';
   status='';
-  constructor(private service:Admin,private orderService:OrderService){}
+  constructor(private service:Admin){}
   ngOnInit(): void {
     this.loadAllOrders();
   }
   loadAllOrders() {
    this.service.getAllOrders().subscribe({
     next:(res)=>{
+        console.log(res);
       this.orders=res;
       this.filteredOrders=res;
     }
    })
   }
-  ilterOrders(){
+  FilterOrders(){
 
     this.filteredOrders=this.orders.filter(x=>{
 
@@ -52,8 +55,10 @@ export class Orders implements OnInit {
   saveStatus(order:AdminOrder)
   {
     this.service.updateStatus(order.orderId,order.status).subscribe(()=>{
+     
       alert("Status Updates");
     })
+     console.log(this.orders);
   }
   delete(id:number)
   {

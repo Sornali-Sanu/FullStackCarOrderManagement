@@ -19,7 +19,7 @@ export class Admin {
   //Get all orders:
   getAllOrders():Observable<AdminOrder[]>
   {
-    return this.http.get<AdminOrder[]>(this.api);
+    return this.http.get<AdminOrder[]>(`${this.api}/GetAllOrders`);
 
   }
   //UpdateStatus:

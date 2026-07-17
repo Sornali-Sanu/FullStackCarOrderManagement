@@ -11,6 +11,7 @@ import { AddCar } from './admin/add-car/add-car';
 import { EditCar } from './admin/edit-car/edit-car';
 import { MyOrders } from './component/my-orders/my-orders';
 import { CreateOrder } from './component/create-order/create-order';
+import { Orders } from './admin/orders/orders';
 
 
 export const routes: Routes = [
@@ -45,6 +46,7 @@ export const routes: Routes = [
                     path:'dashBoard',component:Dashboard
                },
                  { path: 'cars', component: GetCar },
+                  { path: 'order', component: Orders },
 
 
 
