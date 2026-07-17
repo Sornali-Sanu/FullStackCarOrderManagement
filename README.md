@@ -210,6 +210,8 @@ Change Password
 ![Dashboard](screenshot/adminDashboard.png)
 ![Dashboard](screenshot/dashboard.png)
 
+```Admin Order Section```
+![Dashboard](screenshot/Admin_Manage_Order.png)
 
 
 ✅ License
